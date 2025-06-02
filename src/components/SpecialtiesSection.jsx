@@ -167,7 +167,7 @@ const SpecialtiesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-14 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         
         {/* Header */}
@@ -210,7 +210,7 @@ const SpecialtiesSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Need Expert Medical Care?
@@ -227,7 +227,7 @@ const SpecialtiesSection = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>
