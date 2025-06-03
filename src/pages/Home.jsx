@@ -6,17 +6,28 @@ import Header from '../components/Header'
 import HeroSlider from '../components/HeroSlide'
 import SpecialtiesSection from '../components/SpecialtiesSection'
 import TeamSection from '../components/TeamSection'
+import ClinicStats from '../components/ClientStat'
+import WhyChooseUs from '../components/WhyChooseUs'
+import CTA from '../components/CTA'
+import HowWeWork from '../components/HowWeWork'
+import Testinomial from '../components/Testonomial'
+import HomeBlogSlider from './Home/HomeBlogSlider'
 
 export default function Home() {
   return (
-    <>
-    <Header/>
+    <div className='py-4'>
     <HeroSlider/>
     <AboutSection/>
     <SpecialtiesSection/>
-    <CTASection/>
-    <TeamSection/>
-    <Footer/>
-    </>
+    {/* <CTASection/> */}
+    <ClinicStats/>
+    <WhyChooseUs/>
+    <CTA/>
+    <HowWeWork/>
+    <Testinomial/>
+    <HomeBlogSlider/>
+    {/* <TeamSection/> */}
+
+    </div>
   )
 }

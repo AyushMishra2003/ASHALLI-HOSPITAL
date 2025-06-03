@@ -1,237 +1,201 @@
 import React from 'react';
 import { 
-  Heart, 
-  Brain, 
+  Bone, 
   Eye, 
-  Bone,
-  Baby,
-  Users,
-  Stethoscope,
-  Zap,
-  Scissors,
-  Activity,
+  Baby, 
+  Brain, 
+  Stethoscope, 
+  Activity, 
+  Heart, 
+  Scissors, 
+  Users, 
   Shield,
-  Pill,
-  Smile,
-  UserCheck,
-  Waves,
-  Sun,
-  Camera,
-  Thermometer,
-  Headphones,
-  Flower
+  ArrowRight
 } from 'lucide-react';
 
-const SpecialtiesSection = () => {
-  const specialties = [
+const HomeServices = () => {
+  const primaryColor = "#00B4A8";
+  const secondaryColor = "#FF8904"
+
+  const services = [
     {
-      name: 'Cardiology',
-      icon: Heart,
-      color: 'from-red-500 to-pink-500',
-      bgColor: 'bg-red-50',
-      description: 'Heart & Cardiovascular Care'
-    },
-    {
-      name: 'Neurology',
-      icon: Brain,
-      color: 'from-purple-500 to-indigo-500',
-      bgColor: 'bg-purple-50',
-      description: 'Brain & Nervous System'
-    },
-    {
-      name: 'Orthopedics',
+      name: 'Orthopaedics',
       icon: Bone,
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-blue-50',
-      description: 'Bone & Joint Care'
-    },
-    {
-      name: 'Pediatrics',
-      icon: Baby,
-      color: 'from-pink-500 to-rose-500',
-      bgColor: 'bg-pink-50',
-      description: 'Child Healthcare'
+      description: 'Comprehensive bone, joint, and musculoskeletal care with advanced treatment options for fractures and injuries.',
+      readMore: true,
+      link: '/department/orthopaedics',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     {
       name: 'Ophthalmology',
       icon: Eye,
-      color: 'from-teal-500 to-green-500',
-      bgColor: 'bg-teal-50',
-      description: 'Eye Care & Vision'
+      description: 'Complete eye care services including vision correction, cataract surgery, and retinal treatments.',
+      readMore: true,
+      link: '/department/ophthalmology',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      name: 'Pediatrics',
+      icon: Baby,
+      description: 'Specialized healthcare for infants, children, and adolescents with comprehensive pediatric services.',
+      readMore: true,
+      link: '/department/pediatrics',
+      image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      name: 'Neurology',
+      icon: Brain,
+      description: 'Expert diagnosis and treatment of brain, spine, and nervous system disorders using advanced technology.',
+      readMore: true,
+      link: '/department/neurology',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      isSpecial: true
+    },
+    {
+      name: 'General Medicine',
+      icon: Stethoscope,
+      description: 'Comprehensive primary healthcare services for adults with focus on prevention and wellness.',
+      readMore: true,
+      link: '/department/generalmedicine',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      name: 'ENT',
+      icon: Activity,
+      description: 'Specialized care for ear, nose, and throat conditions with modern diagnostic and surgical techniques.',
+      readMore: true,
+      link: '/department/ent',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      name: 'Cardiology',
+      icon: Heart,
+      description: 'Advanced heart care including diagnosis, treatment, and prevention of cardiovascular diseases.',
+      readMore: true,
+      link: '/department/cardiology',
+      image: 'https://images.unsplash.com/photo-1628348070889-cb656235b4eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     {
       name: 'General Surgery',
       icon: Scissors,
-      color: 'from-orange-500 to-red-500',
-      bgColor: 'bg-orange-50',
-      description: 'Surgical Procedures'
-    },
-    {
-      name: 'Internal Medicine',
-      icon: Stethoscope,
-      color: 'from-emerald-500 to-teal-500',
-      bgColor: 'bg-emerald-50',
-      description: 'General Medical Care'
-    },
-    {
-      name: 'Emergency Medicine',
-      icon: Zap,
-      color: 'from-yellow-500 to-orange-500',
-      bgColor: 'bg-yellow-50',
-      description: '24/7 Emergency Care'
-    },
-    {
-      name: 'Oncology',
-      icon: Shield,
-      color: 'from-violet-500 to-purple-500',
-      bgColor: 'bg-violet-50',
-      description: 'Cancer Treatment'
-    },
-    {
-      name: 'Gynecology',
-      icon: Flower,
-      color: 'from-rose-500 to-pink-500',
-      bgColor: 'bg-rose-50',
-      description: "Women's Health"
-    },
-    {
-      name: 'Pulmonology',
-      icon: Activity,
-      color: 'from-cyan-500 to-blue-500',
-      bgColor: 'bg-cyan-50',
-      description: 'Lung & Respiratory Care'
-    },
-    {
-      name: 'Gastroenterology',
-      icon: Pill,
-      color: 'from-green-500 to-emerald-500',
-      bgColor: 'bg-green-50',
-      description: 'Digestive System Care'
-    },
-    {
-      name: 'Dermatology',
-      icon: Sun,
-      color: 'from-amber-500 to-yellow-500',
-      bgColor: 'bg-amber-50',
-      description: 'Skin Care & Treatment'
-    },
-    {
-      name: 'Psychiatry',
-      icon: Users,
-      color: 'from-indigo-500 to-blue-500',
-      bgColor: 'bg-indigo-50',
-      description: 'Mental Health Care'
-    },
-    {
-      name: 'Dentistry',
-      icon: Smile,
-      color: 'from-lime-500 to-green-500',
-      bgColor: 'bg-lime-50',
-      description: 'Dental Care & Treatment'
-    },
-    {
-      name: 'Radiology',
-      icon: Camera,
-      color: 'from-slate-500 to-gray-500',
-      bgColor: 'bg-slate-50',
-      description: 'Medical Imaging'
-    },
-    {
-      name: 'Anesthesiology',
-      icon: Thermometer,
-      color: 'from-teal-500 to-cyan-500',
-      bgColor: 'bg-teal-50',
-      description: 'Anesthesia & Pain Management'
-    },
-    {
-      name: 'ENT',
-      icon: Headphones,
-      color: 'from-purple-500 to-pink-500',
-      bgColor: 'bg-purple-50',
-      description: 'Ear, Nose & Throat'
-    },
-    {
-      name: 'Nephrology',
-      icon: Waves,
-      color: 'from-blue-500 to-teal-500',
-      bgColor: 'bg-blue-50',
-      description: 'Kidney Care'
-    },
-    {
-      name: 'Endocrinology',
-      icon: UserCheck,
-      color: 'from-emerald-500 to-green-500',
-      bgColor: 'bg-emerald-50',
-      description: 'Hormone & Diabetes Care'
+      description: 'Comprehensive surgical services using minimally invasive techniques for optimal patient outcomes.',
+      readMore: true,
+      link: '/department/generalsurgery',
+      image: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     }
   ];
 
+  const handleViewDetails = (link) => {
+    console.log(`Navigating to: ${link}`);
+  };
+
+  const handleViewMore = () => {
+    console.log('View more departments clicked');
+  };
+
   return (
-    <section className="py-14 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        
-        {/* Header */}
-        <div className="text-center mb-16">
-         
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500">Specialties</span>
+    <div className="bg-gray-100 py-16 px-4">
+      <div className=" mx-auto container px-8">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            Quality You Can Get
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive healthcare services across multiple medical specialties with expert doctors and advanced technology
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Simple, transparent pricing that grows with you. Try and plan free for 30 days.
           </p>
         </div>
 
-        {/* Specialties Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {specialties.map((specialty, index) => {
-            const IconComponent = specialty.icon;
+        {/* Services Grid - First 4 services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            const isSpecial = service.isSpecial;
+            
             return (
               <div 
-                key={index} 
-                className={`${specialty.bgColor} rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group cursor-pointer border border-white/50 hover:scale-105`}
+                key={index}
+                className={`rounded-3xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer ${
+                  isSpecial 
+                    ? 'bg-gradient-to-br from-[#00B4A8] via-[#00B4A8] to-[#FF8904] text-white hover:from-purple-800 hover:to-purple-700' 
+                    : 'bg-white hover:bg-gray-50'
+                }`}
               >
-                <div className="text-center">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${specialty.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                {/* Header with Title and Icon */}
+                <div className="px-4 py-4">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className={`text-xl font-bold leading-tight pr-4 ${
+                      isSpecial ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {service.name}
+                    </h3>
+                    <div className={`p-3 rounded-2xl flex-shrink-0 transition-all duration-300 ${
+                      isSpecial 
+                        ? 'bg-[#00B4A8] group-hover:bg-[#293c3b]' 
+                        : 'bg-[#00B4A8] group-hover:bg-[#293c3b]'
+                    }`}>
+                      <IconComponent 
+                        size={24} 
+                        className={isSpecial ? 'text-white' : 'text-[#fff] '} 
+                      />
+                    </div>
                   </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-teal-700 transition-colors">
-                    {specialty.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {specialty.description}
+                </div>
+
+                {/* Description */}
+                <div className="px-4 pb-6">
+                  <p className={`text-sm leading-relaxed ${
+                    isSpecial ? 'text-gray-200' : 'text-gray-600'
+                  }`}>
+                    {service.description}
                   </p>
+                </div>
+
+                {/* Image */}
+                <div className="px-4 pb-6">
+                  <div className="relative overflow-hidden rounded-2xl h-40">
+                    <img 
+                      src={service.image} 
+                      alt={service.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                {/* View All Details Link */}
+                <div className="px-6 pb-6">
+                  <button 
+                    onClick={() => handleViewDetails(service.link)}
+                    className={`text-sm font-medium flex items-center gap-2 transition-all duration-300 group/button ${
+                      isSpecial 
+                        ? 'text-white hover:text-pink-200' 
+                        : 'text-[#00B4A8] '
+                    }`}
+                  >
+                    View All Details
+                    <ArrowRight size={14} className="group-hover/button:translate-x-1 transition-transform duration-300" />
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        {/* <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Need Expert Medical Care?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Our specialists are here to provide you with the best possible care across all medical fields
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Book Appointment
-              </button>
-              <button className="border-2 border-teal-500 text-teal-600 px-8 py-3 rounded-xl font-semibold hover:bg-teal-50 transition-colors">
-                View All Doctors
-              </button>
-            </div>
-          </div>
-        </div> */}
 
+
+        {/* View More Departments Button */}
+        <div className="text-center">
+          <button 
+            onClick={handleViewMore}
+            className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00B4A8] hover:text-[#6fe3dc] flex items-center gap-3 mx-auto group"
+          >
+            View More Departments
+            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default SpecialtiesSection;
+export default HomeServices;

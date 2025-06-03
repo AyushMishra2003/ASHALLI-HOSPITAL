@@ -1,119 +1,114 @@
-import React from 'react';
-import { 
-  Heart, 
-  Shield, 
-  Award, 
-  Users,
-  User,
-  Stethoscope
-} from 'lucide-react';
+import { Check } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const SimpleAboutSection = () => {
-  const stats = [
-    { number: '15+', label: 'Years Experience' },
-    { number: '50+', label: 'Expert Doctors' }
-  ];
+const HomeAbout = () => {
+    const primaryColor = "#00B4A8";
+    const secondaryColor = "#FF8904";
+    const [isMobile, setIsMobile] = useState(false);
 
-  const features = [
-    {
-      icon: Heart,
-      title: 'Compassionate Care',
-      description: 'Patient-centered approach with empathy and respect'
-    },
-    {
-      icon: Shield,
-      title: 'Medical Excellence',
-      description: 'Highest standards of medical practice and safety'
-    },
-    {
-      icon: Award,
-      title: 'Experienced Team',
-      description: 'Skilled professionals with years of expertise'
-    }
-  ];
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
 
-  return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            About <span className="text-teal-600">Ashaali Hospital</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Providing exceptional healthcare services for over 15 years with advanced medical technology and compassionate care.
-          </p>
-        </div>
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
-      
+    return (
+        <div className="bg-white font-sans lg:py-10 py-4 sm:py-6 md:py-8">
+            {/* Main content */}
+            <main className=" mx-auto px-12 container">
+                <div className="flex flex-col lg:flex-row items-center">
+                    {/* Left side with images */}
+                    <div className="w-full lg:w-1/2 relative mb-8 lg:mb-0">
+                        {/* Main image */}
+                        <div className="relative">
+                            <img
+                                src={"https://picsum.photos/1920/1080?random=1"}
+                                alt="Ashaali Hospital - Premier Healthcare Services"
+                                className="rounded-lg shadow-lg w-full h-auto md:h-96 object-cover"
+                            />
+                        </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Text Content */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                Your Health, Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-orange-500">Priority</span>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                At Ashaali Hospital, we combine cutting-edge medical technology with personalized care to deliver the best healthcare experience. Our team of experienced doctors and healthcare professionals are committed to your well-being.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                From routine check-ups to complex surgeries, we provide comprehensive medical services across multiple specialties, ensuring you receive the right care at the right time.
-              </p>
-            </div>
-            
-            {/* Features */}
-            {/* <div className="space-y-6">
-              {features.map((feature, index) => {
-                const IconComponent = feature.icon;
-                return (
-                  <div key={index} className="flex items-start space-x-5 group">
-                    <div className="w-14 h-14 bg-gradient-to-r from-teal-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-7 h-7 text-white" />
+                        {/* Decorative stars */}
+                        <div className="absolute top-1/4 left-0 transform -translate-x-1/2 text-orange-200 text-4xl">
+                            ✦
+                        </div>
+                        <div className="absolute bottom-1/4 left-1/4 text-orange-200 text-4xl">
+                            ✦
+                        </div>
                     </div>
-                    <div className="pt-1">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div> */}
-          </div>
 
-          {/* Enhanced Visual */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 rounded-3xl p-10 text-white relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
-              </div>
-              
-              <div className="relative z-10 text-center">
-                <div className="w-28 h-28 mx-auto mb-8 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                  <Stethoscope className="w-14 h-14 text-white" />
+                    {/* Right side with text content */}
+                    <div className="w-full lg:w-1/2 lg:pl-12">
+                        <div className="flex items-center mb-2" style={{ color: secondaryColor }}>
+                            <span className="mr-2 font-medium">+</span>
+                            <span className="font-medium">ABOUT ASHAALI HOSPITAL</span>
+                        </div>
+
+                        <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold text-slate-800 mb-3">
+                            Comprehensive Healthcare Excellence & Advanced Medical Solutions
+                        </h1>
+                        <p className="text-gray-600 mb-2 text-justify">
+                            <strong>Ashaali Hospital</strong> is a leading multi-specialty healthcare institution committed to delivering <strong>World-Class Medical Care</strong> across all departments. We provide comprehensive services including <strong>Emergency Care</strong>, <strong>Advanced Surgical Procedures</strong>, <strong>Diagnostic Imaging</strong>, and <strong>Specialized Treatment</strong> programs. Our state-of-the-art facility combines <strong>Modern Technology</strong> with <strong>Compassionate Care</strong>, ensuring every patient receives <strong>Personalized Attention</strong> and <strong>Excellence in Treatment</strong>. From <strong>Cardiology</strong> and <strong>Orthopedics</strong> to <strong>Pediatrics</strong> and <strong>Critical Care</strong>, we are your trusted partner in health and healing.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                            <div className="flex items-center">
+                                <div 
+                                    className="rounded-full p-1 mr-3"
+                                    style={{ 
+                                        background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})` 
+                                    }}
+                                >
+                                    <Check className="h-5 w-5 text-white" />
+                                </div>
+                                <span className="text-slate-700 font-medium">24/7 Emergency & Critical Care Services</span>
+                            </div>
+
+                            <div className="flex items-center">
+                                <div 
+                                    className="rounded-full p-1 mr-3"
+                                    style={{ 
+                                        background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})` 
+                                    }}
+                                >
+                                    <Check className="h-5 w-5 text-white" />
+                                </div>
+                                <span className="text-slate-700 font-medium">Advanced Surgical & Diagnostic Facilities</span>
+                            </div>
+
+                            <div className="flex items-center">
+                                <div 
+                                    className="rounded-full p-1 mr-3"
+                                    style={{ 
+                                        background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})` 
+                                    }}
+                                >
+                                    <Check className="h-5 w-5 text-white" />
+                                </div>
+                                <span className="text-slate-700 font-medium">Multi-specialty Medical Expertise</span>
+                            </div>
+
+                            <div className="flex items-center">
+                                <div 
+                                    className="rounded-full p-1 mr-3"
+                                    style={{ 
+                                        background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})` 
+                                    }}
+                                >
+                                    <Check className="h-5 w-5 text-white" />
+                                </div>
+                                <span className="text-slate-700 font-medium">Patient-centered care with modern technology</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h4 className="text-2xl font-bold mb-6">Our Mission</h4>
-                <p className="text-white/95 leading-relaxed text-lg">
-                  To provide exceptional, compassionate healthcare services that enhance the quality of life for our patients and community through advanced medical care and personalized attention.
-                </p>
-              </div>
-            </div>
-            
-            {/* Floating Elements */}
-            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-500 rounded-2xl rotate-12 shadow-lg"></div>
-            <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-teal-300 to-teal-400 rounded-xl -rotate-12 shadow-lg"></div>
-            <div className="absolute top-1/2 -right-3 w-6 h-6 bg-orange-300 rounded-full"></div>
-          </div>
+            </main>
         </div>
-
-      </div>
-    </section>
-  );
+    );
 };
 
-export default SimpleAboutSection;
+export default HomeAbout;

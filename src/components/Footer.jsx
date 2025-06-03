@@ -1,297 +1,222 @@
-import { Link } from 'react-router-dom';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin,
+import { useState } from 'react';
+import {
+  Facebook,
+  Twitter,
   Youtube,
-  Heart,
-  Shield,
-  Award,
-  Users,
-  ChevronRight
+  Linkedin,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+  ChevronRight,
+  Clock,
+  Star
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
-  const quickLinks = [
-    { name: 'About Us', path: '/about' },
-    { name: 'Our Doctors', path: '/doctors' },
-    { name: 'Appointment', path: '/appointment' },
-    { name: 'Emergency', path: '/emergency' },
-    { name: 'Health Checkup', path: '/health-checkup' },
-    { name: 'Insurance', path: '/insurance' }
-  ];
-
-  const specialties = [
-    { name: 'Cardiology', path: '/specialties/cardiology' },
-    { name: 'Neurology', path: '/specialties/neurology' },
-    { name: 'Orthopedics', path: '/specialties/orthopedics' },
-    { name: 'Pediatrics', path: '/specialties/pediatrics' },
-    { name: 'Oncology', path: '/specialties/oncology' },
-    { name: 'Emergency Care', path: '/specialties/emergency' }
-  ];
-
-  const patientServices = [
-    { name: 'Patient Portal', path: '/patient-portal' },
-    { name: 'Medical Records', path: '/medical-records' },
-    { name: 'Lab Reports', path: '/lab-reports' },
-    { name: 'Billing & Payment', path: '/billing' },
-    { name: 'Pharmacy', path: '/pharmacy' },
-    { name: 'Cafeteria', path: '/cafeteria' }
-  ];
-
-  const socialLinks = [
-    { name: 'Facebook', icon: Facebook, url: '#', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, url: '#', color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, url: '#', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, url: '#', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, url: '#', color: 'hover:text-red-500' }
-  ];
-
-  const features = [
-    { icon: Heart, title: '24/7 Emergency', desc: 'Round-the-clock care' },
-    { icon: Shield, title: 'Advanced Technology', desc: 'State-of-art equipment' },
-    { icon: Award, title: 'Expert Doctors', desc: 'Experienced specialists' },
-    { icon: Users, title: 'Patient Care', desc: 'Compassionate service' }
-  ];
+export default function Footer() {
+  const [year] = useState(new Date().getFullYear());
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" >
-      {/* Top Section with Features */}
-      {/* <div className="border-b border-gray-700">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 text-teal-400">{feature.title}</h3>
-                  <p className="text-gray-300 text-sm">{feature.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div> */}
+    <footer className="relative" style={{ background: 'linear-gradient(135deg, #00B4A8 0%, #3b628b 100%)' }}>
+      {/* Decorative Top Border */}
+      <div className="h-1 bg-gradient-to-r from-white via-blue-200 to-white"></div>
 
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Side - Links and Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Hospital Info */}
-            <div className="md:col-span-3 mb-8">
-              <a href="/" className="flex items-center space-x-3 mb-6 group">
-                <div className="w-12 h-12">
-                  <img 
-                    src="/path-to-your-logo.png" 
-                    alt="Ashaali Hospital" 
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
-                  />
+      {/* Main Footer Section */}
+      <div className="container mx-auto px-6 lg:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Column 1: About */}
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
+                <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
+                  <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#13335b' }}></div>
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold">
-                    <span className="text-teal-400">ASHAALI</span>
-                    <span className="text-orange-400 ml-2">HOSPITAL</span>
-                  </h2>
-                  <p className="text-gray-400 text-sm">"Partnership for Health"</p>
+                About Us
+              </h2>
+
+              {/* Logo placeholder */}
+              <div className="mb-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="h-12 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold">
+                  Dr. Rahul Singh
                 </div>
-              </a>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Providing comprehensive healthcare services with compassion, excellence, and innovation. 
-                Your health and well-being are our top priorities.
+              </div>
+
+              <p className="text-gray-200 text-sm leading-relaxed">
+                Providing specialized neurosurgical care with advanced techniques and compassionate service for all patients.
               </p>
-              
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3 group">
-                  <MapPin className="w-5 h-5 text-teal-400 mt-1 group-hover:scale-110 transition-transform duration-200" />
-                  <div>
-                    <p className="text-gray-300">123 Healthcare Avenue, Medical District</p>
-                    <p className="text-gray-300">Lucknow, Uttar Pradesh 226001</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3 group">
-                  <Phone className="w-5 h-5 text-teal-400 group-hover:scale-110 transition-transform duration-200" />
-                  <div>
-                    <a href="tel:+911234567890" className="text-gray-300 hover:text-teal-400 transition-colors">
-                      +91 123 456 7890
-                    </a>
-                    <span className="text-gray-500 ml-2">(24/7 Emergency)</span>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3 group">
-                  <Mail className="w-5 h-5 text-teal-400 group-hover:scale-110 transition-transform duration-200" />
-                  <a href="mailto:info@ashaalihospital.com" className="text-gray-300 hover:text-teal-400 transition-colors">
-                    info@ashaalihospital.com
-                  </a>
-                </div>
-                <div className="flex items-start space-x-3 group">
-                  <Clock className="w-5 h-5 text-teal-400 mt-1 group-hover:scale-110 transition-transform duration-200" />
-                  <div>
-                    <p className="text-gray-300">Emergency: 24/7</p>
-                    <p className="text-gray-300">OPD: Mon - Sat, 9:00 AM - 8:00 PM</p>
-                  </div>
-                </div>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
+              <div className="flex space-x-3">
+                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
+                  <Facebook size={18} className="text-white group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
+                  <Youtube size={18} className="text-white group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
+                  <Linkedin size={18} className="text-white group-hover:scale-110 transition-transform" />
+                </a>
+                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
+                  <Instagram size={18} className="text-white group-hover:scale-110 transition-transform" />
+                </a>
               </div>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-teal-400 flex items-center">
-                <ChevronRight className="w-5 h-5 mr-2" />
-                Quick Links
-              </h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link 
-                      to={link.path} 
-                      className="text-gray-300 hover:text-teal-400 transition-colors flex items-center group"
-                    >
-                      <ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">{link.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Specialties */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-teal-400 flex items-center">
-                <ChevronRight className="w-5 h-5 mr-2" />
-                Specialties
-              </h3>
-              <ul className="space-y-3">
-                {specialties.map((specialty, index) => (
-                  <li key={index}>
-                    <Link 
-                      to={specialty.path} 
-                      className="text-gray-300 hover:text-teal-400 transition-colors flex items-center group"
-                    >
-                      <ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">{specialty.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Patient Services */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-teal-400 flex items-center">
-                <ChevronRight className="w-5 h-5 mr-2" />
-                Patient Services
-              </h3>
-              <ul className="space-y-3">
-                {patientServices.map((service, index) => (
-                  <li key={index}>
-                    <Link 
-                      to={service.path} 
-                      className="text-gray-300 hover:text-teal-400 transition-colors flex items-center group"
-                    >
-                      <ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                      <span className="group-hover:translate-x-1 transition-transform duration-200">{service.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
-          {/* Right Side - Google Map */}
+          {/* Column 2: Navigate */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-teal-400 flex items-center">
-              <MapPin className="w-5 h-5 mr-2" />
-              Find Us
-            </h3>
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-orange-500 rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="relative bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.7267611113967!2d80.94634631504043!3d26.84648998314708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1635784954123!5m2!1sen!2sin"
-                  width="100%"
-                  height="350"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale hover:grayscale-0 transition-all duration-500"
-                  title="Ashaali Hospital Location"
-                ></iframe>
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
-                  <p className="text-gray-800 text-sm font-medium">📍 Ashaali Hospital</p>
+            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
+              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
+                <ChevronRight size={16} style={{ color: '#13335b' }} />
+              </div>
+              Navigate
+            </h2>
+            <ul className="space-y-3">
+              {[
+                { label: "About Dr. Rahul Singh", link: "/about" },
+                { label: "Brain Surgery", link: "/treatments/brain-surgery" },
+                { label: "Spine Surgery", link: "/treatments/spine-surgery" },
+                { label: "Neuroendoscopy", link: "/treatments/neuroendoscopy" },
+                { label: "Photo Gallery", link: "/gallery/photos" },
+                { label: "Video Gallery", link: "/gallery/videos" },
+                { label: "Blog", link: "/blog" },
+
+                { label: "Testimonial", link: "/testimonials" },
+                { label: "Contact Us", link: "/contact" },
+
+
+              ].map((item, index) => (
+                <li key={index} className="group">
+                  <a
+                    href={item.link}
+                    className="flex items-center text-gray-200 hover:text-white transition-all duration-300 hover:translate-x-2"
+                  >
+                    <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
+                    <span className="text-sm">{item.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+          {/* Column 3: Connect */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
+              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
+                <Phone size={16} style={{ color: '#13335b' }} />
+              </div>
+              Connect
+            </h2>
+
+            <div className="space-y-4">
+              <div className="group bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 w-full">
+                <a
+                  href="https://www.google.co.in/maps/place/Dr+Rahul+Singh,+Neurosurgeon+in+Lucknow+(Brain,+Spine+%26+Peripheral+nerve+Surgeon)/@26.9227029,80.9444065,17z/data=!3m1!4b1!4m6!3m5!1s0x399bff512d12f739:0x36467f3f86abd718!8m2!3d26.9226981!4d80.9469814!16s%2Fg%2F11rd2pc7wg?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D" className="flex items-start" >
+                  <div className="mr-3 mt-1">
+                    <MapPin size={18} className="text-white" />
+                  </div>
+                  <span className="text-gray-200 text-sm leading-relaxed">
+                    Landmark Advance Neurospine Care Super Speciality Hospital
+                  </span>
+                </a>
+              </div>
+
+              <div className="space-y-3">
+                <a href="tel:+918400136465" className="flex items-center group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300">
+                  <Phone size={18} className="mr-3 text-white group-hover:scale-110 transition-transform" />
+                  <span className="text-gray-200">+91-8400136465</span>
+                </a>
+
+
+                
+                <a href="mailto:info@drrahulneurosurgeon.com" className="flex items-center flex-wrap group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300 w-full">
+                  <Mail size={18} className="mr-3 text-white group-hover:scale-110 transition-transform shrink-0" />
+                  <span className="text-gray-200 text-sm break-all">
+                    info@drrahulneurosurgeon.com
+                  </span>
+                </a>
+
+
+
+                <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+                  <Clock size={18} className="mr-3 text-white" />
+                  <span className="text-gray-200">10AM - 8PM</span>
                 </div>
               </div>
             </div>
-            
-            {/* Emergency Contact Card */}
-            <div className="mt-6 bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-6 shadow-xl">
-              <h4 className="text-white font-bold text-lg mb-2 flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                24/7 Emergency
-              </h4>
-              <p className="text-red-100 mb-3">Need immediate medical attention?</p>
-              <a 
-                href="tel:+911234567890" 
-                className="bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-50 transition-colors inline-flex items-center"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now: +91 123 456 7890
+            {/* 
+            <div className="mt-6">
+              <a href="#" className="inline-block bg-white hover:bg-gray-100 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1" style={{ color: '#13335b' }}>
+                Admin Login
               </a>
+            </div> */}
+          </div>
+
+          {/* Column 4: Map & Rating */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
+              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
+                <MapPin size={16} style={{ color: '#13335b' }} />
+              </div>
+              Find Us
+            </h2>
+
+            {/* Map Container */}
+            <div className="rounded-2xl overflow-hidden h-48 bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.3945773634146!2d80.94440647489535!3d26.922702859662163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bff512d12f739%3A0x36467f3f86abd718!2sDr%20Rahul%20Singh%2C%20Neurosurgeon%20in%20Lucknow%20(Brain%2C%20Spine%20%26%20Peripheral%20nerve%20Surgeon)!5e0!3m2!1sen!2sin!4v1748343420506!5m2!1sen!2sin"
+                className="w-full h-full border-0"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
+
+
+            {/* Google Rating */}
+            {/* <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+              <p className="text-gray-200 text-sm mb-2">Google Rating</p>
+              <div className="flex items-center justify-center mb-2">
+                <span className="text-2xl font-bold text-white mr-2">5.0</span>
+                <div className="flex text-white">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" />
+                  ))}
+                </div>
+              </div>
+              <p className="text-xs text-gray-300">Based on patient reviews</p>
+            </div> */}
+
+
           </div>
         </div>
       </div>
 
-      {/* Social Links & Copyright */}
-      <div className="border-t border-gray-700">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Social Links */}
-            <div className="flex items-center space-x-6">
-              <span className="text-gray-400 text-sm">Follow Us:</span>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.url}
-                      className={`w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg`}
-                      aria-label={social.name}
-                    >
-                      <IconComponent className="w-5 h-5" />
-                    </a>
-                  );
-                })}
-              </div>
+      {/* Copyright Bar */}
+      <div className="bg-black/20 backdrop-blur-sm border-t border-white/10">
+        <div className="container mx-auto px-6 lg:px-12 py-6">
+          <div className="flex flex-col md:flex-row justify-center items-center text-sm">
+            <div className="mb-3 md:mb-0 text-gray-200">
+              © {year} Dr. Rahul Singh Neurosurgeon || All rights Reserved
             </div>
+            <div className="flex items-center text-gray-200 ml-1" >
+              <span> Powered by: </span>
+              <span className="ml-2 font-semibold text-white">
+                <a href='https://www.codecrafter.co.in/'>
+                  Code Crafter Web Solution
+                </a>
 
-            {/* Copyright */}
-            <div className="text-center md:text-right">
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Ashaali Hospital. All rights reserved.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-end space-x-4 mt-2 text-xs text-gray-500">
-                <Link to="/privacy" className="hover:text-teal-400 transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-teal-400 transition-colors">Terms of Service</Link>
-                <Link to="/sitemap" className="hover:text-teal-400 transition-colors">Sitemap</Link>
-              </div>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

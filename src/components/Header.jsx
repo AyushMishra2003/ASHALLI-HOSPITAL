@@ -1,292 +1,245 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { 
-  ChevronDown, 
-  Heart, 
-  Brain, 
-  Bone, 
-  Eye, 
-  Stethoscope, 
-  Baby, 
-  User, 
-  Zap,
-  Activity,
-  Shield,
-  Users,
-  Menu,
-  X
-} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown, ChevronUp, Calendar, Microscope, Heart } from 'lucide-react';
+import logo from '../assets/logo1.jpeg'
 
-const Header = () => {
+import { Link } from 'react-router-dom';
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [hoveredDropdown, setHoveredDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleDropdownToggle = (dropdown) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleDropdown = (dropdown) => {
+    if (activeDropdown === dropdown) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(dropdown);
+    }
   };
 
-  const specialties = [
-    { name: 'Cardiology', icon: Heart, path: '/specialties/cardiology' },
-    { name: 'Neurology', icon: Brain, path: '/specialties/neurology' },
-    { name: 'Orthopedics', icon: Bone, path: '/specialties/orthopedics' },
-    { name: 'Ophthalmology', icon: Eye, path: '/specialties/ophthalmology' },
-    { name: 'General Medicine', icon: Stethoscope, path: '/specialties/general-medicine' },
-    { name: 'Pediatrics', icon: Baby, path: '/specialties/pediatrics' },
-    { name: 'Dermatology', icon: User, path: '/specialties/dermatology' },
-    { name: 'Emergency Care', icon: Zap, path: '/specialties/emergency-care' },
-    { name: 'Radiology', icon: Activity, path: '/specialties/radiology' },
-    { name: 'Oncology', icon: Shield, path: '/specialties/oncology' },
-    { name: 'Physiotherapy', icon: Users, path: '/specialties/physiotherapy' }
-  ];
+  const navItems = [
+    { name: 'Home', link: '/' },
+    {
+      name: 'About',
+      dropdown: true,
+      items: [
+        { name: 'About ASHAALI HOSPITAL  ', link: '/about/hospital' },
+        { name: 'About Doctor', link: '/about/team' },
 
-  const navigationItems = [
-    {
-      name: 'Home',
-      path: '/',
-      hasDropdown: false
-    },
-    {
-      name: 'About Us',
-      path: '/about',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: 'About Ashaali Hospital', path: '/about/hospital' },
-        { name: 'Our Team', path: '/about/team' }
       ]
     },
     {
-      name: 'Specialties',
-      path: '/specialties',
-      hasDropdown: true,
-      dropdownItems: specialties
+      name: 'Department',
+      dropdown: true,
+      items: [
+        { name: 'Orthopaedics', link: '/department/orthopaedics' },
+        { name: 'Ophthalmology', link: '/department/ophthalmology' },
+        { name: 'Pediatrics', link: '/department/pediatrics' },
+        { name: 'Neurology', link: '/department/neurology' },
+        { name: 'General Medicine', link: '/department/generalmedicine' },
+        { name: 'ENT', link: '/department/ent' },
+        { name: 'Cardiology', link: '/department/cardiology' },
+        { name: 'General Surgery', link: '/department/generalsurgery' },
+        { name: 'Obstetrics & Gynaecology', link: '/department/obstetricsandgynaecology' },
+        { name: 'Urology & Andrology', link: '/department/urologyandandrology' },
+        { name: 'Nephrology', link: '/department/nephrology' },
+        { name: 'Dental', link: '/department/dental' },
+        { name: 'Rheumatology', link: '/department/rheumatology' },
+        { name: 'Pulmonology', link: '/department/pulmonology' },
+        { name: 'Dermatology', link: '/department/dermatology' },
+        { name: 'Psychiatry', link: '/department/psychiatry' },
+        { name: 'Oncology', link: '/department/oncology' },
+        { name: 'ICU and Critical Care', link: '/department/icuandcriticalcare' },
+        { name: 'Endocrinology', link: '/department/endocrinology' }
+      ]
     },
     {
-      name: 'Cases',
-      path: '/cases',
-      hasDropdown: false
+      name: 'Facilities',
+      dropdown: true,
+      items: [
+        { name: 'ICU', link: '/facility/icu' },
+        { name: 'NICU', link: '/facility/nicu' },
+        { name: 'Emergency', link: '/facility/emergency' },
+        { name: 'Ventilator', link: '/facility/ventilator' },
+        { name: 'Ambulance', link: '/facility/ambulance' },
+        { name: 'X-ray', link: '/facility/xray' },
+        { name: 'Pathology', link: '/facility/pathology' },
+        { name: 'General Ward', link: '/facility/generalward' },
+        { name: 'Private', link: '/facility/private' },
+        { name: 'Semi Private', link: '/facility/semiprivate' },
+        { name: 'Deluxe', link: '/facility/deluxe' },
+        { name: 'Physiotherapy', link: '/facility/physiotherapy' },
+        { name: 'Canteen', link: '/facility/canteen' }
+      ]
     },
-    {
-      name: 'Blog',
-      path: '/blog',
-      hasDropdown: false
-    },
-    {
-      name: 'Gallery',
-      path: '/gallery',
-      hasDropdown: false
-    },
-    {
-      name: 'Testimonials',
-      path: '/testimonials',
-      hasDropdown: false
-    }
+
+
+    { name: 'Gallery', link: '/gallery' },
+    { name: 'Contact Us', link: '/contact' },
   ];
 
-  const isActive = (path) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname.startsWith(path);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-    setActiveDropdown(null);
-  };
-
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-100">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between py-4">
+    <header className={`border border-b-2`}>
+      <div className="relative w-full mx-auto px-2">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12">
-              <img 
-                src="/path-to-your-logo.png" 
-                alt="Ashaali Hospital" 
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
-              />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold">
-                <span className="text-teal-600">ASHAALI</span>
-                <span className="text-orange-400 ml-2">HOSPITAL</span>
-              </h1>
-              <p className="text-gray-500 text-xs">"Partnership for Health"</p>
+          <Link to={"/"}>
+            <div className="flex items-center z-10">
+              <img src={logo} alt="sambhawna_logo" className="w-auto h-16" />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navigationItems.map((item) => (
-              <div key={item.name} className="relative group">
-                {item.hasDropdown ? (
-                  <div>
+          <nav className="hidden lg:flex items-center space-x-1 z-10">
+            {navItems.map((item) => (
+              <div
+                key={item.name}
+                className="relative group"
+                onMouseEnter={() => item.dropdown && setHoveredDropdown(item.name)}
+                onMouseLeave={() => item.dropdown && setHoveredDropdown(null)}
+              >
+                {item.dropdown ? (
+                  <div className="flex items-center">
                     <button
-                      onClick={() => handleDropdownToggle(item.name.toLowerCase().replace(' ', '-'))}
-                      className={`flex items-center space-x-1 px-4 py-2 rounded-lg font-medium transition-all duration-300 relative overflow-hidden group ${
-                        isActive(item.path)
-                          ? 'text-teal-600 bg-teal-50'
-                          : 'text-gray-700 hover:text-teal-600'
-                      }`}
+                      onClick={() => toggleDropdown(item.name)}
+                      className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200 flex items-center"
+                      style={{ whiteSpace: 'nowrap' }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <span className="relative z-10">{item.name}</span>
-                      <ChevronDown className={`w-4 h-4 relative z-10 transition-transform duration-300 ${
-                        activeDropdown === item.name.toLowerCase().replace(' ', '-') ? 'rotate-180' : 'group-hover:rotate-180'
-                      }`} />
+                      {item.name}
+                      {activeDropdown === item.name ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
                     </button>
-                    
-                    {activeDropdown === item.name.toLowerCase().replace(' ', '-') && (
-                      <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 min-w-64 animate-in slide-in-from-top-2 duration-200">
-                        {item.name === 'Specialties' ? (
-                          <div className="grid grid-cols-2 gap-1 px-2">
-                            {item.dropdownItems.map((specialty) => {
-                              const IconComponent = specialty.icon;
-                              return (
-                                <Link
-                                  key={specialty.name}
-                                  to={specialty.path}
-                                  onClick={() => setActiveDropdown(null)}
-                                  className="flex items-center space-x-3 px-3 py-2.5 text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-600 rounded-lg transition-all duration-200 group"
-                                >
-                                  <IconComponent className="w-4 h-4 text-orange-400 group-hover:scale-110 transition-transform duration-200" />
-                                  <span className="text-sm font-medium">{specialty.name}</span>
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        ) : (
-                          <div className="px-2">
-                            {item.dropdownItems.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.name}
-                                to={dropdownItem.path}
-                                onClick={() => setActiveDropdown(null)}
-                                className="block px-4 py-2.5 text-gray-700 hover:bg-gradient-to-r hover:from-teal-50 hover:to-orange-50 hover:text-teal-600 rounded-lg transition-all duration-200 font-medium"
+
+                    {(activeDropdown === item.name || hoveredDropdown === item.name) && (
+                      <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl py-0 z-10 transition-all duration-300 ease-in-out opacity-100 transform translate-y-0">
+                        <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl p-4 z-10 w-[600px]">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                            {item.items.map((subItem) => (
+                              <a
+                                key={subItem.name}
+                                href={subItem.link}
+                                className="text-sm text-gray-700 hover:bg-[#02b3a8] hover:text-[#fff] px-3 py-1 rounded transition-all duration-200"
                               >
-                                {dropdownItem.name}
-                              </Link>
+                                {subItem.name}
+                              </a>
                             ))}
                           </div>
-                        )}
+                        </div>
+
+                      </div>
+
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    href={item.link}
+                    className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200"
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Appointment Button */}
+          <div className="hidden lg:flex items-center z-10">
+            <a
+              href="/appoitment"
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-[#02B3A8] to-[#FF8904]  text-white font-medium rounded-full flex items-center hover:bg-pink-600 transition-colors shadow-md"
+            >
+              <Calendar size={18} className="mr-2" />
+              Appointment
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center z-10">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-pink-500 hover:bg-pink-50 focus:outline-none"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden relative bg-white shadow-lg border-t border-pink-100 mt-2 z-20">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => (
+              <div key={item.name} className="w-full">
+                {item.dropdown ? (
+                  <div>
+                    <button
+                      onClick={() => toggleDropdown(item.name)}
+                      className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium hover:bg-pink-50 hover:text-pink-600 transition-colors duration-200"
+                    >
+                      {item.name}
+                      {activeDropdown === item.name ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                    </button>
+
+                    {activeDropdown === item.name && (
+                      <div className="pl-4 py-2 space-y-1 bg-pink-50 rounded-md">
+                        {item.items.map((subItem) => (
+                          <a
+                            key={subItem.name}
+                            href={subItem.link}
+                            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 hover:text-pink-600 transition-colors duration-200"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <Link
-                    to={item.path}
-                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 relative overflow-hidden group ${
-                      isActive(item.path)
-                        ? 'text-teal-600 bg-teal-50'
-                        : 'text-gray-700 hover:text-teal-600'
-                    }`}
+                  <a
+                    href={item.link}
+                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-50 hover:text-pink-600 transition-colors duration-200"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative z-10">{item.name}</span>
-                  </Link>
+                    {item.name}
+                  </a>
                 )}
               </div>
             ))}
-            
-            {/* Contact Us Button */}
-            <Link
-              to="/contact"
-              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-teal-600 to-teal-700 text-white font-semibold rounded-lg hover:from-teal-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Contact Us
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-all duration-200"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4 animate-in slide-in-from-top-2 duration-200">
-            <nav className="space-y-2">
-              {navigationItems.map((item) => (
-                <div key={item.name}>
-                  {item.hasDropdown ? (
-                    <div>
-                      <button
-                        onClick={() => handleDropdownToggle(`mobile-${item.name.toLowerCase().replace(' ', '-')}`)}
-                        className={`flex items-center justify-between w-full px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
-                          isActive(item.path)
-                            ? 'text-teal-600 bg-teal-50'
-                            : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'
-                        }`}
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === `mobile-${item.name.toLowerCase().replace(' ', '-')}` ? 'rotate-180' : ''
-                        }`} />
-                      </button>
-                      
-                      {activeDropdown === `mobile-${item.name.toLowerCase().replace(' ', '-')}` && (
-                        <div className="mt-2 ml-4 space-y-1">
-                          {item.dropdownItems.map((dropdownItem) => {
-                            const IconComponent = dropdownItem.icon;
-                            return (
-                              <Link
-                                key={dropdownItem.name}
-                                to={dropdownItem.path}
-                                onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-all duration-200"
-                              >
-                                {IconComponent && <IconComponent className="w-4 h-4 text-orange-400" />}
-                                <span className="text-sm">{dropdownItem.name}</span>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      onClick={closeMobileMenu}
-                      className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'text-teal-600 bg-teal-50'
-                          : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              
-              {/* Mobile Contact Us Button */}
-              <Link
-                to="/contact"
-                onClick={closeMobileMenu}
-                className="block mx-4 mt-4 px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white font-semibold rounded-lg text-center hover:from-teal-700 hover:to-teal-800 transition-all duration-300"
-              >
-                Contact Us
-              </Link>
-            </nav>
+            <div className="pt-4 pb-3 border-t border-gray-200">
+              <div className="flex flex-col space-y-3">
+                <a
+                  href="/contact"
+                  className="px-4 py-2 bg-gradient-to-r from-[#02B3A8] to-[#FF8904] text-white font-medium rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200 shadow-md"
+                >
+                  <Calendar size={18} className="mr-2" />
+                  Make Appointment
+                </a>
+                <a
+                  href="/home-collection"
+                  className="px-4 py-2 bg-white text-pink-500 border-2 border-pink-500 font-medium rounded-full flex items-center justify-center hover:bg-pink-50 transition-colors duration-200 shadow-md"
+                >
+                  <Microscope size={18} className="mr-2" />
+                  Home Collection
+                </a>
+              </div>
+            </div>
           </div>
-        )}
-      </div>
-
-      {/* Backdrop for dropdowns */}
-      {activeDropdown && (
-        <div
-          className="fixed inset-0 z-40"
-          onClick={() => setActiveDropdown(null)}
-        />
+        </div>
       )}
     </header>
   );
-};
-
-export default Header;
+}
