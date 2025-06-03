@@ -5,6 +5,11 @@ import Home from './pages/Home'
 import Header from './components/Header'
 import TopHeader from './components/TopHeader'
 import Footer from './components/Footer'
+import Contact from './pages/contact/Contact'
+import Gallery from './pages/Gallery/Gallery'
+import BlogPage from './pages/Blog/BlogPage'
+import BlogDetails from './pages/Blog/BlogDetail'
+
 export default function App() {
   return (
    <>
@@ -12,6 +17,11 @@ export default function App() {
    <Header/>
    <Routes>
     <Route path='/' element={<Home/>}/>
+    <Route path='/contact' element={<Contact/>}/>
+    <Route path='/gallery' element={<Gallery/>}/>
+    <Route path='/blogs' element={<BlogPage/>}/>
+    <Route path='/blog/:detail' element={<BlogDetails/>}/>
+    
    </Routes>
    <Footer/>
    </>

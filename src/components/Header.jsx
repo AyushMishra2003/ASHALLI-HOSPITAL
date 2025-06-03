@@ -89,6 +89,7 @@ export default function Header() {
 
 
     { name: 'Gallery', link: '/gallery' },
+    {name:'Blog',link:'/blogs'},
     { name: 'Contact Us', link: '/contact' },
   ];
 
