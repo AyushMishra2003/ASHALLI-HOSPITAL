@@ -45,7 +45,7 @@ const CTA = () => {
           className="w-full h-full object-cover"
         />
         {/* <div className="absolute inset-0 "></div> */}
-        <div className="absolute inset-0 bg-[#02B3A8]/60"></div>
+        <div className="absolute inset-0 bg-[#18978d]/60"></div>
       </div>
 
       {/* Foreground Content */}

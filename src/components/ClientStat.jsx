@@ -48,7 +48,7 @@ const ClinicStats = () => {
 //   }, []);
 
   return (
-    <section className="py-8" style={{ background: `linear-gradient(to right, ${hexToRgba('#00B4A8', 0.8)}, ${hexToRgba('#FF8904', 0.9)})` }}>
+    <section className="py-8" style={{ background: `linear-gradient(to right, ${hexToRgba('#18978d', 0.8)}, ${hexToRgba('#ed8022', 0.9)})` }}>
       <div className="container mx-auto lg:px-4">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
           <div className="p-4">

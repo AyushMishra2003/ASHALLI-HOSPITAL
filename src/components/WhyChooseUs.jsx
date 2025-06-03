@@ -69,16 +69,16 @@ const WhyWeChooseUs = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Content */}
           <div className="lg:w-1/2">
-            <button className="bg-gradient-to-r from-[#02B3A8] to-[#FF8904] hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium mb-6 transition-all">
+            <button className="bg-gradient-to-r from-[#18978d] to-[#ed8022] hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium mb-6 transition-all">
               Why Choose Ashalli Hospital
             </button>
 
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#13335b] mb-4">
-              Leading Neurosurgical Hospital in Lucknow
+              Leading Hospital in Lucknow
             </h2>
 
-            <p className="text-gray-700 mb-8 text-justify md:text-center">
-              Ashalli Hospital is dedicated to delivering advanced care in neurosurgery, including brain, spine, and nerve procedures. Our team brings together deep expertise and compassionate care to serve patients with world-class standards in Lucknow.
+            <p className="text-gray-700 mb-8 text-justify md:text-justify">
+              Ashalli Hospital is dedicated to delivering advanced care in  Our team brings together deep expertise and compassionate care to serve patients with world-class standards in Lucknow.
             </p>
 
             {/* Feature Cards */}

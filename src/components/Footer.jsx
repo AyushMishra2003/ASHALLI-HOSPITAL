@@ -18,7 +18,7 @@ export default function Footer() {
   const [year] = useState(new Date().getFullYear());
 
   return (
-    <footer className="relative" style={{ background: 'linear-gradient(135deg, #00B4A8 0%, #3b628b 100%)' }}>
+    <footer className="relative" style={{ background: 'linear-gradient(135deg, #18978d 0%, #3b628b 100%)' }}>
       {/* Decorative Top Border */}
       <div className="h-1 bg-gradient-to-r from-white via-blue-200 to-white"></div>
 
@@ -39,12 +39,12 @@ export default function Footer() {
               {/* Logo placeholder */}
               <div className="mb-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
                 <div className="h-12 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold">
-                  Dr. Rahul Singh
+                  ASHAALI HOSPITAL
                 </div>
               </div>
 
               <p className="text-gray-200 text-sm leading-relaxed">
-                Providing specialized neurosurgical care with advanced techniques and compassionate service for all patients.
+                Providing specialized  care with advanced techniques and compassionate service for all patients.
               </p>
             </div>
 
@@ -78,10 +78,10 @@ export default function Footer() {
             </h2>
             <ul className="space-y-3">
               {[
-                { label: "About Dr. Rahul Singh", link: "/about" },
-                { label: "Brain Surgery", link: "/treatments/brain-surgery" },
-                { label: "Spine Surgery", link: "/treatments/spine-surgery" },
-                { label: "Neuroendoscopy", link: "/treatments/neuroendoscopy" },
+                { label: "About Dr. ASHAALI HOSPITAL", link: "/about" },
+                { label: "Service 1", link: "/treatments/Service 1" },
+                { label: "Service 1", link: "/treatments/Service 1" },
+                { label: "NService 1", link: "/treatments/Service 1" },
                 { label: "Photo Gallery", link: "/gallery/photos" },
                 { label: "Video Gallery", link: "/gallery/videos" },
                 { label: "Blog", link: "/blog" },

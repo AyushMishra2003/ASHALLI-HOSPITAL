@@ -57,8 +57,8 @@ export default function HowWeWork() {
     setActiveStep(activeStep === index ? null : index);
   };
 
-  const primaryColor = '#00B4A8'; // Dark Blue
-  const secondaryColor = '#FF8904'; // Light Blue
+  const primaryColor = '#18978d'; // Dark Blue
+  const secondaryColor = '#ed8022'; // Light Blue
 
   return (
     <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function HowWeWork() {
             Your Journey to Better Health
           </h2>
           <p className="text-lg max-w-3xl mx-auto" style={{ color: secondaryColor }}>
-            Dr. Rahul's patient-centered approach ensures a seamless experience from your first call to ongoing care
+             Patient-centered approach ensures a seamless experience from your first call to ongoing care
           </p>
           <div
             className="mt-6 w-24 h-1 mx-auto rounded-full"

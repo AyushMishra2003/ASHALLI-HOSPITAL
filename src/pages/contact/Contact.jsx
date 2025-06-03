@@ -12,32 +12,33 @@ import { useLocation } from "react-router-dom";
 const Contact = () => {
 
   const socialLinks = [
+
     {
       icon: <FaInstagram />,
       url: "",
-      color: "bg-[#ed8022]", // Using #ed8022
+      color: "bg-gradient-to-r from-pink-500 to-yellow-500", // Instagram gradient
     },
-    {
+        {
       icon: <FaWhatsapp />,
-        url:"",
-    //   url: `https://wa.me/918400485555?text=${encodeURIComponent("Hello, I need help!")}`, // Replace with your WhatsApp number
-      color: "bg-[#18978d]", // Using #18978d
+      url: `https://wa.me/916388291292?text=${encodeURIComponent("Hello, I need help!")}`, // Replace with your WhatsApp number
+      color: "bg-green-500", // WhatsApp green
     },
-    {
-      icon: <FaPhoneAlt />,
-      url: "tel:+1234567890",
-      color: "bg-[#18978d]", // Using #18978d
-    },
+      {
+    icon: <FaPhoneAlt />,
+    url: "tel:+916388291292", // Replace with your phone number
+    color: "bg-indigo-600", // Call button with indigo background
+  },
     {
       icon: <FaYoutube />,
       url: "https://www.youtube.com",
-      color: "bg-[#ed8022]", // Using #ed8022
+      color: "bg-red-600", // YouTube red
     },
-    {
+        {
       icon: <FaFacebookF />,
       url: "https://www.facebook.com/",
-      color: "bg-[#18978d]", // Using #18978d
+      color: "bg-blue-600", // Facebook blue
     },
+
   ];
 
   // State for form inputs

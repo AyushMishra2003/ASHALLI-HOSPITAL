@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, ChevronUp, Calendar, Microscope, Heart } from 'lucide-react';
-import logo from '../assets/logo1.jpeg'
+import logo from '../assets/logo.jpg'
 
 import { Link } from 'react-router-dom';
 
@@ -94,7 +94,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`border border-b-2`}>
+    <header className={``}>
       <div className="relative w-full mx-auto px-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -161,7 +161,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center z-10">
             <a
               href="/appoitment"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-[#02B3A8] to-[#FF8904]  text-white font-medium rounded-full flex items-center hover:bg-pink-600 transition-colors shadow-md"
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-[#18978d] to-[#ed8022]  text-white font-medium rounded-full flex items-center hover:bg-pink-600 transition-colors shadow-md"
             >
               <Calendar size={18} className="mr-2" />
               Appointment
@@ -224,7 +224,7 @@ export default function Header() {
               <div className="flex flex-col space-y-3">
                 <a
                   href="/contact"
-                  className="px-4 py-2 bg-gradient-to-r from-[#02B3A8] to-[#FF8904] text-white font-medium rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200 shadow-md"
+                  className="px-4 py-2 bg-gradient-to-r from-[#02B3A8] to-[#ed8022] text-white font-medium rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200 shadow-md"
                 >
                   <Calendar size={18} className="mr-2" />
                   Make Appointment

@@ -99,7 +99,7 @@ const HomeBlogSlider = () => {
                                             alt={post.title}
                                             className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute top-0 left-0 bg-[#00B4A8] text-white text-xs px-3 py-1 m-2 rounded-full">
+                                        <div className="absolute top-0 left-0 bg-[#18978d] text-white text-xs px-3 py-1 m-2 rounded-full">
                                             {post.date}
                                         </div>
                                     
@@ -120,7 +120,7 @@ const HomeBlogSlider = () => {
                                         {/* Read More Button - Optional */}
                                         <button 
                                             onClick={() => handleReadMore(post.title)}
-                                            className="mt-4 text-[#00B4A8] font-medium flex items-center text-sm hover:underline"
+                                            className="mt-4 text-[#18978d] font-medium flex items-center text-sm hover:underline"
                                         >
                                             Read More
                                             <ArrowRight size={16} className="ml-1" />

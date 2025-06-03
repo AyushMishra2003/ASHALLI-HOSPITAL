@@ -14,8 +14,8 @@ import {
 } from 'lucide-react';
 
 const HomeServices = () => {
-  const primaryColor = "#00B4A8";
-  const secondaryColor = "#FF8904"
+  const primaryColor = "#18978d";
+  const secondaryColor = "#ed8022"
 
   const services = [
     {
@@ -117,7 +117,7 @@ const HomeServices = () => {
                 key={index}
                 className={`rounded-3xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer ${
                   isSpecial 
-                    ? 'bg-gradient-to-br from-[#00B4A8] via-[#00B4A8] to-[#FF8904] text-white hover:from-purple-800 hover:to-purple-700' 
+                    ? 'bg-gradient-to-br from-[#18978d] via-[#18978d] to-[#ed8022] text-white hover:from-purple-800 hover:to-purple-700' 
                     : 'bg-white hover:bg-gray-50'
                 }`}
               >
@@ -131,8 +131,8 @@ const HomeServices = () => {
                     </h3>
                     <div className={`p-3 rounded-2xl flex-shrink-0 transition-all duration-300 ${
                       isSpecial 
-                        ? 'bg-[#00B4A8] group-hover:bg-[#293c3b]' 
-                        : 'bg-[#00B4A8] group-hover:bg-[#293c3b]'
+                        ? 'bg-[#18978d] group-hover:bg-[#293c3b]' 
+                        : 'bg-[#18978d] group-hover:bg-[#293c3b]'
                     }`}>
                       <IconComponent 
                         size={24} 
@@ -169,7 +169,7 @@ const HomeServices = () => {
                     className={`text-sm font-medium flex items-center gap-2 transition-all duration-300 group/button ${
                       isSpecial 
                         ? 'text-white hover:text-pink-200' 
-                        : 'text-[#00B4A8] '
+                        : 'text-[#18978d] '
                     }`}
                   >
                     View All Details
@@ -187,7 +187,7 @@ const HomeServices = () => {
         <div className="text-center">
           <button 
             onClick={handleViewMore}
-            className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00B4A8] hover:text-[#6fe3dc] flex items-center gap-3 mx-auto group"
+            className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#18978d] hover:text-[#6fe3dc] flex items-center gap-3 mx-auto group"
           >
             View More Departments
             <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />

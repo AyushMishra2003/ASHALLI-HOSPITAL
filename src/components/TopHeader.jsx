@@ -2,8 +2,8 @@ import { Home, MapPin, User, Clock, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const TopHeader = () => {
-  const primaryColor = "#00B4A8";
-  const secondaryColor = "#FF8904";
+  const primaryColor = "#18978d";
+  const secondaryColor = "#ed8022";
   
   return (
     <div className="w-full bg-[#02B3A8]  text-white py-2 hidden md:block">

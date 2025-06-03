@@ -2,8 +2,8 @@ import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const HomeAbout = () => {
-    const primaryColor = "#00B4A8";
-    const secondaryColor = "#FF8904";
+    const primaryColor = "#18978d";
+    const secondaryColor = "#ed8022";
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {

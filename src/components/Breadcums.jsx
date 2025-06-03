@@ -31,7 +31,7 @@ const BreadcrumbComponent = ({ headerText = "Page", items = [] }) => {
       ></div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#3F8BA1] z-0"></div>
+      <div className="absolute inset-0 bg-[#18978d] z-0"></div>
 
       {/* Content */}
       <div className="relative z-0 container mx-auto px-4 py-12 sm:py-16 md:py-20">

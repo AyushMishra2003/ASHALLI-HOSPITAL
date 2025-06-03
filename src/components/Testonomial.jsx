@@ -2,7 +2,7 @@ import React from 'react';
 
 const Testinomial = () => {
     const primaryColor = "#13335b"; // Rose/pink
-    const secondaryColor = "#00B4A8"; // Deep purple
+    const secondaryColor = "#18978d"; // Deep purple
 
     return (
         <section className="bg-white py-10 px-4">
