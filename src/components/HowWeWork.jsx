@@ -34,7 +34,7 @@ export default function HowWeWork() {
       icon: <Stethoscope strokeWidth={1.5} size={36} />,
       title: 'Doctor Consultation',
       description:
-        'Meet with Dr. Rahul for a thorough examination and personalized care plan discussion.',
+        'Meet with  for a thorough examination and personalized care plan discussion.',
       number: '03',
     },
     {
@@ -184,7 +184,7 @@ export default function HowWeWork() {
             <Calendar className="ml-2" size={18} />
           </button>
           <p className="mt-4 text-sm text-gray-500">
-            Experience the difference with Dr. Rahul Singh personalized care
+            Experience the difference with personalized care
           </p>
         </div>
       </div>

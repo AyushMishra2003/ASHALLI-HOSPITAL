@@ -12,7 +12,7 @@ const Testinomial = () => {
                     Our Testimonial
                 </h2>
                 <p className="text-lg max-w-3xl mx-auto mb-10" style={{ color: primaryColor }}>
-                    Dr. Rahul Singh is a skilled neurosurgeon based in Lucknow. His expertise and compassionate care make patients feel truly supported throughout their treatment journey.
+                   Ashalli Hospital is a skilled  based in Lucknow. His expertise and compassionate care make patients feel truly supported throughout their treatment journey.
                 </p>
 
                 <div className="shadow-lg rounded-lg overflow-hidden ">

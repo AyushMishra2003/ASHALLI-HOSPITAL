@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
-
 import { MdContactPhone, MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
-import BreadCrumbs from "../../components/Breadcums";
+import BreadcrumbComponent from "../../components/Breadcums";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
@@ -15,17 +14,17 @@ const Contact = () => {
 
     {
       icon: <FaInstagram />,
-      url: "",
+      url: "https://www.instagram.com/drmonikagynae/",
       color: "bg-gradient-to-r from-pink-500 to-yellow-500", // Instagram gradient
     },
         {
       icon: <FaWhatsapp />,
-      url: `https://wa.me/916388291292?text=${encodeURIComponent("Hello, I need help!")}`, // Replace with your WhatsApp number
+      url: `https://wa.me/919277163686?text=${encodeURIComponent("Hello, I need help!")}`, // Replace with your WhatsApp number
       color: "bg-green-500", // WhatsApp green
     },
       {
     icon: <FaPhoneAlt />,
-    url: "tel:+916388291292", // Replace with your phone number
+    url: "tel:+919277163686",
     color: "bg-indigo-600", // Call button with indigo background
   },
     {
@@ -41,6 +40,7 @@ const Contact = () => {
 
   ];
 
+
   // State for form inputs
   const [formData, setFormData] = useState({
     fullName: "",
@@ -50,6 +50,7 @@ const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const location=useLocation()
+
 
   // Handle change for input fields
   const handleChange = (e) => {
@@ -82,11 +83,12 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
+    useEffect(() => {
     if (location.pathname === '/contact') {
       window.scrollTo(0, 0);
     }
   }, [location]);
+
 
   return (
     <section>
@@ -100,21 +102,22 @@ const Contact = () => {
         <meta property="og:url" content="https://yourdomain.com/contact" />
       </Helmet>
 
-      <BreadCrumbs
+      <BreadcrumbComponent
         items={[
           { label: 'Home', path: '/' },
           { label: 'Contact' },
+
         ]}
         headText="Contact Us"
       />
       <div className="relative w-full  flex items-center justify-center lg:p-8 p-2  md:px-4   bg-gray-100 overflow-hidden">
-        <div className="absolute w-[500px] h-[500px] bg-[#18978d] rounded-full transform translate-x-[40%] translate-y-[40%] opacity-30"></div>
+        <div className="absolute w-[500px] h-[500px] bg-gradient-to-b from-teal-500 to-teal-600 rounded-full transform translate-x-[40%] translate-y-[40%] opacity-30"></div>
 
         <div className="grid md:grid-cols-2 w-full bg-white rounded-lg shadow-lg overflow-hidden max-w-7xl">
           {/* Contact Info Section */}
           <div className="max-w-[34rem] px-4 md:max-w-[35rem] flex lg: lg:pt-6 pt-2 md:pt-4  border-red-500">
             <div>
-              <h1 className="sora-600 leading-[3rem]  text-xl sm:text-2xl lg:text-2xl text-[#ed8022] lg:mb-6 mb-2 md:mb-4">
+              <h1 className="sora-600 leading-[3rem]  text-xl sm:text-2xl lg:text-2xl text-[#18978d] lg:mb-6 mb-2 md:mb-4">
                 Get In Touch With Us
               </h1>
 
@@ -125,58 +128,66 @@ const Contact = () => {
                     href="https://www.google.co.in/maps/place/Dr+Monika+Pandey+Best+Gynaecologist+in+Indira+Nagar/@26.8854118,80.9986954,17z/data=!3m1!4b1!4m6!3m5!1s0x3999592fb08ce83b:0x969f7467a24cfb3b!8m2!3d26.885407!4d81.0012703!16s%2Fg%2F11vpf7nlyn?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#18978d] p-3 rounded-md"
+                    className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <FaLocationDot className="text-[1.4rem] text-white" />
                   </a>
                   <div>
-                    <h2 className="text-[#ed8022] text-[1.3rem] sora-600">Address</h2>
+                    <h2 className="text-[#18978d] text-[1.3rem] sora-600">Address</h2>
                     <a
-                      href="https://www.google.com/maps?s=web&lqi=Ch5zaGluZSBkZW50YWwgY2xpbmljIGluIGx1Y2tub3dI-ffC-OeqgIAIWi4QABABEAIYABgBGAIYBCIec2hpbmUgZGVudGFsIGNsaW5pYyBpbiBsdWNrbm93kgENZGVudGFsX2NsaW5pY6oBbwoNL2cvMTFidF9rMWdfdBABKhciE3NoaW5lIGRlbnRhbCBjbGluaWMoADIfEAEiG9202T5ye8a6a_dzrnHTRa9y3TxOyRyNfdFw0TIiEAIiHnNoaW5lIGRlbnRhbCBjbGluaWMgaW4gbHVja25vdw&vet=12ahUKEwiK9YSJ5NKNAxX1S3ADHSSOMfkQ1YkKegQIHRAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KUPKk30HWJk5MaJTCh_eny16&daddr=30-31Sukh+Complex,+Munsi+Pulia,+Munshi+Pulia,+Sector+16,+Indira+Nagar,+Lucknow,+Uttar+Pradesh+226016"
+                      href="https://www.google.co.in/maps/place/Dr+Monika+Pandey+Best+Gynaecologist+in+Indira+Nagar/@26.8854118,80.9986954,17z/data=!3m1!4b1!4m6!3m5!1s0x3999592fb08ce83b:0x969f7467a24cfb3b!8m2!3d26.885407!4d81.0012703!16s%2Fg%2F11vpf7nlyn?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="sora-400 text-[1rem] text-[#535760] no-underline target-"
+                      className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                      Abcd<br></br>Lucknow, Uttar Pradesh
+                     H-No 2,  Sector-10, Indira Nagar,<br></br> Near Arbindo Park, Lucknow, Uttar Pradesh 226016
+                 
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="tel:917379127000"
-                    className="bg-[#18978d] p-3 rounded-md"
+                    href="tel:919090909090"
+                    className="bg-gradient-to-r from-[#ed8022] to-[#18978d] p-3 rounded-md"
                   >
                     <MdContactPhone className="text-[1.4rem] text-white" />
                   </a>
                   <div>
-                    <h2 className="text-[#ed8022] text-[1.3rem] sora-600">Call for Help</h2>
+                    <h2 className="text-[#18978d] text-[1.3rem] sora-600">Call for Help</h2>
                     <a
-                      href="tel:1234567890"
+                      href="tel:9190909090"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                      +91-1234567890
-                    </a> 
+                      +91-9090909090
+                    </a> ,
+                    <a
+                      href="tel:919090909090"
+                      className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
+                    >
+                      +91-9090909090
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="tel:+917570018529"
-                    className="bg-[#18978d] p-3 rounded-md"
+                    href="tel:+919090909090"
+                    className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <IoMdTime className="text-[1.4rem] text-white" />
                   </a>
                   <div>
-                    <h2 className="text-[#ed8022] text-[1.3rem] sora-600">Clinic Opening Hours</h2>
+                    <h2 className="text-[#18978d] text-[1.3rem] sora-600">Clinic Opening Hours</h2>
                     <a
-                      href="tel:917379127000"
+                      href="tel:919090909090"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
                       {/* 10:00-1:30 PM (MON-SUN) , */}
-                      (Monday-Sunday) 9:00 am–9:30 pm
+                      (Monday-Sunday) 10:00-1:30PM & 6:00-8:30PM
                     </a>
                     <a
-                      href="tel:917379127000"
+                      href="tel:919090909090"
                       className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
                     >
                       {/* 06-8:30 PM (MON-SUN) */}
@@ -184,20 +195,22 @@ const Contact = () => {
                   </div>
                 </div>
 
+
+
                 <div className="flex items-start space-x-4">
                   <a
-                    href="mailto:saumya.751983@gmail.com"
-                    className="bg-[#18978d] p-3 rounded-md"
+                    href="mailto:admin@gmail.com"
+                    className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <MdEmail className="text-[1.4rem] text-white" />
                   </a>
                   <div>
-                    <h2 className="text-[#ed8022] text-[1.3rem] sora-600">Mail for Information</h2>
+                    <h2 className="text-[#18978d] text-[1.3rem] sora-600">Mail for Information</h2>
                     <a
-                      href="mailto:codecrafter.com"
+                      href="mailto:Sadbhawanaclinic98@gmail.com"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                      codecrafter.com
+                      admin98@gmail.com
                     </a>
                   </div>
                 </div>
@@ -219,12 +232,14 @@ const Contact = () => {
                   ))}
                 </div>
 
+
+
               </div>
             </div>
           </div>
 
           {/* Form Section */}
-          <div className="p-4  bg-[#18978d] text-white relative shadow-md rounded-lg mt-4 lg:mt-0">
+          <div className="p-4  bg-gradient-to-r from-[#18978d] to-[#ed8022] text-white relative shadow-md rounded-lg mt-4 lg:mt-0">
             <form onSubmit={handleSubmit} className="space-y-6">
               <h3 className="lg:text-3xl text-xl sm:text-2xl font-semibold">Contact Us</h3>
 
@@ -234,7 +249,7 @@ const Contact = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-white py-2 outline-none pr-2 focus:border-[#ed8022] placeholder-white px-2"
+                  className="w-full bg-transparent border-b-2 border-white py-2 outline-none pr-2 focus:border-teal-300 placeholder-white px-2"
                   placeholder="Name"
                   required
                 />
@@ -245,7 +260,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-white py-2 pr-2 outline-none focus:border-[#ed8022] placeholder-white  px-2"
+                  className="w-full bg-transparent border-b-2 border-white py-2 pr-2 outline-none focus:border-teal-300 placeholder-white  px-2"
                   placeholder="Email"
                   required
                 />
@@ -256,7 +271,7 @@ const Contact = () => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-white py-2  pr-2 outline-none focus:border-[#ed8022] placeholder-white px-2"
+                  className="w-full bg-transparent border-b-2 border-white py-2  pr-2 outline-none focus:border-teal-300 placeholder-white px-2"
                   placeholder="Phone"
                   required
                 />
@@ -266,7 +281,7 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-white py-2 outline-none focus:border-[#ed8022] placeholder-white resize-none px-2"
+                  className="w-full bg-transparent border-b-2 border-white py-2 outline-none focus:border-teal-300 placeholder-white resize-none px-2"
                   rows="4"
                   placeholder="Message"
                   required
@@ -274,13 +289,13 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="py-2 px-4 bg-white text-[#ed8022] font-semibold rounded-full hover:bg-[#ed8022] hover:text-white transition duration-300"
+                className="py-2 px-4 bg-white text-[#18978d] font-semibold rounded-full hover:bg-teal-300 transition duration-300"
                 disabled={isLoading}
               >
                 {isLoading ? (
                   <span className="flex justify-center items-center">
                     <svg
-                      className="animate-spin h-5 w-5 mr-3 border-2 border-t-white border-[#ed8022] rounded-full"
+                      className="animate-spin h-5 w-5 mr-3 border-2 border-t-white border-[#1A466D] rounded-full"
                       viewBox="0 0 24 24"
                     ></svg>
                     Sending...
@@ -295,6 +310,8 @@ const Contact = () => {
       </div>
 
     </section>
+
+
   );
 };
 

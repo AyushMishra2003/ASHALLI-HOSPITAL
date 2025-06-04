@@ -9,6 +9,8 @@ import Contact from './pages/contact/Contact'
 import Gallery from './pages/Gallery/Gallery'
 import BlogPage from './pages/Blog/BlogPage'
 import BlogDetails from './pages/Blog/BlogDetail'
+import ServiceDetail from './pages/service/ServiceDetail'
+import FacilitiesComponent from './pages/facilites/Facilites'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
     <Route path='/' element={<Home/>}/>
     <Route path='/contact' element={<Contact/>}/>
     <Route path='/gallery' element={<Gallery/>}/>
+    <Route path='/department/:name' element={<ServiceDetail/>}/>
+     <Route path='/facility/:name' element={<FacilitiesComponent/>}/>
     <Route path='/blogs' element={<BlogPage/>}/>
     <Route path='/blog/:detail' element={<BlogDetails/>}/>
     

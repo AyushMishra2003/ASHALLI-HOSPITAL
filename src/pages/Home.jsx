@@ -12,17 +12,20 @@ import CTA from '../components/CTA'
 import HowWeWork from '../components/HowWeWork'
 import Testinomial from '../components/Testonomial'
 import HomeBlogSlider from './Home/HomeBlogSlider'
+import HospitalFacilities from './Home/Facilites'
 
 export default function Home() {
   return (
-    <div className='py-4'>
+    <div className=''>
     <HeroSlider/>
     <AboutSection/>
     <SpecialtiesSection/>
+      <WhyChooseUs/>
     {/* <CTASection/> */}
     <ClinicStats/>
-    <WhyChooseUs/>
-    <CTA/>
+    <HospitalFacilities/>
+  
+    {/* <CTA/> */}
     <HowWeWork/>
     <Testinomial/>
     <HomeBlogSlider/>

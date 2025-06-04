@@ -89,7 +89,7 @@ const BlogPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
-            <BreadcrumbComponent headerText='Our Blogs' items={breadcrumbItems} />
+            <BreadcrumbComponent headText='Our Blogs' items={breadcrumbItems} />
             {/* Blog Content */}
             <div className="container mx-auto xl:px-10 lg:px-6 px-4 py-12">
 

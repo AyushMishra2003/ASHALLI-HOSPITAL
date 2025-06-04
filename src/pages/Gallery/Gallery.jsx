@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Slider from 'react-slick';
 import BreadcrumbComponent from '../../components/Breadcums';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import BreadCrumbsComponent from '../../components/Breadcums';
 
 const Gallery = () => {
  const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +35,7 @@ const Gallery = () => {
   const goToNext = (e) => {
     e.stopPropagation();
     setCurrentImageIndex((prevIndex) => 
-      prevIndex === galleryData.length - 1 ? 0 : prevIndex + 1
+      prevIndex === gallery.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -61,8 +62,15 @@ const Gallery = () => {
     arrows: false,
   };
 
+      const breadcrumbItems = [
+        { label: 'Home', href: '/' },
+        { label: 'About Us' },
+       
+    ];
+
   return (
     <section>
+      <BreadCrumbsComponent headText={"Gallery"} items={breadcrumbItems}/>
       {/* <BreadcrumbComponent headerText="Gallery" items={breadcrumbItems} /> */}
     <div className="min-h-screen bg-gray-100 lg:p-8 p-4">
       <div className="max-w-7xl mx-auto">

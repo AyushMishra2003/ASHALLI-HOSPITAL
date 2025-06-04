@@ -1,201 +1,170 @@
 import React from 'react';
-import { 
-  Bone, 
-  Eye, 
-  Baby, 
-  Brain, 
-  Stethoscope, 
-  Activity, 
-  Heart, 
-  Scissors, 
-  Users, 
-  Shield,
-  ArrowRight
-} from 'lucide-react';
+import { ArrowRight, Heart, Brain, Eye, Bone, Baby, Stethoscope, Activity, UserCheck } from 'lucide-react';
 
-const HomeServices = () => {
-  const primaryColor = "#18978d";
-  const secondaryColor = "#ed8022"
+const specialties = [
+  {
+    id: 1,
+    title: "Cardiology",
+    description: "Expert care for heart conditions and cardiovascular health with state-of-the-art diagnostic equipment.",
+    icon: <Heart className="w-8 h-8 text-white" />
+  },
+  {
+    id: 2,
+    title: "Neurology",
+    description: "Specialized treatment for neurological disorders and brain health with advanced imaging technology.",
+    icon: <Brain className="w-8 h-8 text-white" />
+  },
+  {
+    id: 3,
+    title: "Ophthalmology",
+    description: "Comprehensive eye care services including surgery, vision correction, and preventive treatments.",
+    icon: <Eye className="w-8 h-8 text-white" />
+  },
+  {
+    id: 4,
+    title: "Orthopedics",
+    description: "Advanced bone and joint care with minimally invasive surgical techniques and rehabilitation.",
+    icon: <Bone className="w-8 h-8 text-white" />
+  },
+  {
+    id: 5,
+    title: "Pediatrics",
+    description: "Specialized healthcare for infants, children, and adolescents with family-centered approach.",
+    icon: <Baby className="w-8 h-8 text-white" />
+  },
+  {
+    id: 6,
+    title: "Internal Medicine",
+    description: "Comprehensive primary care and management of chronic conditions for adult patients.",
+    icon: <Stethoscope className="w-8 h-8 text-white" />
+  },
+  {
+    id: 7,
+    title: "Emergency Care",
+    description: "24/7 emergency medical services with rapid response and critical care capabilities.",
+    icon: <Activity className="w-8 h-8 text-white" />
+  },
+  {
+    id: 8,
+    title: "Geriatrics",
+    description: "Specialized care for elderly patients focusing on healthy aging and quality of life.",
+    icon: <UserCheck className="w-8 h-8 text-white" />
+  }
+];
 
-  const services = [
-    {
-      name: 'Orthopaedics',
-      icon: Bone,
-      description: 'Comprehensive bone, joint, and musculoskeletal care with advanced treatment options for fractures and injuries.',
-      readMore: true,
-      link: '/department/orthopaedics',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'Ophthalmology',
-      icon: Eye,
-      description: 'Complete eye care services including vision correction, cataract surgery, and retinal treatments.',
-      readMore: true,
-      link: '/department/ophthalmology',
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'Pediatrics',
-      icon: Baby,
-      description: 'Specialized healthcare for infants, children, and adolescents with comprehensive pediatric services.',
-      readMore: true,
-      link: '/department/pediatrics',
-      image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'Neurology',
-      icon: Brain,
-      description: 'Expert diagnosis and treatment of brain, spine, and nervous system disorders using advanced technology.',
-      readMore: true,
-      link: '/department/neurology',
-      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      isSpecial: true
-    },
-    {
-      name: 'General Medicine',
-      icon: Stethoscope,
-      description: 'Comprehensive primary healthcare services for adults with focus on prevention and wellness.',
-      readMore: true,
-      link: '/department/generalmedicine',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'ENT',
-      icon: Activity,
-      description: 'Specialized care for ear, nose, and throat conditions with modern diagnostic and surgical techniques.',
-      readMore: true,
-      link: '/department/ent',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'Cardiology',
-      icon: Heart,
-      description: 'Advanced heart care including diagnosis, treatment, and prevention of cardiovascular diseases.',
-      readMore: true,
-      link: '/department/cardiology',
-      image: 'https://images.unsplash.com/photo-1628348070889-cb656235b4eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      name: 'General Surgery',
-      icon: Scissors,
-      description: 'Comprehensive surgical services using minimally invasive techniques for optimal patient outcomes.',
-      readMore: true,
-      link: '/department/generalsurgery',
-      image: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    }
-  ];
-
-  const handleViewDetails = (link) => {
-    console.log(`Navigating to: ${link}`);
-  };
-
-  const handleViewMore = () => {
-    console.log('View more departments clicked');
-  };
-
+export default function MedicalSpecialties() {
   return (
-    <div className="bg-gray-100 py-16 px-4">
-      <div className=" mx-auto container px-8">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            Quality You Can Get
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Simple, transparent pricing that grows with you. Try and plan free for 30 days.
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://www.sanjeevinihospital.com/wp-content/uploads/2022/10/background.jpg')`
+        }}
+      >
+        {/* Enhanced Gradient Overlay for better contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#18978d]/70 to-black/20"></div>
+        {/* Additional overlay for text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+
+      {/* Elegant Decorative Elements */}
+      <div className="absolute inset-0 opacity-15">
+        {/* Medical cross pattern */}
+        {/* <div className="absolute top-20 left-16 w-8 h-24 bg-white/30 rounded-full transform rotate-45"></div>
+        <div className="absolute top-32 left-28 w-24 h-8 bg-white/30 rounded-full transform rotate-45"></div> */}
+        
+        {/* Floating circles with pulse animation */}
+        {/* <div className="absolute top-10 right-20 w-16 h-16 bg-white/20 rounded-full animate-pulse"></div>
+        <div className="absolute top-60 left-10 w-20 h-20 bg-[#ed8022]/20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 right-1/4 w-12 h-12 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div> */}
+        
+        {/* Subtle geometric shapes */}
+        <div className="absolute bottom-20 left-1/3 w-32 h-32 border-2 border-white/15 rounded-full"></div>
+        <div className="absolute top-1/2 right-12 w-24 h-24 border-2 border-[#ed8022]/20 rounded-lg transform rotate-12"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-10 py-12 lg:py-20">
+        {/* Header with enhanced styling */}
+        <div className="text-center mb-16">
+          <div className="inline-block mb-2">
+            {/* <div className="w-16 h-1 bg-[#ed8022] mx-auto mb-4 rounded-full"></div> */}
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              Our Medical 
+              <span className="block text-[#ed8022] bg-gradient-to-r from-[#ed8022] to-[#f4a145] bg-clip-text text-transparent">
+                Specialties
+              </span>
+            </h1>
+            {/* <div className="w-24 h-1 bg-white/30 mx-auto rounded-full"></div> */}
+          </div>
+          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
+            Comprehensive healthcare services with expert specialists and 
+            <span className="text-[#ed8022] font-medium"> advanced medical technology</span>
           </p>
         </div>
 
-        {/* Services Grid - First 4 services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            const isSpecial = service.isSpecial;
-            
-            return (
-              <div 
-                key={index}
-                className={`rounded-3xl overflow-hidden shadow-lg transition-all duration-300 group cursor-pointer ${
-                  isSpecial 
-                    ? 'bg-gradient-to-br from-[#18978d] via-[#18978d] to-[#ed8022] text-white hover:from-purple-800 hover:to-purple-700' 
-                    : 'bg-white hover:bg-gray-50'
-                }`}
-              >
-                {/* Header with Title and Icon */}
-                <div className="px-4 py-4">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className={`text-xl font-bold leading-tight pr-4 ${
-                      isSpecial ? 'text-white' : 'text-gray-900'
-                    }`}>
-                      {service.name}
-                    </h3>
-                    <div className={`p-3 rounded-2xl flex-shrink-0 transition-all duration-300 ${
-                      isSpecial 
-                        ? 'bg-[#18978d] group-hover:bg-[#293c3b]' 
-                        : 'bg-[#18978d] group-hover:bg-[#293c3b]'
-                    }`}>
-                      <IconComponent 
-                        size={24} 
-                        className={isSpecial ? 'text-white' : 'text-[#fff] '} 
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="px-4 pb-6">
-                  <p className={`text-sm leading-relaxed ${
-                    isSpecial ? 'text-gray-200' : 'text-gray-600'
-                  }`}>
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Image */}
-                <div className="px-4 pb-6">
-                  <div className="relative overflow-hidden rounded-2xl h-40">
-                    <img 
-                      src={service.image} 
-                      alt={service.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-
-                {/* View All Details Link */}
-                <div className="px-6 pb-6">
-                  <button 
-                    onClick={() => handleViewDetails(service.link)}
-                    className={`text-sm font-medium flex items-center gap-2 transition-all duration-300 group/button ${
-                      isSpecial 
-                        ? 'text-white hover:text-pink-200' 
-                        : 'text-[#18978d] '
-                    }`}
-                  >
-                    View All Details
-                    <ArrowRight size={14} className="group-hover/button:translate-x-1 transition-transform duration-300" />
-                  </button>
+        {/* Enhanced Specialties Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 px-6">
+          {specialties.map((specialty, index) => (
+            <div
+              key={specialty.id}
+              className="group relative bg-white/15 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-white/25 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl border border-white/30 cursor-pointer overflow-hidden"
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              {/* Gradient background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#18978d]/0 to-[#ed8022]/0 group-hover:from-[#18978d]/20 group-hover:to-[#ed8022]/20 transition-all duration-500 rounded-2xl"></div>
+              
+              {/* Icon with enhanced styling */}
+              <div className="relative flex justify-center mb-6">
+                <div className="p-4 rounded-full bg-white/25 group-hover:bg-gradient-to-br group-hover:from-[#18978d] group-hover:to-[#ed8022] transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-6 shadow-lg">
+                  {specialty.icon}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Title with gradient effect */}
+              <h3 className="relative text-2xl lg:text-3xl font-bold text-white mb-5 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ed8022] group-hover:to-[#f4a145] group-hover:bg-clip-text transition-all duration-500">
+                {specialty.title}
+              </h3>
+
+              {/* Description with better spacing */}
+              <p className="relative text-white/80 text-base lg:text-lg leading-relaxed mb-8 group-hover:text-white/90 transition-colors duration-300">
+                {specialty.description}
+              </p>
+
+              {/* Enhanced button */}
+              <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-[#ed8022] to-[#f4a145] hover:from-[#d96d1a] hover:to-[#ed8022] text-white font-bold py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform group-hover:scale-105 text-base lg:text-lg shadow-lg hover:shadow-xl group-hover:shadow-[#ed8022]/25">
+                <span className="relative z-10">View Details</span>
+                <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                
+                {/* Button glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#ed8022] to-[#f4a145] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
+              </button>
+            </div>
+          ))}
         </div>
 
-
-
-        {/* View More Departments Button */}
-        <div className="text-center">
-          <button 
-            onClick={handleViewMore}
-            className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#18978d] hover:text-[#6fe3dc] flex items-center gap-3 mx-auto group"
-          >
-            View More Departments
-            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
-          </button>
+        {/* Enhanced View All Button */}
+        <div className="text-center mt-16">
+          <div className="inline-block">
+            <button className="relative group bg-gradient-to-r from-[#18978d] via-[#18978d] to-[#ed8022] hover:from-[#157068] hover:via-[#18978d] hover:to-[#d96d1a] text-white font-bold py-4 px-12 lg:py-5 lg:px-16 rounded-full text-xl lg:text-2xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-[#18978d]/30 overflow-hidden">
+              {/* Button content */}
+              <span className="relative z-10 flex items-center">
+                View All Specialties
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </span>
+              
+              {/* Animated background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#ed8022] to-[#18978d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#18978d] to-[#ed8022] opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 transform scale-110"></div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default HomeServices;
+}
