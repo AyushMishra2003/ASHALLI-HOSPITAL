@@ -11,6 +11,7 @@ import BlogPage from './pages/Blog/BlogPage'
 import BlogDetails from './pages/Blog/BlogDetail'
 import ServiceDetail from './pages/service/ServiceDetail'
 import FacilitiesComponent from './pages/facilites/Facilites'
+import AshaaliHospitalAbout from './pages/About/AboutHospital'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
    <Header/>
    <Routes>
     <Route path='/' element={<Home/>}/>
+        <Route path='/about/ashaali-hospitals' element={<AshaaliHospitalAbout/>}/>
     <Route path='/contact' element={<Contact/>}/>
     <Route path='/gallery' element={<Gallery/>}/>
     <Route path='/department/:name' element={<ServiceDetail/>}/>

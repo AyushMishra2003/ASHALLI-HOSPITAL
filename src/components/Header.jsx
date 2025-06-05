@@ -37,7 +37,7 @@ export default function Header() {
       name: 'About',
       dropdown: true,
       items: [
-        { name: 'About ASHAALI HOSPITAL  ', link: '/about/hospital' },
+        { name: 'About ASHAALI HOSPITAL  ', link: '/about/ashaali-hospitals' },
         { name: 'About Doctor', link: '/about/team' },
 
       ]
