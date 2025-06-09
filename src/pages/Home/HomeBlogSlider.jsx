@@ -95,7 +95,7 @@ const HomeBlogSlider = () => {
                                     {/* Image Container with Fixed Height */}
                                     <div className="h-48 overflow-hidden relative">
                                         <img
-                                            src={post.image}
+                                            src={"https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg"}
                                             alt={post.title}
                                             className="w-full h-full object-cover"
                                         />

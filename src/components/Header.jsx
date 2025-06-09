@@ -117,7 +117,7 @@ export default function Header() {
                     <div className="flex items-center">
                       <button
                         onClick={() => toggleDropdown(item.name)}
-                        className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200 flex items-center"
+                        className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-[#18978d] transition-colors duration-200 flex items-center"
                         style={{ whiteSpace: 'nowrap' }}
                       >
                         {item.name}
@@ -147,7 +147,7 @@ export default function Header() {
                   ) : (
                     <a
                       href={item.link}
-                      className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200"
+                      className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-[#18978d] transition-colors duration-200"
                       style={{ whiteSpace: 'nowrap' }}
                     >
                       {item.name}

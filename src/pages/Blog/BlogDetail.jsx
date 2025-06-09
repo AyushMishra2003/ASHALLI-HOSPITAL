@@ -201,7 +201,7 @@ const BlogDetails = () => {
     <div className="bg-gray-50 min-h-screen">
 
 
-      <BreadcrumbComponent headerText={currentPost?.title} items={breadcrumbItems} />
+      <BreadcrumbComponent headText={currentPost?.title} items={breadcrumbItems} />
 
       {/* Content */}
       <main className="container mx-auto lg:px-10 px-2 py-8 ">
