@@ -122,7 +122,7 @@ export default function Footer() {
                     <MapPin size={18} className="text-white" />
                   </div>
                   <span className="text-gray-200 text-sm leading-relaxed">
-                    Landmark Advance Neurospine Care Super Speciality Hospital
+                 E2/PH-7, Amrapali Yojana, Joggers Park Chauraha Lucknow, Uttar Pradesh 226003
                   </span>
                 </a>
               </div>
@@ -130,7 +130,7 @@ export default function Footer() {
               <div className="space-y-3">
                 <a href="tel:+918400136465" className="flex items-center group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300">
                   <Phone size={18} className="mr-3 text-white group-hover:scale-110 transition-transform" />
-                  <span className="text-gray-200">+91-8400136465</span>
+                  <span className="text-gray-200">+91-7897934949</span>
                 </a>
 
 
@@ -138,7 +138,7 @@ export default function Footer() {
                 <a href="mailto:info@drrahulneurosurgeon.com" className="flex items-center flex-wrap group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300 w-full">
                   <Mail size={18} className="mr-3 text-white group-hover:scale-110 transition-transform shrink-0" />
                   <span className="text-gray-200 text-sm break-all">
-                    info@drrahulneurosurgeon.com
+                     ashallihospital@gmail.com
                   </span>
                 </a>
 
@@ -168,9 +168,9 @@ export default function Footer() {
             </h2>
 
             {/* Map Container */}
-            <div className="rounded-2xl overflow-hidden h-48 bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+            <div className="rounded-2xl overflow-hidden h-60 bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.3945773634146!2d80.94440647489535!3d26.922702859662163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bff512d12f739%3A0x36467f3f86abd718!2sDr%20Rahul%20Singh%2C%20Neurosurgeon%20in%20Lucknow%20(Brain%2C%20Spine%20%26%20Peripheral%20nerve%20Surgeon)!5e0!3m2!1sen!2sin!4v1748343420506!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.386924955958!2d80.85304239678955!3d26.891212799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999550068908321%3A0xcb16c5e4e8d4779a!2sAmrapali!5e0!3m2!1sen!2sin!4v1749448452402!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 allowFullScreen=""
                 loading="lazy"
@@ -203,7 +203,7 @@ export default function Footer() {
         <div className="container mx-auto px-6 lg:px-12 py-6">
           <div className="flex flex-col md:flex-row justify-center items-center text-sm">
             <div className="mb-3 md:mb-0 text-gray-200">
-              © {year} Dr. Rahul Singh Neurosurgeon || All rights Reserved
+              © {year}       ASHAALI HOSPITAL || All rights Reserved
             </div>
             <div className="flex items-center text-gray-200 ml-1" >
               <span> Powered by: </span>

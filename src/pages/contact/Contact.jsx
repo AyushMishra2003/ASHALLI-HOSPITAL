@@ -140,7 +140,8 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                     H-No 2,  Sector-10, Indira Nagar,<br></br> Near Arbindo Park, Lucknow, Uttar Pradesh 226016
+             
+                      E2/PH-7, Amrapali Yojana Joggers Park Chauraha,<br></br> Lucknow, Uttar Pradesh 226003
                  
                     </a>
                   </div>
@@ -159,13 +160,13 @@ const Contact = () => {
                       href="tel:9190909090"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                      +91-9090909090
+                      +91-978977934948
                     </a> ,
                     <a
                       href="tel:919090909090"
                       className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
                     >
-                      +91-9090909090
+                      0522-3503390, 3503566
                     </a>
                   </div>
                 </div>
@@ -199,7 +200,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="mailto:admin@gmail.com"
+                    href="mailto:ashallihospital@gmail.com"
                     className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <MdEmail className="text-[1.4rem] text-white" />
@@ -210,7 +211,7 @@ const Contact = () => {
                       href="mailto:Sadbhawanaclinic98@gmail.com"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                      admin98@gmail.com
+                       ashallihospital@gmail.com
                     </a>
                   </div>
                 </div>

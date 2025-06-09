@@ -12,6 +12,8 @@ import BlogDetails from './pages/Blog/BlogDetail'
 import ServiceDetail from './pages/service/ServiceDetail'
 import FacilitiesComponent from './pages/facilites/Facilites'
 import AshaaliHospitalAbout from './pages/About/AboutHospital'
+import Team from './pages/About/Team'
+import TeamDetails from './pages/About/TeamDetails'
 
 export default function App() {
   return (
@@ -21,12 +23,14 @@ export default function App() {
    <Routes>
     <Route path='/' element={<Home/>}/>
         <Route path='/about/ashaali-hospitals' element={<AshaaliHospitalAbout/>}/>
+        <Route path='/about/team' element={<Team/>}/>
+            <Route path='/about/team/:name' element={<TeamDetails/>}/>
     <Route path='/contact' element={<Contact/>}/>
     <Route path='/gallery' element={<Gallery/>}/>
     <Route path='/department/:name' element={<ServiceDetail/>}/>
      <Route path='/facility/:name' element={<FacilitiesComponent/>}/>
     <Route path='/blogs' element={<BlogPage/>}/>
-    <Route path='/blog/:detail' element={<BlogDetails/>}/>
+    <Route path='/blogs/:detail' element={<BlogDetails/>}/>
     
    </Routes>
    <Footer/>

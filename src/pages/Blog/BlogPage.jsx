@@ -74,7 +74,7 @@ const BlogPage = () => {
         const slug = slugify(title);
         console.log("slug",slug);
         
-        navigate(`/blog/${slug}`);
+        navigate(`/blogs/${slug}`);
     };
 
     const breadcrumbItems = [

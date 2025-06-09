@@ -89,7 +89,7 @@ export default function Header() {
 
 
     { name: 'Gallery', link: '/gallery' },
-    {name:'Blog',link:'/blogs'},
+    { name: 'Blog', link: '/blogs' },
     { name: 'Contact Us', link: '/contact' },
   ];
 
@@ -103,59 +103,98 @@ export default function Header() {
               <img src={logo} alt="sambhawna_logo" className="w-auto h-16" />
             </div>
           </Link>
+          <div className='flex items-center'>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1 z-10">
+              {navItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative group"
+                  onMouseEnter={() => item.dropdown && setHoveredDropdown(item.name)}
+                  onMouseLeave={() => item.dropdown && setHoveredDropdown(null)}
+                >
+                  {item.dropdown ? (
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => toggleDropdown(item.name)}
+                        className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200 flex items-center"
+                        style={{ whiteSpace: 'nowrap' }}
+                      >
+                        {item.name}
+                        {activeDropdown === item.name ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
+                      </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 z-10">
-            {navItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative group"
-                onMouseEnter={() => item.dropdown && setHoveredDropdown(item.name)}
-                onMouseLeave={() => item.dropdown && setHoveredDropdown(null)}
-              >
-                {item.dropdown ? (
-                  <div className="flex items-center">
-                    <button
-                      onClick={() => toggleDropdown(item.name)}
-                      className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200 flex items-center"
+                      {(activeDropdown === item.name || hoveredDropdown === item.name) && (
+                        <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl py-0 z-10 transition-all duration-300 ease-in-out opacity-100 transform translate-y-0">
+                          <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl p-4 z-10 w-[600px]">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                              {item.items.map((subItem) => (
+                                <a
+                                  key={subItem.name}
+                                  href={subItem.link}
+                                  className="text-sm text-gray-700 hover:bg-[#02b3a8] hover:text-[#fff] px-3 py-1 rounded transition-all duration-200"
+                                >
+                                  {subItem.name}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+
+                        </div>
+
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      href={item.link}
+                      className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200"
                       style={{ whiteSpace: 'nowrap' }}
                     >
                       {item.name}
-                      {activeDropdown === item.name ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
-                    </button>
+                    </a>
+                  )}
+                </div>
+              ))}
+            </nav>
+         { false && 
 
-                    {(activeDropdown === item.name || hoveredDropdown === item.name) && (
-                      <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl py-0 z-10 transition-all duration-300 ease-in-out opacity-100 transform translate-y-0">
-                        <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl p-4 z-10 w-[600px]">
-                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                            {item.items.map((subItem) => (
-                              <a
-                                key={subItem.name}
-                                href={subItem.link}
-                                className="text-sm text-gray-700 hover:bg-[#02b3a8] hover:text-[#fff] px-3 py-1 rounded transition-all duration-200"
-                              >
-                                {subItem.name}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-
-                      </div>
-
-                    )}
-                  </div>
-                ) : (
-                  <a
-                    href={item.link}
-                    className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-pink-600 transition-colors duration-200"
-                    style={{ whiteSpace: 'nowrap' }}
-                  >
-                    {item.name}
-                  </a>
-                )}
+                            <div className="relative group">
+              <div
+                className="flex items-center text-gray-700 hover:text-[#13335b] font-medium transition-all duration-300 hover:scale-105 py-2 px-3 rounded-lg hover:bg-[#3b628b]/10 cursor-pointer"
+              >
+                Treatment Offered
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
               </div>
-            ))}
-          </nav>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#13335b] to-[#3b628b] group-hover:w-full transition-all duration-500"></div>
+
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <Link
+                  to="/treatments/brain-surgery"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
+                >
+                  {/* <Brain className="h-4 w-4 mr-2 inline" /> */}
+                  Brain Surgery
+                </Link>
+                <Link
+                  to="/treatments/spine-surgery"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
+                >
+                  Spine Surgery
+                </Link>
+                <Link
+                  to="/treatments/neuroendoscopy"
+                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
+                >
+                  Neuroendoscopy
+                </Link>
+              </div>
+            </div>
+         }
+ 
+
+          </div>
+
+
 
           {/* Appointment Button */}
           <div className="hidden lg:flex items-center z-10">

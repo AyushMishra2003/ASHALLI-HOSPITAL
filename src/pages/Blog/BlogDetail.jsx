@@ -13,33 +13,33 @@ const BlogDetails = () => {
 
   const blogPosts = [
     {
-      id: 1,
-      title: "The Importance of Regular Dental Check-ups",
-      excerpt: "Regular dental check-ups are crucial for maintaining oral health. Learn why you should visit your dentist every six months and what happens during these important appointments.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-1.jpg",
-      author: "Dr. Rahul Soni",
-      date: "April 15, 2025",
-      category: "Preventive Care",
-      content: `
-        Regular dental check-ups are a cornerstone of good oral health. Visiting your dentist every six months allows for early detection of potential issues before they become serious problems.
+     id: 1,
+  title: "Why Regular Health Check-ups Are Essential",
+  excerpt: "Routine health check-ups are vital for early detection and prevention of various health issues. Discover why visiting your general physician regularly can help you stay ahead of potential medical conditions.",
+  image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg", // you can replace with your own hospital image URL
+  author: "Dr. Rahul Soni",
+  date: "April 15, 2025",
+  category: "General Health",
+  content: `
+    Regular health check-ups play a critical role in maintaining overall well-being. Visiting your physician for a comprehensive exam every six to twelve months helps detect medical issues early, often before symptoms even appear.
 
-        During a typical check-up, your dentist will perform a thorough examination of your teeth, gums, and mouth. This includes checking for cavities, plaque, and tartar, as well as examining your gums for signs of gingivitis or other periodontal disease. Many dentists also conduct oral cancer screenings during routine visits.
+    A general check-up typically includes monitoring vital signs like blood pressure, heart rate, and temperature, as well as evaluating your weight and BMI. Your doctor may also order blood tests to assess cholesterol, blood sugar levels, liver and kidney functions, and more depending on your age and risk factors.
 
-        Professional cleaning is another important component of your dental check-up. Even with diligent brushing and flossing at home, plaque can build up in hard-to-reach areas. Your dental hygienist has specialized tools to remove this buildup effectively.
+    These appointments are an opportunity to discuss any symptoms you're experiencing, lifestyle habits, mental health concerns, or family medical history. Your physician may recommend vaccinations, screening tests (like ECG, ultrasound, or cancer screenings), or referrals to specialists as needed.
 
-        These regular visits also provide an opportunity for your dentist to offer personalized advice on improving your oral hygiene routine. They can demonstrate proper brushing and flossing techniques tailored to your specific needs.
+    For children and elderly patients, regular health check-ups ensure proper development and early management of age-related issues respectively. These visits help instill health awareness and proactive care from a young age.
 
-        For children, regular dental visits help establish comfort with dental procedures and instill good habits early. Many dental problems in adulthood can be prevented with proper care from a young age.
+    Prevention and early intervention can significantly reduce the risk of chronic conditions such as hypertension, diabetes, and heart disease. Routine health evaluations empower you to make informed choices and lead a healthier life.
 
-        Remember, prevention is always better than treatment. By maintaining a schedule of regular check-ups, you're investing in your long-term oral health and potentially avoiding more expensive and uncomfortable procedures down the road.
-      `,
-      url: "the-importance-of-regular-dental-check-ups"
+    Don’t wait for symptoms to appear — make regular check-ups a priority and invest in your long-term health today.
+  `,
+      url: "normal-delivery-and-natural-birth-care"
     },
     {
       id: 2,
       title: "Understanding Teeth Whitening Procedures",
       excerpt: "Teeth whitening has become increasingly popular. Discover the different methods available, their effectiveness, and whether professional whitening is right for you.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-1.jpg",
+    image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg",
       author: "Dr. Rahul Soni",
       date: "April 10, 2025",
       category: "Cosmetic Dentistry",
@@ -62,7 +62,7 @@ const BlogDetails = () => {
       id: 3,
       title: "How to Properly Care for Dental Implants",
       excerpt: "Dental implants require special care to ensure their longevity. Learn the best practices for maintaining your implants and keeping your smile healthy for years to come.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-3.jpg",
+    image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg",
       author: "Dr. Rahul Soni",
       date: "April 5, 2025",
       category: "Restorative Dentistry",
@@ -87,7 +87,7 @@ const BlogDetails = () => {
       id: 4,
       title: "Children's Dental Health: What Parents Should Know",
       excerpt: "Establishing good dental habits early is essential for children's oral health. Find out when to schedule their first appointment and how to make dental care fun for kids.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-2.jpg",
+      image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg",
       author: "Dr. Rahul Soni",
       date: "March 30, 2025",
       category: "Pediatric Dentistry",
@@ -112,7 +112,7 @@ const BlogDetails = () => {
       id: 5,
       title: "The Link Between Oral Health and Overall Wellness",
       excerpt: "Research continues to show connections between oral health and conditions like heart disease and diabetes. Learn how taking care of your teeth can benefit your entire body.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-1.jpg",
+   image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg",
       author: "Dr. Rahul Soni",
       date: "March 25, 2025",
       category: "Health & Wellness",
@@ -137,7 +137,7 @@ const BlogDetails = () => {
       id: 6,
       title: "Advances in Pain-Free Dentistry",
       excerpt: "Modern dental techniques have revolutionized the patient experience. Discover how new technologies are making dental visits more comfortable than ever before.",
-      image: "https://html.awaikenthemes.com/dentaire/images/post-3.jpg",
+    image: "https://img.freepik.com/free-photo/doctor-checking-patient-health-clinic_23-2149204949.jpg",
       author: "Dr. Rahul Soni",
       date: "March 20, 2025",
       category: "Technology",
@@ -166,7 +166,11 @@ const BlogDetails = () => {
 
 
   useEffect(() => {
-    const post = blogPosts.find(post => post.url === detail);
+   
+    
+    const post = blogPosts.find(post => post.url === "normal-delivery-and-natural-birth-care");
+    console.log(post);
+    
     if (!post) {
       navigate("/404");
     } else {
@@ -233,7 +237,7 @@ const BlogDetails = () => {
                 </div>
 
                 {/* Author */}
-                <div className="mt-8 p-4 bg-gray-50 rounded-lg flex items-center">
+                {/* <div className="mt-8 p-4 bg-gray-50 rounded-lg flex items-center">
                   <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-[#3F8BA1] font-bold text-xl mr-4">
                     {currentPost.author.split(' ').map(name => name[0]).join('')}
                   </div>
@@ -241,7 +245,7 @@ const BlogDetails = () => {
                     <div className="font-medium">{currentPost.author}</div>
                     <div className="text-gray-600 text-sm">Senior Dental Surgeon</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

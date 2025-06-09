@@ -203,7 +203,7 @@ const FacilitiesComponent = () => {
               <h3 className="text-lg font-bold text-red-800 mb-2">Emergency Contact</h3>
               <p className="text-red-700 text-sm mb-3">For immediate medical assistance</p>
               <div className="flex items-center justify-between">
-                <span className="text-red-800 font-bold text-lg">+91 98765 43210</span>
+                    <span className="text-red-800 font-bold text-lg">+91 7897934949</span>
                 <Phone className="w-5 h-5 text-red-600" />
               </div>
             </div>
