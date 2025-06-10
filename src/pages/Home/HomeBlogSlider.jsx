@@ -61,7 +61,7 @@ const HomeBlogSlider = () => {
 
     const handleReadMore = (title) => {
         const slug = slugify(title);
-        navigate(`/blog/${slug}`);
+        navigate(`/blogs/${slug}`);
     };
 
     const settings = {
