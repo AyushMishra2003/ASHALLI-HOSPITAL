@@ -1,10 +1,13 @@
-import React from 'react';
-import { Activity, Users, Calendar, MapPin, Phone, Stethoscope, Bone, Eye, Baby, Brain, UserCheck, Ear, Pill } from 'lucide-react';
-
+import React, { useEffect } from 'react';
+import { Activity, Users, Calendar, MapPin, Phone, Stethoscope, Bone, Eye, Baby, Brain, UserCheck, Ear, Pill, } from 'lucide-react';
 import BreadCrumbsComponent from '../../components/Breadcums';
+import { useParams } from 'react-router-dom';
+import { use } from 'react';
 
-const ServiceDetail = ({ params }) => {
+const ServiceDetail = () => {
   // Service data array
+  const params=useParams();
+  const {name}=useParams();
   const servicesData = [
     {
       id: 'cardiology',
@@ -47,7 +50,7 @@ const ServiceDetail = ({ params }) => {
     },
     {
       id: 'orthopedics',
-      url: 'orthopedics',
+      url: 'orthopaedics',
       title: 'Orthopedics Hospital in Lucknow',
       icon: Bone,
       iconColor: '#3b82f6',
@@ -335,6 +338,7 @@ const ServiceDetail = ({ params }) => {
         }
       ]
     },
+
     {
       id: 'gastroenterology',
       url: 'gastroenterology',
@@ -387,6 +391,577 @@ const ServiceDetail = ({ params }) => {
       ]
     },
 
+    //General Surgen
+    {
+      id: 'general-surgery',
+      url: 'general-surgery',
+      title: 'General Surgery Hospital in Lucknow',
+      icon: Pill, // Aap apne icon system ke according use karein
+      iconColor: '#16a34a',
+      description: {
+        intro: [
+          "General Surgery is a surgical specialty that focuses on the diagnosis, preoperative, operative, and postoperative management of a wide range of conditions affecting the abdomen, digestive tract, soft tissues, and endocrine system. It includes both emergency and elective surgical procedures aimed at treating diseases and improving quality of life.",
+          "At MedCare Hospital, one of the best multispeciality hospitals in Lucknow, our Department of General Surgery is equipped with advanced operation theatres, minimally invasive surgical technology, and state-of-the-art infrastructure to provide the highest standard of surgical care.",
+          "Our team of highly skilled general surgeons in Lucknow brings extensive expertise in laparoscopic surgeries, trauma care, gastrointestinal surgeries, hernia repair, and more. The surgeons work closely with anesthetists, radiologists, and other specialists to ensure a comprehensive treatment approach.",
+          "With patient safety and faster recovery as our primary goals, we follow strict protocols and use evidence-based practices. Whether it’s a complex abdominal surgery or a routine appendectomy, our general surgery team ensures precision and compassionate care at every step."
+        ],
+        facilitiesIntro: "At MedCare Hospital, your trusted general surgery hospital in Lucknow, we deliver comprehensive surgical solutions using the latest technology and patient-centered practices. Our team focuses on quick recovery and minimal complications to ensure better outcomes for all surgical patients."
+      },
+      facilities: [
+        {
+          title: "Laparoscopic (Keyhole) Surgery",
+          description: "Minimally invasive surgeries for appendicitis, gallbladder stones, hernia, and more, ensuring less pain, smaller scars, and quicker recovery.",
+          types: [
+            "Laparoscopic Appendectomy",
+            "Laparoscopic Cholecystectomy",
+            "Laparoscopic Hernia Repair",
+            "Diagnostic Laparoscopy",
+            "Laparoscopic Biopsy"
+          ]
+        },
+        {
+          title: "Gastrointestinal Surgery",
+          description: "Surgical management of gastrointestinal disorders including bowel obstruction, peptic ulcers, gastric tumors, and colon conditions."
+        },
+        {
+          title: "Hernia Surgery",
+          description: "Treatment for various types of hernia including inguinal, umbilical, incisional, and femoral hernia using mesh repair techniques."
+        },
+        {
+          title: "Trauma and Emergency Surgery",
+          description: "24x7 availability of general surgeons to handle trauma, internal bleeding, and abdominal injuries with quick decision-making and life-saving interventions."
+        },
+        {
+          title: "Breast and Soft Tissue Surgery",
+          description: "Surgical care for benign and malignant breast conditions, lipomas, cysts, and abscesses with cosmetic and functional consideration."
+        },
+        {
+          title: "Anorectal Surgery",
+          description: "Advanced care for piles, fissures, fistulas, and other colorectal problems with both conventional and laser treatment options."
+        }
+      ]
+    },
+    //obstetrics& Gynacology
+    {
+      id: 'obstetrics-gynecology',
+      url: 'obstetrics-gynecology',
+      title: 'Obstetrics & Gynaecology Hospital in Lucknow',
+      icon: Baby,
+      iconColor: '#d946ef',
+      description: {
+        intro: [
+          "Obstetrics & Gynaecology (OB-GYN) is a specialized medical field focused on the health and well-being of women, particularly related to reproductive health, pregnancy, childbirth, and disorders of the female reproductive system.",
+          "At MedCare Hospital, the best OB-GYN hospital in Lucknow, we provide a full spectrum of women’s healthcare services. Our experienced team of obstetricians and gynaecologists offers personalized care for women at every stage of life — from adolescence to menopause and beyond.",
+          "Our department is equipped with modern diagnostic tools, labor and delivery suites, and advanced surgical facilities. We offer comprehensive maternity care, high-risk pregnancy management, fertility treatments, and minimally invasive gynaecological surgeries.",
+          "The OB-GYN specialists at MedCare Hospital are committed to compassionate care, patient education, and empowering women to make informed healthcare decisions, ensuring optimal outcomes for both mothers and babies."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Obstetrics & Gynaecology Department in Lucknow provides expert and compassionate care for all aspects of women’s health. From pregnancy to post-menopause, our services are designed to support women at every phase with safety, comfort, and dignity."
+      },
+      facilities: [
+        {
+          title: "Maternity & Pregnancy Care",
+          description: "Comprehensive antenatal, intrapartum, and postnatal care services, including normal deliveries, cesarean sections, and high-risk pregnancy management.",
+          types: [
+            "Antenatal Checkups",
+            "Ultrasound & Foetal Monitoring",
+            "Normal & Cesarean Deliveries",
+            "High-Risk Pregnancy Care",
+            "Postnatal Care & Lactation Support",
+            "Family Planning Services"
+          ]
+        },
+        {
+          title: "Gynaecological Surgeries",
+          description: "Minimally invasive and conventional surgical treatments for gynaecological conditions such as fibroids, ovarian cysts, endometriosis, and uterine abnormalities."
+        },
+        {
+          title: "Infertility & IVF Services",
+          description: "Advanced fertility evaluation, hormonal therapy, and assisted reproductive technologies including IUI and IVF by experienced fertility specialists."
+        },
+        {
+          title: "Adolescent & Menopausal Care",
+          description: "Special care for young girls and women undergoing menopause, including counselling, hormonal management, and preventive screenings."
+        },
+        {
+          title: "Gynaecological Cancer Screening",
+          description: "Screening, diagnosis, and treatment of cervical, ovarian, and uterine cancers with modern diagnostics and multidisciplinary cancer care."
+        }
+      ]
+    },
+    //Urology & andrology
+
+    {
+      id: 'urology-andrology',
+      url: 'urology-andrology',
+      title: 'Urology & Andrology Hospital in Lucknow',
+      icon: Stethoscope,
+      iconColor: '#0ea5e9',
+      description: {
+        intro: [
+          "Urology & Andrology is a specialized medical field that deals with the diagnosis and treatment of disorders related to the male reproductive system and urinary tract in both men and women.",
+          "At MedCare Hospital, the leading Urology & Andrology hospital in Lucknow, we offer comprehensive services for kidney, bladder, urethral, and male reproductive health conditions using advanced technology and minimally invasive surgical techniques.",
+          "Our experienced team of urologists and andrologists is skilled in treating conditions such as kidney stones, prostate enlargement, urinary incontinence, male infertility, erectile dysfunction, and genital infections with precision and care.",
+          "We focus on personalized care plans that prioritize patient comfort, early diagnosis, and long-term wellness through advanced diagnostics, endoscopic procedures, laser treatments, and surgical interventions."
+        ],
+        facilitiesIntro: "The Urology & Andrology Department at MedCare Hospital in Lucknow delivers advanced and compassionate care for a wide range of urinary and male reproductive conditions, emphasizing minimally invasive treatments and expert follow-up care."
+      },
+      facilities: [
+        {
+          title: "Kidney & Bladder Care",
+          description: "Diagnosis and treatment of kidney stones, bladder infections, urinary obstruction, and chronic kidney disease with modern techniques.",
+          types: [
+            "Kidney Stone Removal (PCNL, URS, RIRS)",
+            "Bladder Infections & Cystitis",
+            "Urinary Tract Infections (UTIs)",
+            "Hydronephrosis Treatment",
+            "Nephrectomy (Kidney Removal)"
+          ]
+        },
+        {
+          title: "Prostate & Urethral Disorders",
+          description: "Comprehensive management of prostate enlargement (BPH), urethral strictures, and related urinary symptoms using endoscopic and laser procedures."
+        },
+        {
+          title: "Male Infertility Treatment",
+          description: "Advanced evaluation and treatment of male infertility including semen analysis, varicocele surgery, and hormonal therapies."
+        },
+        {
+          title: "Sexual Health & Erectile Dysfunction",
+          description: "Confidential diagnosis and treatment of erectile dysfunction, premature ejaculation, and other sexual disorders in men."
+        },
+        {
+          title: "Uro-Oncology Services",
+          description: "Diagnosis and treatment of cancers affecting the urinary tract and male reproductive organs including prostate, kidney, and bladder cancer."
+        }
+      ]
+    },
+
+    // Nephrology
+    {
+      id: 'nephrology',
+      url: 'nephrology',
+      title: 'Nephrology Hospital in Lucknow',
+      icon: Stethoscope,
+      iconColor: '#6366f1',
+      description: {
+        intro: [
+          "Nephrology is the medical specialty focused on the diagnosis and treatment of kidney-related diseases. It deals with both acute and chronic kidney conditions, including kidney failure, glomerulonephritis, nephrotic syndrome, and electrolyte imbalances.",
+          "At MedCare Hospital, the top nephrology hospital in Lucknow, our department is dedicated to delivering advanced care for patients with kidney disorders through early detection, medical management, dialysis, and kidney transplantation guidance.",
+          "Our team of experienced nephrologists utilizes state-of-the-art diagnostic tools and therapeutic techniques to manage complex renal conditions and associated systemic complications like hypertension and diabetes-induced kidney damage.",
+          "We provide personalized treatment plans for each patient, aiming to slow disease progression, maintain kidney function, and improve overall quality of life through medical and lifestyle interventions."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Nephrology Department in Lucknow is committed to offering expert care for kidney diseases with a focus on accurate diagnosis, individualized treatment, and long-term kidney health preservation."
+      },
+      facilities: [
+        {
+          title: "Chronic Kidney Disease (CKD) Management",
+          description: "Ongoing monitoring and treatment of chronic kidney disease to delay progression and manage associated conditions like hypertension and anemia.",
+          types: [
+            "Stage-wise CKD Monitoring",
+            "Lifestyle & Dietary Counseling",
+            "Medication Management",
+            "Blood Pressure Control",
+            "Diabetes-Related Kidney Care"
+          ]
+        },
+        {
+          title: "Acute Kidney Injury (AKI) Treatment",
+          description: "Emergency care and hospitalization for sudden kidney failure due to infection, trauma, or other critical conditions."
+        },
+        {
+          title: "Dialysis Services",
+          description: "Comprehensive hemodialysis and peritoneal dialysis services with trained staff, modern equipment, and infection control protocols."
+        },
+        {
+          title: "Kidney Transplant Coordination",
+          description: "Evaluation and pre/post-operative care for kidney transplant patients, including donor matching and immunosuppressive therapy."
+        },
+        {
+          title: "Electrolyte & Fluid Imbalance Treatment",
+          description: "Management of imbalances in sodium, potassium, calcium, and body fluids that commonly affect patients with kidney disorders."
+        }
+      ]
+    },
+
+    //Dental
+    {
+      id: 'dental',
+      url: 'dental',
+      title: 'Dental Hospital in Lucknow',
+      icon: Stethoscope,
+      iconColor: '#f97316',
+      description: {
+        intro: [
+          "Dental care focuses on the diagnosis, prevention, and treatment of conditions affecting the teeth, gums, and overall oral health. It plays a crucial role in maintaining general health, aesthetics, and quality of life.",
+          "At MedCare Hospital, the best dental hospital in Lucknow, we offer comprehensive oral healthcare services, including preventive dentistry, cosmetic procedures, restorative treatments, and advanced dental surgeries.",
+          "Our dental department is equipped with modern diagnostic tools like digital X-rays and intraoral cameras, ensuring precise treatment planning. Our team includes skilled dentists, orthodontists, and oral surgeons with vast clinical experience.",
+          "We follow strict sterilization and hygiene protocols to ensure patient safety and comfort. From routine check-ups to smile makeovers, our dental care is personalized, compassionate, and technologically advanced."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Dental Department in Lucknow provides complete dental solutions using the latest technologies, expert clinicians, and patient-friendly care. We prioritize your oral health with comfort and precision."
+      },
+      facilities: [
+        {
+          title: "Preventive Dentistry",
+          description: "Routine check-ups, professional cleaning, fluoride treatments, and sealants to prevent tooth decay and gum disease.",
+          types: [
+            "Dental Cleaning (Scaling & Polishing)",
+            "Oral Health Education",
+            "Pit & Fissure Sealants",
+            "Fluoride Application",
+            "Early Cavity Detection"
+          ]
+        },
+        {
+          title: "Restorative & Cosmetic Dentistry",
+          description: "Treatment of decayed, damaged, or missing teeth with fillings, crowns, veneers, teeth whitening, and smile correction."
+        },
+        {
+          title: "Orthodontics & Braces",
+          description: "Correction of misaligned teeth and jaw structure using metal, ceramic, or invisible braces (Invisalign)."
+        },
+        {
+          title: "Pediatric Dentistry",
+          description: "Comprehensive oral care for children including cavity prevention, pulpotomy, and habit-breaking appliances."
+        },
+        {
+          title: "Oral Surgery & Implants",
+          description: "Tooth extractions, impacted wisdom tooth surgery, dental implants, and treatment of jaw disorders."
+        }
+      ]
+    },
+
+    //Rheumatology
+    {
+      id: 'rheumatology',
+      url: 'rheumatology',
+      title: 'Rheumatology Hospital in Lucknow',
+      icon: Bone,
+      iconColor: '#7c3aed',
+      description: {
+        intro: [
+          "Rheumatology is a medical specialty that focuses on the diagnosis and treatment of autoimmune and inflammatory diseases that primarily affect the joints, muscles, and connective tissues.",
+          "At MedCare Hospital, the top rheumatology hospital in Lucknow, we provide expert care for conditions such as arthritis, lupus, ankylosing spondylitis, vasculitis, and other complex autoimmune disorders with a multidisciplinary approach.",
+          "Our experienced rheumatologists utilize advanced diagnostics, lab testing, and imaging to identify and manage diseases early, ensuring reduced pain, better mobility, and improved quality of life for our patients.",
+          "We offer personalized treatment plans, including immunotherapy, biologics, pain management, and physiotherapy, to help patients manage chronic symptoms and prevent long-term joint damage."
+        ],
+        facilitiesIntro: "The Rheumatology Department at MedCare Hospital in Lucknow offers advanced care for autoimmune and inflammatory diseases, combining cutting-edge treatment options with compassionate support for long-term wellness."
+      },
+      facilities: [
+        {
+          title: "Arthritis Care",
+          description: "Diagnosis and treatment of various types of arthritis including osteoarthritis, rheumatoid arthritis, and psoriatic arthritis.",
+          types: [
+            "Rheumatoid Arthritis Management",
+            "Osteoarthritis Treatment",
+            "Psoriatic Arthritis",
+            "Gout Management",
+            "Early Arthritis Clinics"
+          ]
+        },
+        {
+          title: "Autoimmune Disease Treatment",
+          description: "Comprehensive care for systemic autoimmune diseases like lupus, Sjögren’s syndrome, scleroderma, and mixed connective tissue disorders."
+        },
+        {
+          title: "Inflammatory Back Pain Management",
+          description: "Specialized care for conditions like ankylosing spondylitis and axial spondyloarthritis that cause chronic spinal inflammation."
+        },
+        {
+          title: "Biologic & Immunotherapy Treatments",
+          description: "Use of targeted biologic drugs and immunosuppressive therapies to control inflammation and prevent disease progression."
+        },
+        {
+          title: "Rehabilitation & Physiotherapy",
+          description: "Supportive therapies to enhance mobility, reduce joint stiffness, and improve function with customized rehab plans."
+        }
+      ]
+    },
+
+    //Pulmonology
+    {
+      id: 'pulmonology',
+      url: 'pulmonology',
+      title: 'Pulmonology Hospital in Lucknow',
+      icon: Stethoscope,
+      iconColor: '#0ea5e9',
+      description: {
+        intro: [
+          "Pulmonology is a medical specialty that deals with diseases involving the respiratory tract and lungs, including asthma, chronic obstructive pulmonary disease (COPD), pneumonia, tuberculosis, and sleep disorders.",
+          "At MedCare Hospital, the best pulmonology hospital in Lucknow, our department is equipped to provide advanced diagnostics and treatment for acute and chronic respiratory conditions, including interventional procedures and critical care management.",
+          "Our experienced pulmonologists work closely with radiologists and infectious disease specialists to offer comprehensive care for conditions like lung infections, fibrosis, and pleural diseases.",
+          "We use cutting-edge technologies including pulmonary function tests (PFT), bronchoscopy, and imaging to diagnose respiratory issues accurately and deliver personalized treatment for improved lung function and quality of life."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Pulmonology Department in Lucknow provides expert care for a wide range of respiratory conditions using advanced diagnostic tools, evidence-based treatment, and multidisciplinary support."
+      },
+      facilities: [
+        {
+          title: "Asthma & COPD Management",
+          description: "Diagnosis, monitoring, and long-term management of chronic respiratory diseases such as asthma and chronic obstructive pulmonary disease.",
+          types: [
+            "Pulmonary Function Testing (PFT)",
+            "Bronchodilator Therapy",
+            "Inhaler Education",
+            "COPD Rehabilitation Programs",
+            "Allergy Testing"
+          ]
+        },
+        {
+          title: "Lung Infection Treatment",
+          description: "Management of bacterial, viral, and fungal infections affecting the lungs such as pneumonia, tuberculosis, and fungal lung infections."
+        },
+        {
+          title: "Sleep Apnea & Respiratory Sleep Disorders",
+          description: "Comprehensive evaluation and treatment of sleep-related breathing disorders including obstructive sleep apnea (OSA)."
+        },
+        {
+          title: "Bronchoscopy & Thoracentesis",
+          description: "Minimally invasive procedures for diagnosing and treating lung and pleural diseases, including biopsy and fluid drainage."
+        },
+        {
+          title: "Critical Care & Ventilator Support",
+          description: "Advanced care for patients with respiratory failure and severe lung disease requiring ICU admission and ventilatory support."
+        }
+      ]
+    },
+
+    //Dermatology
+    {
+      id: 'dermatology',
+      url: 'dermatology',
+      title: 'Dermatology Hospital in Lucknow',
+      icon: UserCheck,
+      iconColor: '#eab308',
+      description: {
+        intro: [
+          "Dermatology is the branch of medicine that deals with the diagnosis and treatment of skin, hair, and nail disorders. It includes both medical and cosmetic dermatology, catering to a wide range of conditions from acne and eczema to skin cancer and cosmetic skin concerns.",
+          "At MedCare Hospital, the leading dermatology hospital in Lucknow, we provide comprehensive care using advanced laser therapies, cosmetic dermatology procedures, and clinical treatments for chronic skin diseases.",
+          "Our team of experienced dermatologists specializes in managing both acute and chronic dermatological issues, offering personalized care for conditions like psoriasis, vitiligo, fungal infections, dermatitis, and more.",
+          "We are equipped with modern diagnostic tools such as dermoscopy and patch testing, along with aesthetic technologies including laser resurfacing, skin rejuvenation, and pigmentation treatments."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Dermatology Department in Lucknow offers advanced skincare solutions using state-of-the-art technology and expert clinical care, ensuring both therapeutic and aesthetic skin health."
+      },
+      facilities: [
+        {
+          title: "General Skin Treatments",
+          description: "Diagnosis and treatment for common skin conditions such as acne, eczema, psoriasis, dermatitis, and fungal infections.",
+          types: [
+            "Acne & Pimple Care",
+            "Fungal & Bacterial Skin Infection Treatment",
+            "Psoriasis & Eczema Management",
+            "Skin Allergy Testing (Patch Test)",
+            "Skin Biopsy"
+          ]
+        },
+        {
+          title: "Cosmetic Dermatology",
+          description: "Non-invasive treatments for pigmentation, wrinkles, scars, and skin rejuvenation including chemical peels and Botox."
+        },
+        {
+          title: "Laser & Aesthetic Treatments",
+          description: "Advanced laser therapies for hair removal, skin resurfacing, tattoo removal, scar reduction, and pigmentation correction."
+        },
+        {
+          title: "Hair & Scalp Treatments",
+          description: "Care for hair loss, dandruff, alopecia areata, and PRP therapy for scalp rejuvenation and hair regrowth."
+        },
+        {
+          title: "Nail & Vitiligo Treatment",
+          description: "Specialized care for nail infections, discoloration, vitiligo management with phototherapy and topical treatments."
+        }
+      ]
+    },
+
+    //Psychiatry
+    {
+      id: 'psychiatry',
+      url: 'psychiatry',
+      title: 'Psychiatry Hospital in Lucknow',
+      icon: Brain,
+      iconColor: '#a855f7',
+      description: {
+        intro: [
+          "Psychiatry is a medical specialty focused on the diagnosis, treatment, and prevention of mental, emotional, and behavioral disorders. It encompasses everything from anxiety and depression to schizophrenia and addiction.",
+          "At MedCare Hospital, the best psychiatry hospital in Lucknow, our department is dedicated to improving mental well-being through compassionate, confidential, and evidence-based care tailored to each individual.",
+          "Our team of qualified psychiatrists, psychologists, and counselors provides a holistic approach to mental health, integrating medication, therapy, and psychosocial support to ensure recovery and long-term stability.",
+          "We offer outpatient consultations, inpatient psychiatric care, and emergency intervention services, using the latest diagnostic tools and therapeutic techniques including CBT, psychotherapy, and de-addiction programs."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Psychiatry Department in Lucknow offers comprehensive mental health services through experienced professionals, advanced therapy techniques, and a supportive healing environment."
+      },
+      facilities: [
+        {
+          title: "Anxiety & Depression Treatment",
+          description: "Diagnosis and treatment of common mood disorders through medication, cognitive-behavioral therapy (CBT), and counseling.",
+          types: [
+            "Generalized Anxiety Disorder",
+            "Major Depressive Disorder",
+            "Panic Attacks & Phobias",
+            "Postpartum Depression",
+            "CBT & Psychotherapy"
+          ]
+        },
+        {
+          title: "Child & Adolescent Psychiatry",
+          description: "Specialized care for emotional and behavioral issues in children including ADHD, autism spectrum disorders, and school anxiety."
+        },
+        {
+          title: "Psychosis & Schizophrenia Management",
+          description: "Long-term treatment and rehabilitation for serious mental illnesses like schizophrenia, bipolar disorder, and delusional disorders."
+        },
+        {
+          title: "Addiction & Substance Abuse",
+          description: "De-addiction programs for alcohol, drugs, and behavioral addictions with medication and structured rehabilitation therapy."
+        },
+        {
+          title: "Stress & Sleep Disorder Clinic",
+          description: "Management of chronic stress, burnout, insomnia, and other sleep-related issues with lifestyle therapy and relaxation techniques."
+        }
+      ]
+    },
+
+    //Oncology
+    {
+      id: 'oncology',
+      url: 'oncology',
+      title: 'Oncology Hospital in Lucknow',
+      icon: Pill,
+      iconColor: '#dc2626',
+      description: {
+        intro: [
+          "Oncology is the branch of medicine that specializes in the prevention, diagnosis, and treatment of cancer. It involves medical, surgical, and radiation therapies tailored to the type and stage of cancer.",
+          "At MedCare Hospital, the best oncology hospital in Lucknow, we offer comprehensive cancer care with state-of-the-art diagnostic tools, personalized treatment plans, and a multidisciplinary team approach.",
+          "Our Oncology Department is led by experienced medical oncologists, surgical oncologists, and radiation specialists who collaborate to deliver targeted, evidence-based treatment for all major cancer types.",
+          "We provide advanced chemotherapy, immunotherapy, radiotherapy, and palliative care, ensuring holistic cancer management with emotional and psychological support for patients and families."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Oncology Department in Lucknow delivers world-class cancer care through cutting-edge technology, expert specialists, and compassionate support throughout the treatment journey."
+      },
+      facilities: [
+        {
+          title: "Medical Oncology",
+          description: "Chemotherapy, targeted therapy, and immunotherapy for treating various cancers including breast, lung, colon, and blood cancers.",
+          types: [
+            "Daycare Chemotherapy Center",
+            "Targeted Drug Therapy",
+            "Hormonal Therapy",
+            "Immunotherapy",
+            "Hematologic Malignancy Management"
+          ]
+        },
+        {
+          title: "Surgical Oncology",
+          description: "Advanced cancer surgeries for tumor removal, reconstruction, and organ preservation by experienced surgical oncologists."
+        },
+        {
+          title: "Radiation Therapy",
+          description: "Precision radiation therapy including 3D-CRT, IMRT, IGRT, and brachytherapy for effective and safe tumor control."
+        },
+        {
+          title: "Cancer Screening & Early Detection",
+          description: "Regular cancer screening programs for breast, cervical, prostate, oral, and colon cancers to enable early diagnosis."
+        },
+        {
+          title: "Palliative & Supportive Care",
+          description: "Symptom management, pain relief, and emotional support for advanced cancer patients and their families."
+        }
+      ]
+    },
+
+    //Icu-critical-care
+    {
+      id: 'icu-critical-care',
+      url: 'icu-critical-care',
+      title: 'ICU & Critical Care Hospital in Lucknow',
+      icon: Activity,
+      iconColor: '#1d4ed8',
+      description: {
+        intro: [
+          "ICU (Intensive Care Unit) and Critical Care Medicine focus on the management of patients with life-threatening conditions requiring comprehensive and continuous monitoring and treatment.",
+          "At MedCare Hospital, the top ICU and Critical Care hospital in Lucknow, we provide state-of-the-art intensive care facilities managed by highly skilled intensivists, critical care nurses, and multidisciplinary specialists.",
+          "Our ICU is equipped with advanced life-support systems, ventilators, central monitoring, bedside imaging, and infection control infrastructure to ensure the highest level of patient safety and care.",
+          "We follow international critical care protocols and individualized treatment plans for trauma cases, cardiac arrests, sepsis, multi-organ failure, post-surgical recovery, and complex medical emergencies."
+        ],
+        facilitiesIntro: "MedCare Hospital’s ICU & Critical Care Department in Lucknow delivers 24/7 emergency and intensive care services with cutting-edge technology, rapid response, and expert clinical support."
+      },
+      facilities: [
+        {
+          title: "Advanced ICU Setup",
+          description: "Fully equipped ICUs with ventilators, cardiac monitors, infusion pumps, defibrillators, and round-the-clock monitoring.",
+          types: [
+            "Medical ICU (MICU)",
+            "Surgical ICU (SICU)",
+            "Neuro ICU",
+            "Cardiac ICU (CCU)",
+            "Isolation ICU"
+          ]
+        },
+        {
+          title: "24/7 Critical Care Team",
+          description: "Intensivists, anesthesiologists, and critical care nurses available around the clock for rapid and expert interventions."
+        },
+        {
+          title: "Emergency & Trauma Management",
+          description: "Immediate resuscitation and stabilization of patients with cardiac arrest, respiratory failure, shock, trauma, or poisoning."
+        },
+        {
+          title: "Post-Operative Intensive Monitoring",
+          description: "Careful monitoring of high-risk post-surgical patients to prevent complications and ensure safe recovery."
+        },
+        {
+          title: "Multisystem Support & Organ Monitoring",
+          description: "Support for renal failure, ventilatory care, fluid balance, infection management, and nutrition for critically ill patients."
+        }
+      ]
+    },
+
+    //Endocrinology
+    {
+      id: 'endocrinology',
+      url: 'endocrinology',
+      title: 'Endocrinology Hospital in Lucknow',
+      icon: Pill,
+      iconColor: '#a855f7',
+      description: {
+        intro: [
+          "Endocrinology is a medical specialty focusing on the diagnosis and treatment of hormone-related disorders and the endocrine system, including glands like the thyroid, pancreas, pituitary, and adrenal glands.",
+          "At MedCare Hospital, the top endocrinology hospital in Lucknow, our department offers comprehensive care for patients with hormonal imbalances and metabolic disorders through advanced diagnostics and personalized treatments.",
+          "Our team of experienced endocrinologists and diabetologists use cutting-edge technology and evidence-based care for managing chronic conditions such as diabetes, thyroid disorders, PCOS, osteoporosis, and growth issues.",
+          "We aim to restore hormonal balance and improve quality of life through lifestyle modification, medication, and continuous monitoring tailored to each patient's condition."
+        ],
+        facilitiesIntro: "MedCare Hospital’s Endocrinology Department in Lucknow delivers expert care for endocrine disorders with precision diagnostics, specialist doctors, and patient-centered treatment plans."
+      },
+      facilities: [
+        {
+          title: "Diabetes Management",
+          description: "Comprehensive evaluation and treatment plans for Type 1, Type 2, and gestational diabetes with glucose monitoring and insulin therapy.",
+          types: [
+            "Blood Sugar Monitoring",
+            "HbA1c Testing",
+            "Insulin Pump Therapy",
+            "Diabetes Education & Diet Counseling"
+          ]
+        },
+        {
+          title: "Thyroid Disorder Treatment",
+          description: "Diagnosis and treatment of hypothyroidism, hyperthyroidism, goiter, and thyroid nodules with hormonal therapy and imaging."
+        },
+        {
+          title: "Hormonal Imbalance Management",
+          description: "Management of adrenal, pituitary, and parathyroid disorders through lab testing, medication, and hormonal replacement therapies."
+        },
+        {
+          title: "PCOS & Reproductive Endocrinology",
+          description: "Diagnosis and treatment of Polycystic Ovary Syndrome (PCOS) and other hormonal issues affecting fertility in women."
+        },
+        {
+          title: "Osteoporosis & Growth Disorders",
+          description: "Evaluation and treatment for bone density loss, delayed growth in children, and other metabolic bone conditions."
+        }
+      ]
+    }
+
+
+
+
+
   ];
 
   const specialties = [
@@ -397,7 +972,19 @@ const ServiceDetail = ({ params }) => {
     "GENERAL SURGERY",
     "CARDIOLOGY",
     "ICU",
-    "GASTROENTEROLOGY"
+    "GASTROENTEROLOGY",
+    "General-Surgery",
+    "Obstetrics-Gynecology",
+    "Urology-Andrology",
+    "Nephrology",
+    "Dental",
+    "Rheumatology",
+    "Pulmonology",
+    "Dermatology",
+    "Psychiatry",
+    "Oncology",
+    "Icu-Critical-Care",
+    "Endocrinology"
   ];
 
   const breadcrumbItems = [
@@ -408,14 +995,25 @@ const ServiceDetail = ({ params }) => {
 
   // Get service data based on URL parameter (default to orthopedics - index 1)
   const getServiceData = () => {
-    if (params?.service) {
-      const service = servicesData.find(s => s.url === params.service);
+      console.log("params",params.name);
+      
+    if (params?.name) {
+      console.log("Department apge",);
+      const service = servicesData.find((s) =>{ 
+          console.log(s.url); 
+        return s.url === name
+      });
       return service || servicesData[1]; // Default to orthopedics if not found
     }
-    return servicesData[1]; // Default to orthopedics (index 1)
+    // return servicesData[1]; // Default to orthopedics (index 1)
   };
-
+  useEffect(()=>{
+     getServiceData();
+  },[name])
+           
   const currentService = getServiceData();
+   console.log("currentService",currentService);
+   
   const IconComponent = currentService.icon;
 
   return (

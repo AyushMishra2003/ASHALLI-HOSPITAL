@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Header from './components/Header'
 import TopHeader from './components/TopHeader'
@@ -17,23 +17,23 @@ import TeamDetails from './pages/About/TeamDetails'
 
 export default function App() {
   return (
-   <>
-   <TopHeader/>
-   <Header/>
-   <Routes>
-    <Route path='/' element={<Home/>}/>
-        <Route path='/about/ashaali-hospitals' element={<AshaaliHospitalAbout/>}/>
-        <Route path='/about/team' element={<Team/>}/>
-            <Route path='/about/team/:name' element={<TeamDetails/>}/>
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/gallery' element={<Gallery/>}/>
-    <Route path='/department/:name' element={<ServiceDetail/>}/>
-     <Route path='/facility/:name' element={<FacilitiesComponent/>}/>
-    <Route path='/blogs' element={<BlogPage/>}/>
-    <Route path='/blogs/:detail' element={<BlogDetails/>}/>
-    
-   </Routes>
-   <Footer/>
-   </>
+    <>
+      <TopHeader />
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about/ashaali-hospitals' element={<AshaaliHospitalAbout />} />
+        <Route path='/about/team' element={<Team />} />
+        <Route path='/about/team/:name' element={<TeamDetails />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/department/:name' element={<ServiceDetail />} />
+        <Route path='/facility/:name' element={<FacilitiesComponent />} />
+        <Route path='/blogs' element={<BlogPage />} />
+        <Route path='/blogs/:detail' element={<BlogDetails />} />
+
+      </Routes>
+      <Footer />
+    </>
   )
 }

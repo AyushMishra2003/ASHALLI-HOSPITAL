@@ -5,7 +5,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const BreadCrumbsComponent = ({ items, headText ,image}) => {
 
-  console.log(headText);
+  // console.log(headText);
   
   
   // Initialize AOS
