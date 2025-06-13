@@ -1,170 +1,148 @@
 import React from 'react';
-import { ArrowRight, Heart, Brain, Eye, Bone, Baby, Stethoscope, Activity, UserCheck } from 'lucide-react';
+import img from '../assets/department/cardiology.png'
+import img1 from '../assets/department/body-parts.png'
+import img2 from '../assets/department/pediatrics.png'
+import img3 from '../assets/department/neurology.png'
+import img4 from '../assets/department/first-aid-kit.png'
+import img5 from '../assets/department/ent.png'
+import img6 from '../assets/department/ortopedic.png'
+import img7 from '../assets/department/surgical.png'
+import img8 from '../assets/department/obstetrics.png'
+import img9 from '../assets/department/urology.png'
+import img10 from '../assets/department/nephrology.png'
+import img11 from '../assets/department/dental-implant.png'
+import img12 from '../assets/department/rheumatology.png'
+import img13 from '../assets/department/pulmonology.png'
+import img14 from '../assets/department/skin.png'
+import img15 from '../assets/department/human-brain.png'
+import img16 from '../assets/department/oncology.png'
+import img17 from '../assets/department/icu.png'
 
-const specialties = [
-  {
-    id: 1,
-    title: "Cardiology",
-    description: "Expert care for heart conditions and cardiovascular health with state-of-the-art diagnostic equipment.",
-    icon: <Heart className="w-8 h-8 text-white" />
-  },
-  {
-    id: 2,
-    title: "Neurology",
-    description: "Specialized treatment for neurological disorders and brain health with advanced imaging technology.",
-    icon: <Brain className="w-8 h-8 text-white" />
-  },
-  {
-    id: 3,
-    title: "Ophthalmology",
-    description: "Comprehensive eye care services including surgery, vision correction, and preventive treatments.",
-    icon: <Eye className="w-8 h-8 text-white" />
-  },
-  {
-    id: 4,
-    title: "Orthopedics",
-    description: "Advanced bone and joint care with minimally invasive surgical techniques and rehabilitation.",
-    icon: <Bone className="w-8 h-8 text-white" />
-  },
-  {
-    id: 5,
-    title: "Pediatrics",
-    description: "Specialized healthcare for infants, children, and adolescents with family-centered approach.",
-    icon: <Baby className="w-8 h-8 text-white" />
-  },
-  {
-    id: 6,
-    title: "Internal Medicine",
-    description: "Comprehensive primary care and management of chronic conditions for adult patients.",
-    icon: <Stethoscope className="w-8 h-8 text-white" />
-  },
-  {
-    id: 7,
-    title: "Emergency Care",
-    description: "24/7 emergency medical services with rapid response and critical care capabilities.",
-    icon: <Activity className="w-8 h-8 text-white" />
-  },
-  {
-    id: 8,
-    title: "Geriatrics",
-    description: "Specialized care for elderly patients focusing on healthy aging and quality of life.",
-    icon: <UserCheck className="w-8 h-8 text-white" />
-  }
-];
 
-export default function MedicalSpecialties() {
+
+
+
+
+const SpecialistSection = () => {
+  const primaryColor = "#18978d";
+  const secondaryColor = "#ed8022";
+
+  const specialists = [
+    { name: 'Orthopaedics', image: img6 },
+    { name: 'Ophthalmology', image: img1 },
+    { name: 'Pediatrics', image: img2 },
+    { name: 'Neurology', image: img3 },
+    { name: 'General Medicine', image: img4 },
+    { name: 'ENT', image: img5 },
+    { name: 'Cardiology', image: img },
+    { name: 'General Surgery', image: img7 },
+    { name: 'Obstetrics & Gynaecology', image: img8 },
+    { name: 'Urology & Andrology', image: img9 },
+    { name: 'Nephrology', image: img10 },
+    { name: 'Dental', image: img11 },
+    { name: 'Rheumatology', image: img12 },
+    { name: 'Pulmonology', image: img13 },
+    { name: 'Dermatology', image: img14 },
+    { name: 'Psychiatry', image: img15 },
+    { name: 'Oncology', image: img16 },
+    { name: 'ICU and Critical Care', image: img17 },
+    // { name: 'Endocrinology', image: img }
+  ];
+
+
+
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://www.sanjeevinihospital.com/wp-content/uploads/2022/10/background.jpg')`
-        }}
-      >
-        {/* Enhanced Gradient Overlay for better contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#18978d]/70 to-black/20"></div>
-        {/* Additional overlay for text readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
-      </div>
-
-      {/* Elegant Decorative Elements */}
-      <div className="absolute inset-0 opacity-15">
-        {/* Medical cross pattern */}
-        {/* <div className="absolute top-20 left-16 w-8 h-24 bg-white/30 rounded-full transform rotate-45"></div>
-        <div className="absolute top-32 left-28 w-24 h-8 bg-white/30 rounded-full transform rotate-45"></div> */}
-        
-        {/* Floating circles with pulse animation */}
-        {/* <div className="absolute top-10 right-20 w-16 h-16 bg-white/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-60 left-10 w-20 h-20 bg-[#ed8022]/20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 right-1/4 w-12 h-12 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div> */}
-        
-        {/* Subtle geometric shapes */}
-        <div className="absolute bottom-20 left-1/3 w-32 h-32 border-2 border-white/15 rounded-full"></div>
-        <div className="absolute top-1/2 right-12 w-24 h-24 border-2 border-[#ed8022]/20 rounded-lg transform rotate-12"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-10 py-12 lg:py-20">
-        {/* Header with enhanced styling */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-2">
-            {/* <div className="w-16 h-1 bg-[#ed8022] mx-auto mb-4 rounded-full"></div> */}
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Our Medical 
-              <span className="block text-[#ed8022] bg-gradient-to-r from-[#ed8022] to-[#f4a145] bg-clip-text text-transparent">
-                Specialties
-              </span>
-            </h1>
-            {/* <div className="w-24 h-1 bg-white/30 mx-auto rounded-full"></div> */}
+    <div className="bg-gray-50 py-12 md:py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-10 md:mb-12 px-4">
+          {/* Small colored heading at top */}
+          <div className="mb-3 md:mb-4">
+            <span
+              className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
+              style={{
+                color: primaryColor,
+                borderColor: primaryColor,
+                backgroundColor: `${primaryColor}10` // Light background
+              }}
+            >
+              Healthcare Excellence
+            </span>
           </div>
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-            Comprehensive healthcare services with expert specialists and 
-            <span className="text-[#ed8022] font-medium"> advanced medical technology</span>
+
+          {/* Main SEO heading */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight">
+            <span style={{ color: primaryColor }}>Best Specialists</span>
+            <span className="text-gray-800"> in </span>
+            <span style={{ color: primaryColor }}>Lucknow</span>
+          </h1>
+
+          {/* Optional subtitle for better SEO */}
+          <p className="text-gray-600 text-base md:text-lg mt-4 max-w-2xl mx-auto">
+            Discover world-class medical specialists and advanced healthcare services in Lucknow
           </p>
         </div>
 
-        {/* Enhanced Specialties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 px-6">
-          {specialties.map((specialty, index) => (
+        {/* Specialists Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+          {specialists.map((specialist, index) => (
             <div
-              key={specialty.id}
-              className="group relative bg-white/15 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-white/25 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl border border-white/30 cursor-pointer overflow-hidden"
+              key={index}
+              className="bg-white rounded-xl p-4 md:py-3 md:px-2  text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-gray-100 hover:border-opacity-0 transform hover:-translate-y-2"
               style={{
-                animationDelay: `${index * 0.1}s`
+                '--hover-shadow': `0 20px 40px rgba(24, 151, 141, 0.15)`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(24, 151, 141, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '';
               }}
             >
-              {/* Gradient background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#18978d]/0 to-[#ed8022]/0 group-hover:from-[#18978d]/20 group-hover:to-[#ed8022]/20 transition-all duration-500 rounded-2xl"></div>
-              
-              {/* Icon with enhanced styling */}
-              <div className="relative flex justify-center mb-6">
-                <div className="p-4 rounded-full bg-white/25 group-hover:bg-gradient-to-br group-hover:from-[#18978d] group-hover:to-[#ed8022] transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-6 shadow-lg">
-                  {specialty.icon}
+              {/* Image Container */}
+              <div className="flex justify-center mb-3 md:mb-4">
+                <div
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  style={{
+                    backgroundColor: `${primaryColor}15`,
+                    border: `2px solid ${primaryColor}30`
+                  }}
+                >
+                  <img
+                    src={specialist.image}
+                    alt={specialist.name}
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
               </div>
 
-              {/* Title with gradient effect */}
-              <h3 className="relative text-2xl lg:text-3xl font-bold text-white mb-5 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ed8022] group-hover:to-[#f4a145] group-hover:bg-clip-text transition-all duration-500">
-                {specialty.title}
+              {/* Specialist Name */}
+              <h3
+                className="text-xs md:text-sm lg:text-base font-semibold leading-tight transition-colors duration-300 group-hover:font-bold"
+                style={{
+                  color: '#374151',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = secondaryColor;
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = '#374151';
+                }}
+              >
+                {specialist.name}
               </h3>
 
-              {/* Description with better spacing */}
-              <p className="relative text-white/80 text-base lg:text-lg leading-relaxed mb-8 group-hover:text-white/90 transition-colors duration-300">
-                {specialty.description}
-              </p>
-
-              {/* Enhanced button */}
-              <button className="relative inline-flex items-center justify-center bg-gradient-to-r from-[#ed8022] to-[#f4a145] hover:from-[#d96d1a] hover:to-[#ed8022] text-white font-bold py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform group-hover:scale-105 text-base lg:text-lg shadow-lg hover:shadow-xl group-hover:shadow-[#ed8022]/25">
-                <span className="relative z-10">View Details</span>
-                <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-                
-                {/* Button glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#ed8022] to-[#f4a145] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-              </button>
+              {/* Hover Effect Indicator */}
+              <div
+                className="w-0 h-0.5 mx-auto mt-2 transition-all duration-300 group-hover:w-8"
+                style={{ backgroundColor: secondaryColor }}
+              ></div>
             </div>
           ))}
-        </div>
-
-        {/* Enhanced View All Button */}
-        <div className="text-center mt-16">
-          <div className="inline-block">
-            <button className="relative group bg-gradient-to-r from-[#18978d] via-[#18978d] to-[#ed8022] hover:from-[#157068] hover:via-[#18978d] hover:to-[#d96d1a] text-white font-bold py-4 px-12 lg:py-5 lg:px-16 rounded-full text-xl lg:text-2xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-[#18978d]/30 overflow-hidden">
-              {/* Button content */}
-              <span className="relative z-10 flex items-center">
-                View All Specialties
-                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-              </span>
-              
-              {/* Animated background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#ed8022] to-[#18978d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#18978d] to-[#ed8022] opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 transform scale-110"></div>
-            </button>
-          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default SpecialistSection;

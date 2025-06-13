@@ -1,285 +1,292 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ChevronUp, Calendar, Microscope, Heart } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, User, Phone, MessageSquare, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg'
 
-import { Link } from 'react-router-dom';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [hoveredDropdown, setHoveredDropdown] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleDropdown = (dropdown) => {
-    if (activeDropdown === dropdown) {
-      setActiveDropdown(null);
-    } else {
-      setActiveDropdown(dropdown);
-    }
-  };
-
-  const navItems = [
-    { name: 'Home', link: '/' },
-    {
-      name: 'About',
-      dropdown: true,
-      items: [
-        { name: 'About ASHAALI HOSPITAL  ', link: '/about/ashaali-hospitals' },
-        { name: 'Our Team', link: '/about/team' },
-
-      ]
-    },
-    {
-      name: 'Department',
-      dropdown: true,
-      items: [
-        { name: 'Orthopaedics', link: '/department/orthopaedics' },
-        { name: 'Ophthalmology', link: '/department/ophthalmology' },
-        { name: 'Pediatrics', link: '/department/pediatrics' },
-        { name: 'Neurology', link: '/department/neurology' },
-        { name: 'General Medicine', link: '/department/generalmedicine' },
-        { name: 'ENT', link: '/department/ent' },
-        { name: 'Cardiology', link: '/department/cardiology' },
-        { name: 'General Surgery', link: '/department/generalsurgery' },
-        { name: 'Obstetrics & Gynaecology', link: '/department/obstetricsandgynaecology' },
-        { name: 'Urology & Andrology', link: '/department/urologyandandrology' },
-        { name: 'Nephrology', link: '/department/nephrology' },
-        { name: 'Dental', link: '/department/dental' },
-        { name: 'Rheumatology', link: '/department/rheumatology' },
-        { name: 'Pulmonology', link: '/department/pulmonology' },
-        { name: 'Dermatology', link: '/department/dermatology' },
-        { name: 'Psychiatry', link: '/department/psychiatry' },
-        { name: 'Oncology', link: '/department/oncology' },
-        { name: 'ICU and Critical Care', link: '/department/icuandcriticalcare' },
-        { name: 'Endocrinology', link: '/department/endocrinology' }
-      ]
-    },
-    {
-      name: 'Facilities',
-      dropdown: true,
-      items: [
-        { name: 'ICU', link: '/facility/icu' },
-        { name: 'NICU', link: '/facility/nicu' },
-        { name: 'Emergency', link: '/facility/emergency' },
-        { name: 'Ventilator', link: '/facility/ventilator' },
-        { name: 'Ambulance', link: '/facility/ambulance' },
-        { name: 'X-ray', link: '/facility/xray' },
-        { name: 'Pathology', link: '/facility/pathology' },
-        { name: 'General Ward', link: '/facility/generalward' },
-        { name: 'Private', link: '/facility/private' },
-        { name: 'Semi Private', link: '/facility/semiprivate' },
-        { name: 'Deluxe', link: '/facility/deluxe' },
-        { name: 'Physiotherapy', link: '/facility/physiotherapy' },
-        { name: 'Canteen', link: '/facility/canteen' }
-      ]
-    },
-
-
-    { name: 'Gallery', link: '/gallery' },
-    { name: 'Blog', link: '/blogs' },
-    { name: 'Contact Us', link: '/contact' },
+const SahyadriHeader = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSpecialtiesOpen, setIsSpecialtiesOpen] = useState(false);
+    const [isFacilityOpen, setIsFacility] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const specialties = [
+    // Column 1
+    ['Orthopaedics', 'Ophthalmology', 'Pediatrics', 'Neurology', 'General Medicine'],
+    // Column 2  
+    ['ENT', 'Cardiology', 'General Surgery', 'Obstetrics & Gynaecology', 'Urology & Andrology'],
+    // Column 3
+    ['Nephrology', 'Dental', 'Rheumatology', 'Pulmonology', 'Dermatology'],
+    // Column 4
+    ['Psychiatry', 'Oncology', 'ICU and Critical Care']
   ];
 
+const facilites = [
+  // Column 1
+  ['ICU', 'NICU', 'Emergency', 'Ventilator', 'Ambulance'],
+  // Column 2
+  ['Xray', 'Pathology', 'General Ward', 'Private', 'Semi Private'],
+  // Column 3
+  ['Deluxe', 'Physiotherapy', 'Canteen']
+];
+
+
+
   return (
-    <header className={``}>
-      <div className="relative w-full mx-auto px-2">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to={"/"}>
-            <div className="flex items-center z-10 ">
-              <img src={logo} alt="sambhawna_logo" className="w-auto h-16" />
+    <div className="w-full">
+      {/* Top Bar */}
+      <div className="bg-gray-100  py-2 text-sm">
+        <div className="container mx-auto ">
+          {/* Mobile Layout */}
+          <div className="flex flex-col space-y-2 md:hidden">
+            <div className="flex items-center justify-center gap-2 text-gray-600">
+              <span className="text-xs">Emergency/Appointment</span>
+              <span className="text-red-600 font-semibold">+91 88888 22222</span>
             </div>
-          </Link>
-          <div className='flex items-center'>
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1 z-10">
-              {navItems.map((item) => (
-                <div
-                  key={item.name}
-                  className="relative group"
-                  onMouseEnter={() => item.dropdown && setHoveredDropdown(item.name)}
-                  onMouseLeave={() => item.dropdown && setHoveredDropdown(null)}
-                >
-                  {item.dropdown ? (
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => toggleDropdown(item.name)}
-                        className="px-0 xl:px-4 py-2 text-gray-700 font-medium hover:text-[#18978d] transition-colors duration-200 flex items-center"
-                        style={{ whiteSpace: 'nowrap' }}
-                      >
-                        {item.name}
-                        {activeDropdown === item.name ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
-                      </button>
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                <Phone className="text-white w-3 h-3" />
+              </div>
+              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <MessageSquare className="text-white w-3 h-3" />
+              </div>
+              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                <User className="text-white w-3 h-3" />
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2 justify-center">
+              {/* <button className="px-4 py-1.5 border border-[#18978d] text-[#18978d] rounded-md hover:bg-red-50 transition-colors text-xs">
+                Home Care
+              </button> */}
+              <button className="px-4 py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-xs w-full">
+                Book Appointment
+              </button>
+            </div>
+          </div>
 
-                      {(activeDropdown === item.name || hoveredDropdown === item.name) && (
-                        <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl py-0 z-10 transition-all duration-300 ease-in-out opacity-100 transform translate-y-0">
-                          <div className="absolute top-full left-0 bg-white  rounded-lg shadow-xl p-4 z-10 w-[600px]">
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                              {item.items.map((subItem) => (
-                                <a
-                                  key={subItem.name}
-                                  href={subItem.link}
-                                  className="text-sm text-gray-700 hover:bg-[#02b3a8] hover:text-[#fff] px-3 py-1 rounded transition-all duration-200"
-                                >
-                                  {subItem.name}
-                                </a>
-                              ))}
-                            </div>
-                          </div>
+          {/* Desktop/Tablet Layout */}
+          <div className="hidden md:flex items-center justify-between px-10">
+            <div className="flex items-center gap-2 text-gray-600">
+              <span className="hidden lg:inline">For Emergency Ambulance/Appointment</span>
+              <span className="lg:hidden">Emergency</span>
+              <span className="text-red-600 font-semibold">+91 88888 22222</span>
+              {/* <span className="hidden lg:inline">Second Opinion</span> */}
+            </div>
 
-                        </div>
+            <div className="flex items-center gap-4">
 
-                      )}
-                    </div>
-                  ) : (
-                    <a
-                      href={item.link}
-                      className="xl:px-4 px-2 py-2 text-gray-700 font-medium hover:text-[#18978d] transition-colors duration-200"
-                      style={{ whiteSpace: 'nowrap' }}
-                    >
-                      {item.name}
-                    </a>
-                  )}
+              <div className="relative xl:block hidden">
+                <input
+                  type="text"
+                  placeholder="Search doctor here"
+                  className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              </div>
+              {/* Emergency Contacts */}
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
+                  <User className="text-white w-4 h-4" />
                 </div>
-              ))}
-            </nav>
-         { false && 
-
-                            <div className="relative group">
-              <div
-                className="flex items-center text-gray-700 hover:text-[#13335b] font-medium transition-all duration-300 hover:scale-105 py-2 px-3 rounded-lg hover:bg-[#3b628b]/10 cursor-pointer"
-              >
-                Treatment Offered
-                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center">
+                  <MessageSquare className="text-white w-4 h-4" />
+                </div>
+                <div className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
+                  <Phone className="text-white w-4 h-4" />
+                </div>
               </div>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#13335b] to-[#3b628b] group-hover:w-full transition-all duration-500"></div>
 
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <Link
-                  to="/treatments/brain-surgery"
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
-                >
-                  {/* <Brain className="h-4 w-4 mr-2 inline" /> */}
-                  Brain Surgery
-                </Link>
-                <Link
-                  to="/treatments/spine-surgery"
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
-                >
-                  Spine Surgery
-                </Link>
-                <Link
-                  to="/treatments/neuroendoscopy"
-                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-[#3b628b]/10 hover:text-[#13335b] transition-all duration-300"
-                >
-                  Neuroendoscopy
-                </Link>
+              {/* Action Buttons */}
+              <div className="flex gap-2">
+                {/* <button className="px-4 py-1.5 border border-[#18978d] text-[#18978d] rounded-md hover:bg-red-50 transition-colors text-sm">
+                  Home Care
+                </button> */}
+                <button className="px-4 py-1.5 bg-[#18978d] lg:block xl:hidden text-white rounded-md transition-colors text-sm">
+                  Book Appointment
+                </button>
               </div>
             </div>
-         }
- 
-
-          </div>
-
-
-
-          {/* Appointment Button */}
-          <div className="hidden lg:flex items-center z-10">
-            <a
-              href="/appoitment"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-[#18978d] to-[#ed8022]  text-white font-medium rounded-full flex items-center hover:bg-pink-600 transition-colors shadow-md"
-            >
-              <Calendar size={18} className="mr-2" />
-              Appointment
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center z-10">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-pink-500 hover:bg-pink-50 focus:outline-none"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden relative bg-white shadow-lg border-t border-pink-100 mt-2 z-20">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <div key={item.name} className="w-full">
-                {item.dropdown ? (
-                  <div>
-                    <button
-                      onClick={() => toggleDropdown(item.name)}
-                      className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium hover:bg-pink-50 hover:text-pink-600 transition-colors duration-200"
-                    >
-                      {item.name}
-                      {activeDropdown === item.name ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                    </button>
+      {/* Main Header */}
+      <div className="bg-white shadow-sm">
+        <div className="container mx-auto ">
+          <div className="flex items-center justify-between px-10">
+            {/* Logo */}
+            <div className="">
+              <img src={logo} alt="ashalli-hospital" />
+            </div>
 
-                    {activeDropdown === item.name && (
-                      <div className="pl-4 py-2 space-y-1 bg-pink-50 rounded-md">
-                        {item.items.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.link}
-                            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 hover:text-pink-600 transition-colors duration-200"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+              <div className="text-gray-700 hover:text-teal-600 cursor-pointer font-medium">
+                Home
+              </div>
+              <div
+                className="relative"
+                onMouseEnter={() => setIsOpen(true)}
+                onMouseLeave={() => setIsOpen(false)}
+              >
+                <div className="flex items-center gap-1 text-gray-700 hover:text-teal-600 cursor-pointer">
+                  <span>About</span>
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+
+                {isOpen && (
+                  <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
+                    <ul className="py-2 text-sm text-gray-700">
+                      <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
+                        About Ashalli Hospital
+                      </li>
+                      <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
+                        About Team
+                      </li>
+                    </ul>
                   </div>
-                ) : (
-                  <a
-                    href={item.link}
-                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-50 hover:text-pink-600 transition-colors duration-200"
-                  >
-                    {item.name}
-                  </a>
                 )}
               </div>
-            ))}
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="flex flex-col space-y-3">
-                <a
-                  href="/contact"
-                  className="px-4 py-2 bg-gradient-to-r from-[#02B3A8] to-[#ed8022] text-white font-medium rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200 shadow-md"
-                >
-                  <Calendar size={18} className="mr-2" />
-                  Make Appointment
-                </a>
-                <a
-                  href="/home-collection"
-                  className="px-4 py-2 bg-white text-pink-500 border-2 border-pink-500 font-medium rounded-full flex items-center justify-center hover:bg-pink-50 transition-colors duration-200 shadow-md"
-                >
-                  <Microscope size={18} className="mr-2" />
-                  Home Collection
-                </a>
+              <div
+                className="relative flex items-center gap-1 text-gray-700 hover:text-teal-600 cursor-pointer"
+                onMouseEnter={() => setIsSpecialtiesOpen(true)}
+                onMouseLeave={() => setIsSpecialtiesOpen(false)}
+              >
+                <span className="text-gray-700 font-medium">Specialties</span>
+                <ChevronDown className="w-4 h-4" />
+
+                {/* Specialties Dropdown */}
+                {isSpecialtiesOpen && (
+                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl border rounded-lg px-4 py-2 z-50 w-screen max-w-3xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {specialties.map((column, columnIndex) => (
+                        <div key={columnIndex} className="space-y-2">
+                          {column.map((specialty, index) => (
+                            <div
+                              key={index}
+                              className={`text-sm cursor-pointer hover:text-red-500 transition-colors py-1 ${specialty === 'MomStory' ? 'text-red-500 font-medium' : 'text-gray-700'
+                                }`}
+                            >
+                              {specialty}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
+            
+                          <div
+                className="relative flex items-center gap-1 text-gray-700 hover:text-teal-600 cursor-pointer"
+                onMouseEnter={() => setIsFacility(true)}
+                onMouseLeave={() => setIsFacility(false)}
+              >
+                <span className="text-gray-700 font-medium">Facility</span>
+                <ChevronDown className="w-4 h-4" />
+
+                {/* Specialties Dropdown */}
+                {isFacilityOpen && (
+                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl border rounded-lg px-4 py-2 z-50 w-screen max-w-3xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {facilites.map((column, columnIndex) => (
+                        <div key={columnIndex} className="space-y-2">
+                          {column.map((specialty, index) => (
+                            <div
+                              key={index}
+                              className={`text-sm cursor-pointer hover:text-red-500 transition-colors py-1 ${specialty === 'MomStory' ? 'text-red-500 font-medium' : 'text-gray-700'
+                                }`}
+                            >
+                              {specialty}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+
+
+
+              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+                Gallery
+              </div>
+              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+                Blogs
+              </div>
+              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+                Contact Us
+              </div>
+              {/* <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+                Patients Story
+              </div> */}
+              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+                Find A Doctor
+              </div>
+            </nav>
+
+            <button className="px-4 hidden xl:block   py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-sm">
+              Book Appointment
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 hover:bg-gray-100 rounded"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Search Bar */}
+          <div className="lg:hidden pb-3">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search doctor here"
+                className="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+              />
+              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden border-t bg-white">
+              <nav className="py-4 space-y-3">
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Home
+                </div>
+                <div className="flex items-center justify-between text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  <span>About</span>
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+                <div className="flex items-center justify-between text-gray-700  font-medium cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  <span>Specialties</span>
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Gallery
+                </div>
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Blogs
+                </div>
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Contact Us
+                </div>
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Patients Story
+                </div>
+                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                  Find A Doctor
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
-      )}
-    </header>
+      </div>
+    </div>
   );
-}
+};
+
+export default SahyadriHeader;

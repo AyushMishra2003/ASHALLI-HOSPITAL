@@ -1,222 +1,145 @@
-import { useState } from 'react';
-import {
-  Facebook,
-  Twitter,
-  Youtube,
-  Linkedin,
-  Instagram,
-  Mail,
-  Phone,
-  MapPin,
-  ChevronRight,
-  Clock,
-  Star
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-export default function Footer() {
-  const [year] = useState(new Date().getFullYear());
-
+const Footer = () => {
   return (
-    <footer className="relative" style={{ background: 'linear-gradient(135deg, #18978d 0%, #3b628b 100%)' }}>
-      {/* Decorative Top Border */}
-      <div className="h-1 bg-gradient-to-r from-white via-blue-200 to-white"></div>
-
-      {/* Main Footer Section */}
-      <div className="container mx-auto px-6 lg:px-12 py-16">
+    <footer className="bg-gray-900 text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {/* Column 1: About */}
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-                <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
-                  <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#13335b' }}></div>
-                </div>
-                About Us
-              </h2>
-
-              {/* Logo placeholder */}
-              <div className="mb-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="h-12 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold">
-                  ASHAALI HOSPITAL
+          
+          {/* Hospital Info Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
+                <span className="text-white font-bold text-lg">+</span>
+              </div>
+              <h2 className="text-xl font-bold text-white">Ashali</h2>
+            </div>
+            
+            <div className="space-y-3 text-gray-300">
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">1</span>
+                <div>
+                  <p className="font-semibold text-white">Hospital name</p>
+                  <p className="text-sm">Ashali Hospitals, Private Limited</p>
                 </div>
               </div>
-
-              <p className="text-gray-200 text-sm leading-relaxed">
-                Providing specialized  care with advanced techniques and compassionate service for all patients.
-              </p>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
-              <div className="flex space-x-3">
-                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
-                  <Facebook size={18} className="text-white group-hover:scale-110 transition-transform" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
-                  <Youtube size={18} className="text-white group-hover:scale-110 transition-transform" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
-                  <Linkedin size={18} className="text-white group-hover:scale-110 transition-transform" />
-                </a>
-                <a href="#" className="group bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
-                  <Instagram size={18} className="text-white group-hover:scale-110 transition-transform" />
-                </a>
+              
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">2</span>
+                <div>
+                  <p className="font-semibold text-white">Emergency & Appointment</p>
+                  <p className="text-sm">+91 88888 22222</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">3</span>
+                <div>
+                  <p className="font-semibold text-white">General Enquiry</p>
+                  <p className="text-sm">+91 88888 22222</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">4</span>
+                <div>
+                  <p className="font-semibold text-white">Email Us</p>
+                  <p className="text-sm">feedback@ashalihospitals.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">5</span>
+                <div>
+                  <p className="font-semibold text-white">FAX No.</p>
+                  <p className="text-sm">+91 20 6721 5098</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-2">
+                <span className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">6</span>
+                <div>
+                  <p className="font-semibold text-white">Registered Office</p>
+                  <p className="text-sm">S.N. 89 & 90, Plot No. 54, Lokmanya Colony, Kothrud, Lucknow 411038, Uttar Pradesh, India</p>
+                  <p className="text-sm mt-1">Corporate Identity Number (CIN): U85110PN1996PTC099499</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Navigate */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
-                <ChevronRight size={16} style={{ color: '#13335b' }} />
-              </div>
-              Navigate
-            </h2>
-            <ul className="space-y-3">
-              {[
-                { label: "About Dr. ASHAALI HOSPITAL", link: "/about" },
-                { label: "Service 1", link: "/treatments/Service 1" },
-                { label: "Service 1", link: "/treatments/Service 1" },
-                { label: "NService 1", link: "/treatments/Service 1" },
-                { label: "Photo Gallery", link: "/gallery/photos" },
-                { label: "Video Gallery", link: "/gallery/videos" },
-                { label: "Blog", link: "/blog" },
-
-                { label: "Testimonial", link: "/testimonials" },
-                { label: "Contact Us", link: "/contact" },
-
-
-              ].map((item, index) => (
-                <li key={index} className="group">
-                  <a
-                    href={item.link}
-                    className="flex items-center text-gray-200 hover:text-white transition-all duration-300 hover:translate-x-2"
-                  >
-                    <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:scale-125 transition-transform"></div>
-                    <span className="text-sm">{item.label}</span>
-                  </a>
-                </li>
-              ))}
+          {/* Specialties Section */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white border-b border-gray-700 pb-2">Specialties</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li>Orthopaedics</li>
+              <li>Ophthalmology</li>
+              <li>Pediatrics</li>
+              <li>Neurology</li>
+              <li>General Medicine</li>
+              <li>ENT</li>
+              <li>Cardiology</li>
+              <li>General Surgery</li>
+              <li>Obstetrics & Gynaecology</li>
+              <li>Urology & Andrology</li>
+              <li>Nephrology</li>
+              <li>Dental</li>
+              <li>Rheumatology</li>
+              <li>Pulmonology</li>
+              <li>Dermatology</li>
             </ul>
-
           </div>
 
-          {/* Column 3: Connect */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
-                <Phone size={16} style={{ color: '#13335b' }} />
-              </div>
-              Connect
-            </h2>
-
-            <div className="space-y-4">
-              <div className="group bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 w-full">
-                <a
-                  href="https://www.google.co.in/maps/place/Dr+Rahul+Singh,+Neurosurgeon+in+Lucknow+(Brain,+Spine+%26+Peripheral+nerve+Surgeon)/@26.9227029,80.9444065,17z/data=!3m1!4b1!4m6!3m5!1s0x399bff512d12f739:0x36467f3f86abd718!8m2!3d26.9226981!4d80.9469814!16s%2Fg%2F11rd2pc7wg?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D" className="flex items-start" >
-                  <div className="mr-3 mt-1">
-                    <MapPin size={18} className="text-white" />
-                  </div>
-                  <span className="text-gray-200 text-sm leading-relaxed">
-                 E2/PH-7, Amrapali Yojana, Joggers Park Chauraha Lucknow, Uttar Pradesh 226003
-                  </span>
-                </a>
-              </div>
-
-              <div className="space-y-3">
-                <a href="tel:+918400136465" className="flex items-center group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300">
-                  <Phone size={18} className="mr-3 text-white group-hover:scale-110 transition-transform" />
-                  <span className="text-gray-200">+91-7897934949</span>
-                </a>
-
-
-                
-                <a href="mailto:info@drrahulneurosurgeon.com" className="flex items-center flex-wrap group bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:border-white/20 transition-all duration-300 w-full">
-                  <Mail size={18} className="mr-3 text-white group-hover:scale-110 transition-transform shrink-0" />
-                  <span className="text-gray-200 text-sm break-all">
-                     ashallihospital@gmail.com
-                  </span>
-                </a>
-
-
-
-                <div className="flex items-center bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10">
-                  <Clock size={18} className="mr-3 text-white" />
-                  <span className="text-gray-200">10AM - 8PM</span>
-                </div>
-              </div>
-            </div>
-            {/* 
-            <div className="mt-6">
-              <a href="#" className="inline-block bg-white hover:bg-gray-100 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1" style={{ color: '#13335b' }}>
-                Admin Login
-              </a>
-            </div> */}
+          {/* Facilities & Services Section */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white border-b border-gray-700 pb-2">Facilities & Services</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li>Find A Doctor</li>
+              <li>Book Appointment</li>
+              <li>Medical Services</li>
+              <li>Patient Testimonials</li>
+              <li>Pay Online</li>
+              <li>Advance Cancer Treatment</li>
+              <li>Laser Angioplasty</li>
+              <li>Minimally Invasive Cardiac Surgery</li>
+              <li>Joint Replacement Surgery</li>
+              <li>Robotic Surgery</li>
+              <li>International Patients</li>
+              <li>Emergency Services</li>
+            </ul>
           </div>
 
-          {/* Column 4: Map & Rating */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6 flex items-center text-white">
-              <div className="w-8 h-8 bg-gradient-to-r from-white to-blue-100 rounded-full flex items-center justify-center mr-3">
-                <MapPin size={16} style={{ color: '#13335b' }} />
-              </div>
-              Find Us
-            </h2>
-
-            {/* Map Container */}
-            <div className="rounded-2xl overflow-hidden h-60 bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.386924955958!2d80.85304239678955!3d26.891212799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999550068908321%3A0xcb16c5e4e8d4779a!2sAmrapali!5e0!3m2!1sen!2sin!4v1749448452402!5m2!1sen!2sin"
-                className="w-full h-full border-0"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-
-
-            {/* Google Rating */}
-            {/* <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-              <p className="text-gray-200 text-sm mb-2">Google Rating</p>
-              <div className="flex items-center justify-center mb-2">
-                <span className="text-2xl font-bold text-white mr-2">5.0</span>
-                <div className="flex text-white">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs text-gray-300">Based on patient reviews</p>
-            </div> */}
-
-
+          {/* Quick Links Section */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white border-b border-gray-700 pb-2">Quick Links</h3>
+            <ul className="space-y-2 text-gray-300 text-sm">
+              <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">About Ashali</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">About Team</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Gallery</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Blogs</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Patients Story</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Career</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Consult Doctors Online</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Terms & Conditions</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Refund and Cancellation Policy</a></li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      {/* Copyright Bar */}
-      <div className="bg-black/20 backdrop-blur-sm border-t border-white/10">
-        <div className="container mx-auto px-6 lg:px-12 py-6">
-          <div className="flex flex-col md:flex-row justify-center items-center text-sm">
-            <div className="mb-3 md:mb-0 text-gray-200">
-              © {year}       ASHAALI HOSPITAL || All rights Reserved
+        {/* Bottom Section */}
+        <div className="border-t border-gray-700 mt-4 pt-6">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0">
+            <div className="text-gray-400 text-sm">
+              © 2025 Ashali Hospitals Developed By  Code Crafter Web Solutions
             </div>
-            <div className="flex items-center text-gray-200 ml-1" >
-              <span> Powered by: </span>
-              <span className="ml-2 font-semibold text-white">
-                <a href='https://www.codecrafter.co.in/'>
-                  Code Crafter Web Solution
-                </a>
-
-              </span>
-            </div>
+          
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

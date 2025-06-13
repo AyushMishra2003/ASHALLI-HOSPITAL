@@ -8,10 +8,10 @@ const Testinomial = () => {
         <section className="bg-white py-10 px-4">
             <div className="max-w-7xl mx-auto text-center">
 
-                <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-4" style={{ color: secondaryColor }}>
+                <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-4 text-center" style={{ color: secondaryColor }}>
                     Our Testimonial
                 </h2>
-                <p className="text-lg max-w-3xl mx-auto mb-10" style={{ color: primaryColor }}>
+                <p className="text-lg max-w-3xl mx-auto mb-10 text-justify md:text-center" style={{ color: primaryColor }}>
                    Ashalli Hospital is a skilled  based in Lucknow. His expertise and compassionate care make patients feel truly supported throughout their treatment journey.
                 </p>
 

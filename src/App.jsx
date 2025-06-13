@@ -18,7 +18,7 @@ import TeamDetails from './pages/About/TeamDetails'
 export default function App() {
   return (
     <>
-      <TopHeader />
+      {/* <TopHeader /> */}
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

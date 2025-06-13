@@ -13,23 +13,28 @@ import HowWeWork from '../components/HowWeWork'
 import Testinomial from '../components/Testonomial'
 import HomeBlogSlider from './Home/HomeBlogSlider'
 import HospitalFacilities from './Home/Facilites'
+import StatsComponent from '../components/StatsComponent'
+import HomeFeatures from './Home/HomeFeature'
+import HospitalDoctorsCTA from './Home/HomeCta'
 
 export default function Home() {
   return (
     <div className=''>
-    <HeroSlider/>
-    <AboutSection/>
-    <SpecialtiesSection/>
-      <WhyChooseUs/>
-    {/* <CTASection/> */}
-    <ClinicStats/>
-    <HospitalFacilities/>
-  
-    {/* <CTA/> */}
-    <HowWeWork/>
-    <Testinomial/>
-    <HomeBlogSlider/>
-    {/* <TeamSection/> */}
+      <HeroSlider />
+      <HomeFeatures />
+      <AboutSection />
+      <StatsComponent />
+      <SpecialtiesSection />
+      <WhyChooseUs />
+      {/* <CTASection/> */}
+       <HospitalDoctorsCTA/>
+      <HospitalFacilities />
+
+      {/* <CTA/> */}
+      {/* <HowWeWork/> */}
+      <Testinomial />
+      <HomeBlogSlider />
+      {/* <TeamSection/> */}
 
     </div>
   )
