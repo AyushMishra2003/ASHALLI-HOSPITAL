@@ -114,7 +114,7 @@ const facilites = [
           <div className="flex items-center justify-between px-10">
             {/* Logo */}
             <div className="">
-              <img src={logo} alt="ashalli-hospital" />
+              <img src={logo} alt="Ashaali-hospital" />
             </div>
 
             {/* Desktop Navigation */}
@@ -136,7 +136,7 @@ const facilites = [
                   <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
                     <ul className="py-2 text-sm text-gray-700">
                       <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
-                        About Ashalli Hospital
+                        About Ashaali Hospital
                       </li>
                       <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
                         About Team

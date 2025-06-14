@@ -153,7 +153,7 @@ const HomeBlogSlider = () => {
                 <div className="slick-equal-height px-4 ">
                     <Slider {...settings} >
                         {blogPosts.map(post => (
-                            <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+                            <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-fit">
                                 {/* Image Section */}
                                 <div className="relative h-48 overflow-hidden">
                                     <img

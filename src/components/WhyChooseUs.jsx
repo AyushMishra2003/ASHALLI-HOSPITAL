@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, TrendingUp, DollarSign, Search, Clock } from 'lucide-react';
 
-const WhyChooseAshalli = () => {
+const WhyChooseAshaali = () => {
   const features = [
     {
       icon: <Users className="w-12 h-12 text-[#18978d]" />,
@@ -27,7 +27,7 @@ const WhyChooseAshalli = () => {
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            Why Choose <span className="text-[#18978d]">Ashalli Hospital</span>?
+            Why Choose <span className="text-[#18978d]">Ashaali Hospital</span>?
           </h2>
           <div className="w-24 h-1 bg-[#18978d] mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-justify  lg:text-center">
@@ -67,4 +67,4 @@ const WhyChooseAshalli = () => {
   );
 };
 
-export default WhyChooseAshalli;
+export default WhyChooseAshaali;

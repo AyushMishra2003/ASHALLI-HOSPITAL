@@ -200,7 +200,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="mailto:ashallihospital@gmail.com"
+                    href="mailto:Ashaalihospital@gmail.com"
                     className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <MdEmail className="text-[1.4rem] text-white" />
@@ -211,7 +211,7 @@ const Contact = () => {
                       href="mailto:Sadbhawanaclinic98@gmail.com"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
-                       ashallihospital@gmail.com
+                       Ashaalihospital@gmail.com
                     </a>
                   </div>
                 </div>
