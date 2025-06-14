@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Search, User, Phone, MessageSquare, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg'
+import { Link } from 'react-router-dom';
 
 
 const SahyadriHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSpecialtiesOpen, setIsSpecialtiesOpen] = useState(false);
-    const [isFacilityOpen, setIsFacility] = useState(false);
+  const [isFacilityOpen, setIsFacility] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const specialties = [
     // Column 1
@@ -19,14 +20,14 @@ const SahyadriHeader = () => {
     ['Psychiatry', 'Oncology', 'ICU and Critical Care']
   ];
 
-const facilites = [
-  // Column 1
-  ['ICU', 'NICU', 'Emergency', 'Ventilator', 'Ambulance'],
-  // Column 2
-  ['Xray', 'Pathology', 'General Ward', 'Private', 'Semi Private'],
-  // Column 3
-  ['Deluxe', 'Physiotherapy', 'Canteen']
-];
+  const facilites = [
+    // Column 1
+    ['ICU', 'NICU', 'Emergency', 'Ventilator', 'Ambulance'],
+    // Column 2
+    ['Xray', 'Pathology', 'General Ward', 'Private', 'Semi Private'],
+    // Column 3
+    ['Deluxe', 'Physiotherapy', 'Canteen']
+  ];
 
 
 
@@ -119,9 +120,9 @@ const facilites = [
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <div className="text-gray-700 hover:text-teal-600 cursor-pointer font-medium">
+              <Link to="/" className="text-gray-700 hover:text-teal-600 cursor-pointer font-medium">
                 Home
-              </div>
+              </Link>
               <div
                 className="relative"
                 onMouseEnter={() => setIsOpen(true)}
@@ -136,10 +137,10 @@ const facilites = [
                   <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
                     <ul className="py-2 text-sm text-gray-700">
                       <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
-                        About Ashaali Hospital
+                        <Link to="/about/ashaali-hospitals">About Ashaali Hospital</Link>
                       </li>
                       <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
-                        About Team
+                        <Link to="/about/team">About Team</Link>
                       </li>
                     </ul>
                   </div>
@@ -160,13 +161,11 @@ const facilites = [
                       {specialties.map((column, columnIndex) => (
                         <div key={columnIndex} className="space-y-2">
                           {column.map((specialty, index) => (
-                            <div
-                              key={index}
-                              className={`text-sm cursor-pointer hover:text-red-500 transition-colors py-1 ${specialty === 'MomStory' ? 'text-red-500 font-medium' : 'text-gray-700'
-                                }`}
-                            >
-                              {specialty}
-                            </div>
+                            <Link to={`/department/${specialty.toLowerCase().replace(/\s+/g, '-')}`}>
+                              <div className="text-sm cursor-pointer hover:text-red-500 transition-colors py-1 text-gray-700">
+                                {specialty}
+                              </div>
+                            </Link>
                           ))}
                         </div>
                       ))}
@@ -174,8 +173,8 @@ const facilites = [
                   </div>
                 )}
               </div>
-            
-                          <div
+
+              <div
                 className="relative flex items-center gap-1 text-gray-700 hover:text-teal-600 cursor-pointer"
                 onMouseEnter={() => setIsFacility(true)}
                 onMouseLeave={() => setIsFacility(false)}
@@ -190,13 +189,11 @@ const facilites = [
                       {facilites.map((column, columnIndex) => (
                         <div key={columnIndex} className="space-y-2">
                           {column.map((specialty, index) => (
-                            <div
-                              key={index}
-                              className={`text-sm cursor-pointer hover:text-red-500 transition-colors py-1 ${specialty === 'MomStory' ? 'text-red-500 font-medium' : 'text-gray-700'
-                                }`}
-                            >
-                              {specialty}
-                            </div>
+                            <Link to={`/facility/${specialty.toLowerCase().replace(/\s+/g, '-')}`}>
+                              <div className="text-sm cursor-pointer hover:text-red-500 transition-colors py-1 text-gray-700">
+                                {specialty}
+                              </div>
+                            </Link>
                           ))}
                         </div>
                       ))}
@@ -208,21 +205,21 @@ const facilites = [
 
 
 
-              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+              <Link to="/gallery" className="text-gray-700 hover:text-teal-600 cursor-pointer">
                 Gallery
-              </div>
-              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+              </Link>
+
+              <Link to="/blogs" className="text-gray-700 hover:text-teal-600 cursor-pointer">
                 Blogs
-              </div>
-              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+              </Link>
+
+              <Link to="/contact" className="text-gray-700 hover:text-teal-600 cursor-pointer">
                 Contact Us
-              </div>
-              {/* <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
-                Patients Story
-              </div> */}
-              <div className="text-gray-700 hover:text-teal-600 cursor-pointer">
+              </Link>
+
+              <Link to="/about/team" className="text-gray-700 hover:text-teal-600 cursor-pointer">
                 Find A Doctor
-              </div>
+              </Link>
             </nav>
 
             <button className="px-4 hidden xl:block   py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-sm">

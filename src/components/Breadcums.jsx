@@ -1,53 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-
-const BreadCrumbsComponent = ({ items, headText ,image}) => {
-
-  // console.log(headText);
-  
-  
-  // Initialize AOS
-  useEffect(() => {
-  
-  }, []);
-
+const BreadCrumbs = ({ items, headText }) => {
   return (
-    <div
-      className="relative flex flex-col items-center justify-center py-16 lg:py-24 bg-cover bg-center"
-      style={{ backgroundImage: `url(${"https://drmanasaggarwal.com/assets/doctorbg-ZBek6QDT.jpg"})` }} // Background image
- 
-    >
-      {/* Dark overlay */}
-      {/* <div className="absolute inset-0 bg-black  bg-opacity-80 z-10"></div> */}
-
+    <div className="bg-white py-4 px-6 rounded-lg border border-b-2  ">
       {/* Heading */}
-      <h1 className="text-black text-center relative  sora-600 px-4 mb-4 text-3xl" >
-        {headText}
-      </h1>
+      <h1 className="text-xl font-semibold text-gray-800 mb-2">{headText}</h1>
 
       {/* Breadcrumb navigation */}
-      <nav className="flex items-center relative  space-x-1 px-4 text-black text-2xl lg:text-base">
+      <nav className="flex items-center text-gray-600 text-sm">
         {items?.map((item, index) => (
           <React.Fragment key={index}>
-            {index > 0 && (
-              <span className="text-black">
-                <MdKeyboardArrowRight className="text-lg lg:text-xl mt-[0.2rem]" />
-              </span>
-            )}
+            {index > 0 && <MdKeyboardArrowRight className="text-gray-500 mx-1" />}
             {item.href ? (
-              <Link
-                to={item.href}
-                className="hover:text-white transition-colors"
-          
-              >
+              <Link to={item.href} className="text-blue-600 hover:underline">
                 {item.label}
               </Link>
             ) : (
-              <span className="font-semibold text-black" >
-                {item.label}
-              </span>
+              <span className="font-medium text-gray-800">{item.label}</span>
             )}
           </React.Fragment>
         ))}
@@ -56,4 +27,4 @@ const BreadCrumbsComponent = ({ items, headText ,image}) => {
   );
 };
 
-export default BreadCrumbsComponent;
+export default BreadCrumbs;

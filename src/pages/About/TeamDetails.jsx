@@ -116,7 +116,7 @@ const TeamDetails = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* <BreadCrumbsComponent items={breadcrumbItems} headText={"Doctor Details"} /> */}
+      <BreadCrumbsComponent items={breadcrumbItems} headText={"Doctor Details"} />
       
       {/* Doctor Profile Header */}
       <div className="bg-gradient-to-r from-[#18978d] to-[#ed8022] py-16 px-4">

@@ -1,262 +1,162 @@
-import React from 'react'
-import BreadCrumbsComponent from '../../components/Breadcums'
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import BreadCrumbs from '../../components/Breadcums';
+import { Link } from 'react-router-dom';
 
 const Team = () => {
-  const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us' },
-  ];
-
-  const teamMembers = [
+  const doctors = [
     {
       id: 1,
-      name: "Dr. Sarah Johnson",
-      specialization: "Cardiologist",
-      qualification: "MD, FACC",
-      experience: "15+ Years",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face",
-      bio: "Specialized in interventional cardiology with expertise in complex cardiac procedures.",
-      phone: "+1 (555) 123-4567",
-      email: "dr.sarah@hospital.com"
+      name: "Dr. B Ramesh",
+      title: "Founder & Medical Director of Ashalli Group of Hospitals",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
+      description: "Dr. B Ramesh is an internationally acclaimed gynaecologist, having a significant presence both academically and clinically all over the World with extensive experience as faculty at national & International Conference & Workshop. He has performed more than 100,000 major Gynae laparoscopic Surgeries which are rare feat for any surgeon to achieve today anywhere worldwide. Dr. B. Ramesh is also the first gynaecologist to perform 3D laparoscopic surgeries in India.",
+      isMain: true
     },
     {
       id: 2,
-      name: "Dr. Michael Chen",
-      specialization: "Neurologist",
-      qualification: "MD, PhD",
-      experience: "12+ Years",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
-      bio: "Expert in neurosurgery and treatment of complex neurological disorders.",
-      phone: "+1 (555) 234-5678",
-      email: "dr.michael@hospital.com"
+      name: "Dr. Priya SP Patil",
+      title: "Consultant Gynaec & Fertility Specialist",
+      image: "https://images.unsplash.com/photo-1594824475480-8acf1ca3b8e9?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 3,
-      name: "Dr. Emily Rodriguez",
-      specialization: "Pediatrician",
-      qualification: "MD, FAAP",
-      experience: "10+ Years",
-      image: "https://images.unsplash.com/photo-1594824804732-5f670d7a5569?w=400&h=400&fit=crop&crop=face",
-      bio: "Dedicated to providing comprehensive healthcare for children and adolescents.",
-      phone: "+1 (555) 345-6789",
-      email: "dr.emily@hospital.com"
+      name: "Dr. Darshana Reddy",
+      title: "Consultant - Internal Medicine & Diabetologist",
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 4,
-      name: "Dr. James Wilson",
-      specialization: "Orthopedic Surgeon",
-      qualification: "MD, FAAOS",
-      experience: "18+ Years",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=400&fit=crop&crop=face",
-      bio: "Specializes in joint replacement surgery and sports medicine injuries.",
-      phone: "+1 (555) 456-7890",
-      email: "dr.james@hospital.com"
+      name: "Dr. Harish Puranik",
+      title: "HOD & Consultant - Orthopedics",
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 5,
-      name: "Dr. Lisa Thompson",
-      specialization: "Dermatologist",
-      qualification: "MD, FAAD",
-      experience: "8+ Years",
-      image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&h=400&fit=crop&crop=face",
-      bio: "Expert in cosmetic and medical dermatology with focus on skin cancer prevention.",
-      phone: "+1 (555) 567-8901",
-      email: "dr.lisa@hospital.com"
-    },
-    {
-      id: 6,
-      name: "Dr. Robert Kumar",
-      specialization: "General Surgeon",
-      qualification: "MD, FACS",
-      experience: "20+ Years",
-      image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=400&h=400&fit=crop&crop=face",
-      bio: "Experienced in minimally invasive surgical techniques and emergency surgery.",
-      phone: "+1 (555) 678-9012",
-      email: "dr.robert@hospital.com"
+      name: "Dr Mahendra M",
+      title: "Consultant- Neurosurgeon",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop&crop=face"
     },
         {
-      id: 1,
-      name: "Dr. Sarah Johnson",
-      specialization: "Cardiologist",
-      qualification: "MD, FACC",
-      experience: "15+ Years",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face",
-      bio: "Specialized in interventional cardiology with expertise in complex cardiac procedures.",
-      phone: "+1 (555) 123-4567",
-      email: "dr.sarah@hospital.com"
-    },
-    {
       id: 2,
-      name: "Dr. Michael Chen",
-      specialization: "Neurologist",
-      qualification: "MD, PhD",
-      experience: "12+ Years",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
-      bio: "Expert in neurosurgery and treatment of complex neurological disorders.",
-      phone: "+1 (555) 234-5678",
-      email: "dr.michael@hospital.com"
+      name: "Dr. Priya SP Patil",
+      title: "Consultant Gynaec & Fertility Specialist",
+      image: "https://images.unsplash.com/photo-1594824475480-8acf1ca3b8e9?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 3,
-      name: "Dr. Emily Rodriguez",
-      specialization: "Pediatrician",
-      qualification: "MD, FAAP",
-      experience: "10+ Years",
-      image: "https://images.unsplash.com/photo-1594824804732-5f670d7a5569?w=400&h=400&fit=crop&crop=face",
-      bio: "Dedicated to providing comprehensive healthcare for children and adolescents.",
-      phone: "+1 (555) 345-6789",
-      email: "dr.emily@hospital.com"
+      name: "Dr. Darshana Reddy",
+      title: "Consultant - Internal Medicine & Diabetologist",
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 4,
-      name: "Dr. James Wilson",
-      specialization: "Orthopedic Surgeon",
-      qualification: "MD, FAAOS",
-      experience: "18+ Years",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=400&fit=crop&crop=face",
-      bio: "Specializes in joint replacement surgery and sports medicine injuries.",
-      phone: "+1 (555) 456-7890",
-      email: "dr.james@hospital.com"
+      name: "Dr. Harish Puranik",
+      title: "HOD & Consultant - Orthopedics",
+      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=200&h=200&fit=crop&crop=face"
     },
     {
       id: 5,
-      name: "Dr. Lisa Thompson",
-      specialization: "Dermatologist",
-      qualification: "MD, FAAD",
-      experience: "8+ Years",
-      image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&h=400&fit=crop&crop=face",
-      bio: "Expert in cosmetic and medical dermatology with focus on skin cancer prevention.",
-      phone: "+1 (555) 567-8901",
-      email: "dr.lisa@hospital.com"
-    },
-    {
-      id: 6,
-      name: "Dr. Robert Kumar",
-      specialization: "General Surgeon",
-      qualification: "MD, FACS",
-      experience: "20+ Years",
-      image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=400&h=400&fit=crop&crop=face",
-      bio: "Experienced in minimally invasive surgical techniques and emergency surgery.",
-      phone: "+1 (555) 678-9012",
-      email: "dr.robert@hospital.com"
+      name: "Dr Mahendra M",
+      title: "Consultant- Neurosurgeon",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop&crop=face"
     }
   ];
 
+  const mainDoctor = doctors.find(doctor => doctor.isMain);
+  const otherDoctors = doctors.filter(doctor => !doctor.isMain);
+
   
-  const navigate=useNavigate()
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Team" },
+  ];
+
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <BreadCrumbsComponent items={breadcrumbItems} headText={"About Team"} />
+    <section>
+       <BreadCrumbs headText={"Our Best Team"} items={breadcrumbItems}/>
+           <div className="w-full bg-gray-50 py-8 md:py-12 px-4">
+     
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2">
+            <span className="text-[#18978d]">Doctors & Specialists</span>{' '}
+            <span className="text-gray-600">At Ashalli</span>
+          </h2>
+        </div>
 
-
-
-
-      {/* Team Members Section */}
-      <div className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our Medical Professionals
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#18978d] to-[#ed8022] mx-auto mb-6"></div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Each member of our team brings years of experience and specialized knowledge 
-              to ensure you receive the highest quality healthcare.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group hover:-translate-y-2 cursor-pointer"
-                onClick={()=>navigate("/about/team/name")}
-              >
-                {/* Image Container */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Social/Contact Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="flex justify-center space-x-3">
-                      <button className="bg-[#18978d] hover:bg-[#ed8022] text-white p-3 rounded-full transition-colors duration-300">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                        </svg>
-                      </button>
-                      <button className="bg-[#18978d] hover:bg-[#ed8022] text-white p-3 rounded-full transition-colors duration-300">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="text-center mb-4">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-[#ed8022] font-semibold text-lg mb-1">
-                      {member.specialization}
-                    </p>
-                    <p className="text-[#18978d] font-medium">
-                      {member.qualification}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-center">
-                      <span className="bg-[#18978d]/10 text-[#18978d] px-3 py-1 rounded-full text-sm font-medium">
-                        {member.experience} Experience
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 text-center">
-                    {member.bio}
-                  </p>
-
-                  {/* Contact Info */}
-                  <div className="border-t pt-4 space-y-2">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <svg className="w-4 h-4 mr-2 text-[#18978d]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                      </svg>
-                      {member.phone}
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <svg className="w-4 h-4 mr-2 text-[#18978d]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                      </svg>
-                      {member.email}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <button   onClick={()=>navigate("/about/team/name")}   className="w-full mt-4 bg-gradient-to-r from-[#18978d] to-[#ed8022] text-white py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                      View More
-                  </button>
-                </div>
+        {/* Main Doctor Profile */}
+        <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-4 md:p-6 lg:p-8 mb-8 md:mb-12">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* Doctor Image */}
+            <div className="flex flex-col items-center lg:items-start flex-shrink-0">
+              <div className="w-64 md:w-72 lg:w-80 h-48 md:h-56 lg:h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden shadow-sm">
+                <img 
+                  src={mainDoctor?.image} 
+                  alt={mainDoctor?.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              <div className="mt-4">
+                <button className="text-[#18978d] font-semibold hover:text-[#147a71] transition-colors duration-200 text-sm md:text-base underline decoration-2 underline-offset-4">
+                  VIEW FULL PROFILE
+                </button>
+              </div>
+            </div>
+
+            {/* Doctor Info */}
+            <div className="flex-1 text-center lg:text-left">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#18978d] mb-3">
+                {mainDoctor?.name}
+              </h3>
+              <p className="text-gray-600 font-medium mb-4 md:mb-6 text-base md:text-lg">
+                {mainDoctor?.title}
+              </p>
+              <p className="text-gray-700 leading-relaxed text-sm md:text-base lg:text-base line-height-7">
+                {mainDoctor?.description}
+              </p>
+            </div>
           </div>
         </div>
+
+        {/* Other Doctors Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+          {otherDoctors.map((doctor) => (
+            <div key={doctor.id} className="bg-white rounded-2xl shadow-md border border-gray-100 p-4 md:p-6 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+              {/* Doctor Avatar */}
+              <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-sm">
+                <img 
+                  src={doctor.image} 
+                  alt={doctor.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Doctor Info */}
+              <h4 className="text-lg md:text-xl font-bold text-gray-800 mb-2 leading-tight">
+                {doctor.name}
+              </h4>
+              <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6 leading-relaxed min-h-[3rem] md:min-h-[3.5rem]">
+                {doctor.title}
+              </p>
+              
+              {/* View Profile Link */}
+              <Link to={`/about/team/${doctor.name}`} className="text-[#18978d] font-semibold hover:text-[#147a71] transition-colors duration-200 text-sm md:text-base underline decoration-2 underline-offset-4 cursor-pointer">
+                VIEW FULL PROFILE
+              </Link>
+            </div>
+          ))}
+        </div>
+
+
+
+
       </div>
-
     </div>
-  )
-}
+    </section>
 
-export default Team
+  );
+};
+
+export default Team;
