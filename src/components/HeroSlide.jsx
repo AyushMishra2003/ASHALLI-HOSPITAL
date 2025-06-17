@@ -5,23 +5,22 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import SlidingBanner from "../pages/Home/SliderBanner";
 
+import img1 from '../assets/banner/banner1.png'
+import img2 from '../assets/banner/banner2.png'
+
 // Slider data
 const slides = [
   {
     id: 1,
-    image: `https://picsum.photos/1920/1080?random=1`,
+    image: img1,
     title: "Higher Standards for all Healthcare",
   },
   {
     id: 2,
-    image: `https://picsum.photos/1920/1080?random=2`,
+    image: img2,
     title: "Best Healthcare services",
   },
-  {
-    id: 3,
-    image: `https://picsum.photos/1920/1080?random=3`,
-    title: "Trustworthy hospital",
-  },
+
 ];
 
 export default function HeroSlider() {
@@ -60,14 +59,11 @@ export default function HeroSlider() {
   };
 
   return (
-    <>
-      <div className="w-full relative overflow-hidden">
-        <Slider {...settings} className="h-full">
+    
+      <div className="w-full relative overflow-hidden p-0 m-0">
+        <Slider {...settings} className="h-full ">
           {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className="relative w-full h-[68vh] overflow-hidden"
-            >
+            <div key={slide.id} className="relative w-full h-[68vh] overflow-hidden p-0 m-0">
               <img
                 src={slide.image}
                 alt={slide.title}
@@ -79,9 +75,9 @@ export default function HeroSlider() {
             </div>
           ))}
         </Slider>
-        <SlidingBanner />
+        <SlidingBanner className="!mt-0 !pt-0"  />
       </div>
-    </>
+    
   );
 }
 

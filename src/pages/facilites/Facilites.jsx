@@ -23,10 +23,14 @@ const BreadCrumbsComponent = ({ items, headText }) => (
 );
 
 const FacilitiesComponent = () => {
+
+
   // State for dynamic data
   const [featuredFacility, setFeaturedFacility] = useState(null);
   const [loading, setLoading] = useState(true);
   const params = useParams();
+
+
   // ICU Detailed Data
   const icuData = {
     id: 1,
@@ -905,42 +909,64 @@ const FacilitiesComponent = () => {
   };
 
   // useEffect to dynamically load first index data
+  // useEffect(() => {
+  //   const loadFeaturedFacility = () => {
+  //     setLoading(true);
+
+  //     // Simulate API call or data loading
+  //     setTimeout(() => {
+  //       // console.log("params url", params.name);
+
+  //       const matchedService = facilitiesData.find((e) => {
+  //         return e.url === params.name;
+  //       });
+
+
+  //       // If match found, load that, else default to first
+  //       if (matchedService && matchedService.detailedData) {
+  //         setFeaturedFacility(matchedService.detailedData);
+  //       } else {
+  //         setFeaturedFacility(facilitiesData[0].detailedData);
+  //       }
+
+  //       // Get first index (0) facility data
+  //       // const firstFacility = facilitiesData[0];
+  //       // if (firstFacility && firstFacility.detailedData) {
+  //       //   setFeaturedFacility(firstFacility.detailedData);
+  //       // }
+  //       setLoading(false);
+  //     }, 500); // Simulate loading delay
+  //   };
+
+  //   loadFeaturedFacility();
+  // }, []); 
+
+
   useEffect(() => {
-    const loadFeaturedFacility = () => {
-      setLoading(true);
 
-      // Simulate API call or data loading
-      setTimeout(() => {
-        // console.log("params url", params.name);
-
-        const matchedService = facilitiesData.find((e) => {
-          return e.url === params.name;
-        });
+    const matchedService = facilitiesData.find((e) => {
+      return e.url === params.name;
+    });
 
 
-        // If match found, load that, else default to first
-        if (matchedService && matchedService.detailedData) {
-          setFeaturedFacility(matchedService.detailedData);
-        } else {
-          setFeaturedFacility(facilitiesData[0].detailedData);
-        }
+    // If match found, load that, else default to first
+    if (matchedService && matchedService.detailedData) {
+      setFeaturedFacility(matchedService.detailedData);
+    } else {
+      setFeaturedFacility(facilitiesData[0].detailedData);
+    }
 
-        // Get first index (0) facility data
-        // const firstFacility = facilitiesData[0];
-        // if (firstFacility && firstFacility.detailedData) {
-        //   setFeaturedFacility(firstFacility.detailedData);
-        // }
-        setLoading(false);
-      }, 500); // Simulate loading delay
-    };
+  }, [params])
 
-    loadFeaturedFacility();
-  }, []); // Empty dependency array means this runs once on mount
+
+
+
+
 
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <BreadCrumbsComponent items={breadcrumbItems} headText={"currentService"} />
+      <BreadCrumbsComponent items={breadcrumbItems} headText={featuredFacility?.title} />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -951,17 +977,15 @@ const FacilitiesComponent = () => {
             <section className="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
                 <Activity className="w-8 h-8 mr-3 text-orange-500" style={{ color: '#ed8022' }} />
-                Our Hospital Facilities
+                  {featuredFacility?.title}
               </h2>
 
               <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
                 <p>
-                  At MedCare Hospital, we are committed to providing comprehensive healthcare services with state-of-the-art facilities
-                  and advanced medical infrastructure. Our hospital is equipped with modern medical technology and amenities designed
-                  to ensure the highest standards of patient care and comfort.
+                   {featuredFacility?.shortDescription}
                 </p>
 
-                <p>
+                {/* <p>
                   Our facility houses specialized departments and services that cater to various medical needs, from emergency care to
                   specialized treatments. We have invested in cutting-edge medical equipment and technology to deliver accurate
                   diagnosis and effective treatment options for our patients.
@@ -971,7 +995,7 @@ const FacilitiesComponent = () => {
                   The hospital infrastructure is designed with patient comfort and safety in mind, featuring modern accommodation
                   options, advanced medical equipment, and support services that ensure a comprehensive healthcare experience
                   under one roof.
-                </p>
+                </p> */}
               </div>
             </section>
 

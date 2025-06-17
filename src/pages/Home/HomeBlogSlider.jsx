@@ -1,12 +1,8 @@
 import React from 'react';
-import Slider from 'react-slick';
-import { Calendar, User, MessageCircle, Heart, Share2, BookOpen, TrendingUp, Award, Users, Globe, Lightbulb, Target } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Calendar, User, MessageCircle, Heart, Share2, BookOpen, TrendingUp, Award, Users, Globe, Lightbulb, Target, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HomeBlogSlider = () => {
-    const navigate = useNavigate();
+    const [currentSlide, setCurrentSlide] = React.useState(0);
 
     const blogPosts = [
         {
@@ -115,126 +111,184 @@ const HomeBlogSlider = () => {
         }
     ];
 
-      const primaryColor = "#18978d";
-  const secondaryColor = "#ed8022";
+    const primaryColor = "#18978d";
+    const secondaryColor = "#ed8022";
 
-
-    const slugify = (text) =>
-        text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    // Function to truncate text to a specific character limit
+    const truncateText = (text, maxLength = 120) => {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength).trim() + '...';
+    };
 
     const handleReadMore = (title) => {
-        const slug = slugify(title);
-        navigate(`/blogs/${slug}`);
+        alert(`Navigating to: ${title}`);
     };
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: { slidesToShow: 2 }
-            },
-            {
-                breakpoint: 768,
-                settings: { slidesToShow: 1 }
-            }
-        ]
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % blogPosts.length);
     };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + blogPosts.length) % blogPosts.length);
+    };
+
+    // Get visible posts based on screen size
+    const getVisiblePosts = () => {
+        const posts = [];
+        for (let i = 0; i < 3; i++) {
+            const index = (currentSlide + i) % blogPosts.length;
+            posts.push(blogPosts[index]);
+        }
+        return posts;
+    };
+
+    // Auto-slide functionality
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
-        <section className='bg-gray-100'>
-            <div className="px-4 lg:px-2 py-10 sm:py-12 md:py-14 lg:py-12 bg-gray-100 max-w-7xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Latest Blog Posts</h2>
-                <div className="slick-equal-height px-4 ">
-                    <Slider {...settings} >
-                        {blogPosts.map(post => (
-                            <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-fit">
-                                {/* Image Section */}
-                                <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <section className='bg-gray-100 '>
+            <div className="px-4 lg:px-2 py-10 sm:py-12 md:py-14 lg:py-16 bg-gray-100 max-w-7xl mx-auto">
+                <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Latest Blog Posts</h2>
+                
+                {/* Custom Slider */}
+                <div className="relative">
+                    {/* Navigation Buttons */}
+                    <button
+                        onClick={prevSlide}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+                        style={{ color: primaryColor }}
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    
+                    <button
+                        onClick={nextSlide}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
+                        style={{ color: primaryColor }}
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </button>
 
-                                    {/* Category Badge */}
-                                    {/* <div className="absolute top-4 left-4">
-                                        <span
-                                            className="text-xs font-semibold px-2 py-1 rounded-full text-white"
-                                            style={{ backgroundColor: primaryColor }}
-                                        >
-                                            {post.category}
-                                        </span>
-                                    </div> */}
+                    {/* Cards Container */}
+                    <div className="mx-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {getVisiblePosts().map((post, index) => (
+                            <div key={`${post.id}-${index}`} className="group">
+                                <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+                                    {/* Image Section */}
+                                    <div className="relative h-48 overflow-hidden">
+                                        <img
+                                            src={post.image}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                                    {/* Icon */}
-                                    <div className="absolute top-4 right-4">
-                                        <div
-                                            className="p-2 rounded-full"
-                                            style={{ backgroundColor: `${primaryColor}CC` }}
-                                        >
-                                            {post.icon}
-                                        </div>
+                                        {/* Icon */}
+                                        {/* <div className="absolute top-4 right-4">
+                                            <div
+                                                className="p-2 rounded-full transition-all duration-300 group-hover:scale-110"
+                                                style={{ backgroundColor: `${primaryColor}CC` }}
+                                            >
+                                                {post.icon}
+                                            </div>
+                                        </div> */}
+
+                                        {/* Category Badge */}
+                                        {/* <div className="absolute top-4 left-4">
+                                            <span
+                                                className="text-xs font-semibold px-3 py-1 rounded-full text-white backdrop-blur-sm"
+                                                style={{ backgroundColor: `${primaryColor}E6` }}
+                                            >
+                                                {post.category}
+                                            </span>
+                                        </div> */}
                                     </div>
-                                </div>
 
-                                {/* Content Section */}
-                                <div className="p-6 flex flex-col flex-grow">
-                                    {/* Title */}
-                                    <h3 className="text-xl font-bold text-black mb-3 line-clamp-2 leading-tight">
-                                        {post.title}
-                                    </h3>
+                                    {/* Content Section - Flex grow to push button to bottom */}
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        {/* Title */}
+                                        <h3 className="text-xl font-bold text-gray-800 mb-3 leading-tight min-h-[3.5rem] flex items-start">
+                                            {post.title}
+                                        </h3>
 
-                                    {/* Excerpt */}
-                                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 flex-grow mb-4">
-                                        {post.excerpt}
-                                    </p>
+                                        {/* Excerpt - Fixed height area */}
+                                        <div className="flex-grow mb-4">
+                                            <p className="text-gray-600 text-sm leading-relaxed min-h-[4.5rem]">
+                                                {truncateText(post.excerpt, 120)}
+                                            </p>
+                                        </div>
 
+                                        {/* Meta Information */}
+                                        {/* <div className="border-t pt-4 mb-4">
+                                            <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+                                                <span className="flex items-center gap-1">
+                                                    <User className="w-3 h-3" />
+                                                    {post.author}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="w-3 h-3" />
+                                                    {post.date}
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center justify-between text-xs text-gray-500">
+                                                <span className="flex items-center gap-1">
+                                                    <BookOpen className="w-3 h-3" />
+                                                    {post.readTime}
+                                                </span>
+                                                <div className="flex items-center gap-3">
+                                                    <span className="flex items-center gap-1">
+                                                        <Heart className="w-3 h-3" />
+                                                        {post.likes}
+                                                    </span>
+                                                    <span className="flex items-center gap-1">
+                                                        <MessageCircle className="w-3 h-3" />
+                                                        {post.comments}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div> */}
 
-            
-
-                                    {/* Read More Button */}
-                                    <button
-                                        className="mt-4 w-full py-2 px-4 rounded-lg font-semibold text-white transition-all duration-200 hover:shadow-lg transform hover:scale-105"
-                                        style={{ backgroundColor: primaryColor }}
-                                    >
-                                        Read More
-                                    </button>
+                                        {/* Read More Button - Always at bottom */}
+                                        <button
+                                            onClick={() => handleReadMore(post.title)}
+                                            className="w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg transform hover:scale-105 mt-auto"
+                                            style={{ 
+                                                backgroundColor: primaryColor,
+                                                boxShadow: `0 4px 15px ${primaryColor}40`
+                                            }}
+                                        >
+                                            Read More
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         ))}
-                    </Slider>
+                    </div>
+
+                    {/* Dots Indicator */}
+                    <div className="flex justify-center mt-8 gap-2">
+                        {blogPosts.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                    index === currentSlide 
+                                        ? 'w-8' 
+                                        : 'hover:opacity-75'
+                                }`}
+                                style={{ 
+                                    backgroundColor: index === currentSlide ? primaryColor : '#CBD5E1'
+                                }}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-
-            {/* Add this CSS for equal height slick slides */}
-<style jsx>{`
-  .slick-equal-height .slick-track {
-    display: flex !important;
-  }
-  .slick-equal-height .slick-slide {
-    height: inherit !important;
-    display: flex !important;
-    padding: 0 12px; /* <-- This adds horizontal gap between cards */
-  }
-  .slick-equal-height .slick-slide > div {
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
-
-  /* Optional: Fix for first/last slide overflow */
-  .slick-equal-height {
-    margin: 0 -12px;
-  }
-`}</style>
-
         </section>
     );
 };

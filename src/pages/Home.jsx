@@ -21,15 +21,19 @@ export default function Home() {
   return (
     <div className=''>
       <HeroSlider />
-      <HomeFeatures />
+
+
       <AboutSection />
       <StatsComponent />
       <SpecialtiesSection />
-      <WhyChooseUs />
+
       {/* <CTASection/> */}
-       <HospitalDoctorsCTA/>
+      <HomeFeatures />
+      {/* <HospitalDoctorsCTA/> */}
       <HospitalFacilities />
 
+
+      {/* <WhyChooseUs />     */}
       {/* <CTA/> */}
       {/* <HowWeWork/> */}
       <Testinomial />

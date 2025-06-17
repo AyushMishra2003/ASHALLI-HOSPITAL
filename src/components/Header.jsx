@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { Search, User, Phone, MessageSquare, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg'
 import { Link } from 'react-router-dom';
+import {
+  FaProcedures, FaAmbulance, FaXRay, FaBed, FaClinicMedical, FaStethoscope,
+  FaTooth, FaWheelchair, FaHospitalAlt, FaEye, FaChild, FaBrain,
+  FaHeartbeat, FaUserMd, FaSyringe, FaMicroscope, FaTeeth, FaLungs,
+  FaAllergies, FaNotesMedical
+} from 'react-icons/fa';
+import { MdPsychology } from 'react-icons/md';
+
+
 
 
 const SahyadriHeader = () => {
@@ -9,38 +18,75 @@ const SahyadriHeader = () => {
   const [isSpecialtiesOpen, setIsSpecialtiesOpen] = useState(false);
   const [isFacilityOpen, setIsFacility] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+
+
   const specialties = [
     // Column 1
-    ['Orthopaedics', 'Ophthalmology', 'Pediatrics', 'Neurology', 'General Medicine'],
-    // Column 2  
-    ['ENT', 'Cardiology', 'General Surgery', 'Obstetrics & Gynaecology', 'Urology & Andrology'],
-    // Column 3
-    ['Nephrology', 'Dental', 'Rheumatology', 'Pulmonology', 'Dermatology'],
-    // Column 4
-    ['Psychiatry', 'Oncology', 'ICU and Critical Care']
-  ];
-
-  const facilites = [
-    // Column 1
-    ['ICU', 'NICU', 'Emergency', 'Ventilator', 'Ambulance'],
+    [
+      { name: 'Orthopaedics', icon: <FaHospitalAlt /> },
+      { name: 'Ophthalmology', icon: <FaEye /> },
+      { name: 'Pediatrics', icon: <FaChild /> },
+      { name: 'Neurology', icon: <FaBrain /> },
+      { name: 'General Medicine', icon: <FaHeartbeat /> },
+      { name: 'ENT', icon: <FaUserMd /> },
+      { name: 'Gastrology', icon: <FaSyringe /> },
+    ],
     // Column 2
-    ['Xray', 'Pathology', 'General Ward', 'Private', 'Semi Private'],
+    [
+      { name: 'General Surgery', icon: <FaMicroscope /> },
+      { name: 'Obstetrics & Gynaecology', icon: <FaHeartbeat /> },
+      { name: 'Urology', icon: <FaUserMd /> },
+      { name: 'Nephrology', icon: <FaTeeth /> },
+      { name: 'Dental', icon: <FaTeeth /> },
+      { name: 'Hematology', icon: <FaSyringe /> },
+      { name: 'Pulmonology', icon: <FaLungs /> },
+    ],
     // Column 3
-    ['Deluxe', 'Physiotherapy', 'Canteen']
+    [
+      { name: 'Dermatology', icon: <FaAllergies /> },
+      { name: 'Psychiatry', icon: <MdPsychology /> },
+      { name: 'Cardiology', icon: <FaHeartbeat /> },
+      { name: 'Oncology', icon: <FaNotesMedical /> },
+      { name: 'ICU and Critical Care', icon: <FaHospitalAlt /> },
+      { name: 'Rheumatology', icon: <FaUserMd /> },
+      { name: 'Endocrinology', icon: <FaUserMd /> },
+    ]
   ];
 
+  const facilities = [
+    // Column 1
+    [
+      { name: 'ICU', icon: <FaProcedures /> },
+      { name: 'NICU', icon: <FaHeartbeat /> },
+      { name: 'Emergency', icon: <FaAmbulance /> },
+      { name: 'Ventilator', icon: <FaStethoscope /> },
+      { name: 'Ambulance', icon: <FaAmbulance /> },
+      { name: 'XRay', icon: <FaXRay /> },
+      { name: 'Pathology', icon: <FaClinicMedical /> }
+    ],
+    // Column 2
+    [
+      { name: 'General Ward', icon: <FaBed /> },
+      { name: 'Private', icon: <FaUserMd /> },
+      { name: 'Semi Private', icon: <FaUserMd /> },
+      { name: 'Deluxe', icon: <FaBed /> },
+      { name: 'Physiotherapy', icon: <FaWheelchair /> },
+      { name: 'Canteen', icon: <FaTooth /> }
+    ]
+  ];
 
 
   return (
     <div className="w-full">
       {/* Top Bar */}
-      <div className="bg-gray-100  py-2 text-sm">
+      <div className="bg-gray-100  py-[0.3rem] text-sm">
         <div className="container mx-auto ">
           {/* Mobile Layout */}
           <div className="flex flex-col space-y-2 md:hidden">
             <div className="flex items-center justify-center gap-2 text-gray-600">
               <span className="text-xs">Emergency/Appointment</span>
-              <span className="text-red-600 font-semibold">+91 88888 22222</span>
+              <span className="text-red-600 font-semibold">9190909090</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
@@ -68,7 +114,7 @@ const SahyadriHeader = () => {
             <div className="flex items-center gap-2 text-gray-600">
               <span className="hidden lg:inline">For Emergency Ambulance/Appointment</span>
               <span className="lg:hidden">Emergency</span>
-              <span className="text-red-600 font-semibold">+91 88888 22222</span>
+              <span className="text-red-600 font-semibold">9190909090</span>
               {/* <span className="hidden lg:inline">Second Opinion</span> */}
             </div>
 
@@ -114,9 +160,12 @@ const SahyadriHeader = () => {
         <div className="container mx-auto ">
           <div className="flex items-center justify-between px-10">
             {/* Logo */}
-            <div className="">
-              <img src={logo} alt="Ashaali-hospital" />
-            </div>
+            <Link to={"/"}>
+              <div className="">
+                <img src={logo} alt="Ashaali-hospital" />
+              </div>
+            </Link>
+
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -140,7 +189,7 @@ const SahyadriHeader = () => {
                         <Link to="/about/ashaali-hospitals">About Ashaali Hospital</Link>
                       </li>
                       <li className="px-4 py-2 hover:bg-teal-100 cursor-pointer">
-                        <Link to="/about/team">About Team</Link>
+                        <Link to="/about/team">Find A Doctor</Link>
                       </li>
                     </ul>
                   </div>
@@ -156,15 +205,18 @@ const SahyadriHeader = () => {
 
                 {/* Specialties Dropdown */}
                 {isSpecialtiesOpen && (
-                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl border rounded-lg px-4 py-2 z-50 w-screen max-w-3xl">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl  rounded-lg px-4 py-2 z-50 w-screen max-w-2xl ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
                       {specialties.map((column, columnIndex) => (
-                        <div key={columnIndex} className="space-y-2">
+                        <div key={columnIndex} className="space-y-2 ">
                           {column.map((specialty, index) => (
-                            <Link to={`/department/${specialty.toLowerCase().replace(/\s+/g, '-')}`}>
-                              <div className="text-sm cursor-pointer hover:text-red-500 transition-colors py-1 text-gray-700">
-                                {specialty}
-                              </div>
+                            <Link
+                              key={index}
+                              to={`/department/${specialty.name.toLowerCase().replace(/\s+/g, '-')}`}
+                              className="flex items-center gap-2 text-sm text-black hover:text-red-500 transition-colors py-1"
+                            >
+                              <span style={{ color: '#18978d' }}>{specialty.icon}</span>
+                              <span>{specialty.name}</span>
                             </Link>
                           ))}
                         </div>
@@ -173,7 +225,6 @@ const SahyadriHeader = () => {
                   </div>
                 )}
               </div>
-
               <div
                 className="relative flex items-center gap-1 text-gray-700 hover:text-teal-600 cursor-pointer"
                 onMouseEnter={() => setIsFacility(true)}
@@ -182,17 +233,19 @@ const SahyadriHeader = () => {
                 <span className="text-gray-700 font-medium">Facility</span>
                 <ChevronDown className="w-4 h-4" />
 
-                {/* Specialties Dropdown */}
                 {isFacilityOpen && (
-                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl border rounded-lg px-4 py-2 z-50 w-screen max-w-3xl">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                      {facilites.map((column, columnIndex) => (
-                        <div key={columnIndex} className="space-y-2">
-                          {column.map((specialty, index) => (
-                            <Link to={`/facility/${specialty.toLowerCase().replace(/\s+/g, '-')}`}>
-                              <div className="text-sm cursor-pointer hover:text-red-500 transition-colors py-1 text-gray-700">
-                                {specialty}
-                              </div>
+                  <div className="absolute top-full left-0 mt-0 bg-white shadow-2xl border rounded-lg px-2 py-2 z-50 w-screen max-w-[20rem]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2">
+                      {facilities.map((column, columnIndex) => (
+                        <div key={columnIndex} className="space-y-1">
+                          {column.map((facility, index) => (
+                            <Link
+                              key={index}
+                              to={`/facility/${facility.name.toLowerCase().replace(/\s+/g, '-')}`}
+                              className="flex items-center gap-2 text-sm text-gray-700 hover:text-red-500 transition-colors py-1"
+                            >
+                              <span style={{ color: '#18978d' }} className="text-base">{facility.icon}</span>
+                              <span>{facility.name}</span>
                             </Link>
                           ))}
                         </div>
@@ -201,6 +254,7 @@ const SahyadriHeader = () => {
                   </div>
                 )}
               </div>
+
 
 
 
@@ -217,9 +271,9 @@ const SahyadriHeader = () => {
                 Contact Us
               </Link>
 
-              <Link to="/about/team" className="text-gray-700 hover:text-teal-600 cursor-pointer">
+              {/* <Link to="/about/team" className="text-gray-700 hover:text-teal-600 cursor-pointer">
                 Find A Doctor
-              </Link>
+              </Link> */}
             </nav>
 
             <button className="px-4 hidden xl:block   py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-sm">

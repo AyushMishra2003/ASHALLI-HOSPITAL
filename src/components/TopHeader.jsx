@@ -6,7 +6,7 @@ const TopHeader = () => {
   const secondaryColor = "#ed8022";
   
   return (
-    <div className="w-full bg-[#18978d]  text-white py-2 hidden md:block ">
+    <div className="w-full bg-[#18978d]  text-white py-0 border border-red-500 hidden md:block ">
       <div className="max-w-full px-4 mx-auto">
         {/* Contact Information Row */}
         <div className="flex flex-wrap justify-between items-center">

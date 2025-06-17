@@ -4,7 +4,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const BreadCrumbs = ({ items, headText }) => {
   return (
-    <div className="bg-white py-4 px-6 rounded-lg border border-b-2  ">
+    <div className="bg-white py-4 px-6   border border-gray-200">
       {/* Heading */}
       <h1 className="text-xl font-semibold text-gray-800 mb-2">{headText}</h1>
 
