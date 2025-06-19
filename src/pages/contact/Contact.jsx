@@ -149,7 +149,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="tel:919090909090"
+                    href="tel:+91 789793494990"
                     className="bg-gradient-to-r from-[#ed8022] to-[#18978d] p-3 rounded-md"
                   >
                     <MdContactPhone className="text-[1.4rem] text-white" />
@@ -157,13 +157,13 @@ const Contact = () => {
                   <div>
                     <h2 className="text-[#18978d] text-[1.3rem] sora-600">Call for Help</h2>
                     <a
-                      href="tel:9190909090"
+                      href="tel:+91 7897934949"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
                       +91-978977934948
                     </a> ,
                     <a
-                      href="tel:919090909090"
+                      href="tel:+91 789793494990"
                       className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
                     >
                       0522-3503390, 3503566
@@ -173,7 +173,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="tel:+919090909090"
+                    href="tel:++91 789793494990"
                     className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
                   >
                     <IoMdTime className="text-[1.4rem] text-white" />
@@ -181,14 +181,14 @@ const Contact = () => {
                   <div>
                     <h2 className="text-[#18978d] text-[1.3rem] sora-600">Clinic Opening Hours</h2>
                     <a
-                      href="tel:919090909090"
+                      href="tel:+91 789793494990"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
                       {/* 10:00-1:30 PM (MON-SUN) , */}
                       (Monday-Sunday) 10:00-1:30PM & 6:00-8:30PM
                     </a>
                     <a
-                      href="tel:919090909090"
+                      href="tel:+91 789793494990"
                       className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
                     >
                       {/* 06-8:30 PM (MON-SUN) */}

@@ -86,7 +86,7 @@ const SahyadriHeader = () => {
           <div className="flex flex-col space-y-2 md:hidden">
             <div className="flex items-center justify-center gap-2 text-gray-600">
               <span className="text-xs">Emergency/Appointment</span>
-              <span className="text-red-600 font-semibold">9190909090</span>
+              <span className="text-red-600 font-semibold">+91 7897934949</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
@@ -114,7 +114,7 @@ const SahyadriHeader = () => {
             <div className="flex items-center gap-2 text-gray-600">
               <span className="hidden lg:inline">For Emergency Ambulance/Appointment</span>
               <span className="lg:hidden">Emergency</span>
-              <span className="text-red-600 font-semibold">9190909090</span>
+              <span className="text-red-600 font-semibold">+91 7897934949</span>
               {/* <span className="hidden lg:inline">Second Opinion</span> */}
             </div>
 
@@ -161,7 +161,7 @@ const SahyadriHeader = () => {
           <div className="flex items-center justify-between px-10">
             {/* Logo */}
             <Link to={"/"}>
-              <div className="">
+              <div className="w-[20rem]">
                 <img src={logo} alt="Ashaali-hospital" />
               </div>
             </Link>

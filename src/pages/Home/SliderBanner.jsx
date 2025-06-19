@@ -4,7 +4,7 @@ const SlidingBanner = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   const keywords = [
-    "Surgeries Only When Needed",
+
     "No Unnecessary Tests",
     "Lucknow Only AAGL Accredited Centre",
     "Patient First Approach",

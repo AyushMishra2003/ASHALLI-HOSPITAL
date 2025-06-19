@@ -1,33 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Testinomial = () => {
-    const primaryColor = "#13335b"; // Rose/pink
-    const secondaryColor = "#18978d"; // Deep purple
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://static.elfsight.com/platform/platform.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-    return (
-        <section className="bg-white py-10 px-4">
-            <div className="max-w-7xl mx-auto text-center">
+    return () => {
+      document.body.removeChild(script); // Cleanup on unmount
+    };
+  }, []);
 
-                <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-4 text-center" style={{ color: secondaryColor }}>
-                    Our Testimonial
-                </h2>
-                <p className="text-lg max-w-3xl mx-auto mb-10 text-justify md:text-center" style={{ color: primaryColor }}>
-                   Ashaali Hospital is a skilled  based in Lucknow. His expertise and compassionate care make patients feel truly supported throughout their treatment journey.
-                </p>
-
-                <div className="shadow-lg rounded-lg overflow-hidden ">
-                    <iframe
-                        src="https://widgets.sociablekit.com/google-reviews/iframe/25558445"
-                        frameBorder="0"
-                        width="100%"
-                        height="400"
-
-                        title="Customer Testimonials"
-                    ></iframe>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <div
+      className="elfsight-app-58722eb1-6c41-4cda-8e64-d289b7410521  container px-10"
+      data-elfsight-app-lazy
+    ></div>
+  );
 };
 
 export default Testinomial;

@@ -16,6 +16,12 @@ import HospitalFacilities from './Home/Facilites'
 import StatsComponent from '../components/StatsComponent'
 import HomeFeatures from './Home/HomeFeature'
 import HospitalDoctorsCTA from './Home/HomeCta'
+import CallbackRequestComponent from './Home/HomeCTA2'
+import AshalliCompoonent from './Home/AshalliComponent'
+import DoctorCarousel from './Home/DoctorCarsouel'
+import HomeGallery from './Home/HomeGalley'
+import YouTubeChannelShowcase from './Home/GalleryVideo'
+
 
 export default function Home() {
   return (
@@ -31,13 +37,22 @@ export default function Home() {
       <HomeFeatures />
       {/* <HospitalDoctorsCTA/> */}
       <HospitalFacilities />
-
-
+      <AshalliCompoonent />
+      <DoctorCarousel />
+      <HomeGallery />
+      <HospitalDoctorsCTA />
+      {/* <YouTubeVideoGallery/> */}
+      <YouTubeChannelShowcase />
       {/* <WhyChooseUs />     */}
       {/* <CTA/> */}
       {/* <HowWeWork/> */}
       <Testinomial />
+
       <HomeBlogSlider />
+
+
+
+      {/* <CallbackRequestComponent/> */}
       {/* <TeamSection/> */}
 
     </div>

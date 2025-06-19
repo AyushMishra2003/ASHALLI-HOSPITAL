@@ -66,7 +66,7 @@ const SpecialistSection = () => {
                 backgroundColor: `${primaryColor}10` // Light background
               }}
             >
-              Healthcare Excellence
+            Meet Our Expert Doctors Across Specialties
             </span>
           </div>
 
@@ -79,7 +79,7 @@ const SpecialistSection = () => {
 
           {/* Optional subtitle for better SEO */}
           <p className="text-gray-600 text-base md:text-lg mt-4 max-w-2xl mx-auto">
-            Discover world-class medical specialists and advanced healthcare services in Lucknow
+        Ashaali Hospital is home to a multidisciplinary team of specialists who are leaders in their fields. Backed by modern diagnostic and surgical support, we deliver seamless care in orthopedics, neurology, pediatrics, cardiology, nephrology, and more — all within a single, integrated facility.
           </p>
         </div>
 

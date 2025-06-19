@@ -181,16 +181,16 @@ const MedicalFacilities = () => {
           </div>
 
           {/* Main SEO heading */}
-          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight md:text-center text-start">
+          {/* <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight md:text-center text-start">
             <span style={{ color: primaryColor }}>Best Specialists</span>
             <span className="text-gray-800"> in </span>
             <span style={{ color: primaryColor }}>Lucknow</span>
-          </h1>
+          </h1> */}
 
           {/* Optional subtitle for better SEO */}
-          <p className="text-gray-600 text-base md:text-lg mt-4  mx-auto text-start md:text-center">
+          {/* <p className="text-gray-600 text-base md:text-lg mt-4  mx-auto text-start md:text-center">
             State-of-the-art medical facilities designed to provide comprehensive healthcare services with cutting-edge technology and expert care.
-          </p>
+          </p> */}
         </div>
 
         <div className="relative mb-4">
