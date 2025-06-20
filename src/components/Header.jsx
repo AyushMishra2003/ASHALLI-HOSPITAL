@@ -304,36 +304,108 @@ const SahyadriHeader = () => {
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
             <div className="lg:hidden border-t bg-white">
-              <nav className="py-4 space-y-3">
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+              <nav className="py-4 space-y-2">
+
+                {/* Home */}
+                <Link
+                  to="/"
+                  className="block text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                >
                   Home
+                </Link>
+
+                {/* About Section */}
+                <div>
+                  <div
+                    className="flex items-center justify-between text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                    onClick={() => setIsOpen(!isOpen)}
+                  >
+                    <span>About</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                  {isOpen && (
+                    <div className="pl-6">
+                      <Link to="/about/ashaali-hospitals" className="block py-1 text-gray-600 hover:text-teal-600">
+                        About Ashaali Hospital
+                      </Link>
+                      <Link to="/about/team" className="block py-1 text-gray-600 hover:text-teal-600">
+                        Find A Doctor
+                      </Link>
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center justify-between text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
-                  <span>About</span>
-                  <ChevronDown className="w-4 h-4" />
+
+                {/* Specialties Section */}
+                <div>
+                  <div
+                    className="flex items-center justify-between text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                    onClick={() => setIsSpecialtiesOpen(!isSpecialtiesOpen)}
+                  >
+                    <span>Specialties</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                  {isSpecialtiesOpen && (
+                    <div className="pl-6 space-y-1">
+                      {specialties.flat().map((specialty, index) => (
+                        <Link
+                          key={index}
+                          to={`/department/${specialty.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block text-sm text-gray-600 hover:text-teal-600"
+                        >
+                          {specialty.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center justify-between text-gray-700  font-medium cursor-pointer py-2 px-4 hover:bg-gray-50">
-                  <span>Specialties</span>
-                  <ChevronDown className="w-4 h-4" />
+
+                {/* Facility Section */}
+                <div>
+                  <div
+                    className="flex items-center justify-between text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                    onClick={() => setIsFacilityOpen(!isFacilityOpen)}
+                  >
+                    <span>Facility</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                  {isFacilityOpen && (
+                    <div className="pl-6 space-y-1">
+                      {facilities.flat().map((facility, index) => (
+                        <Link
+                          key={index}
+                          to={`/facility/${facility.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block text-sm text-gray-600 hover:text-teal-600"
+                        >
+                          {facility.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+
+                {/* Other Static Links */}
+                <Link
+                  to="/gallery"
+                  className="block text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                >
                   Gallery
-                </div>
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                </Link>
+                <Link
+                  to="/blogs"
+                  className="block text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                >
                   Blogs
-                </div>
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
+                </Link>
+                <Link
+                  to="/contact"
+                  className="block text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50"
+                >
                   Contact Us
-                </div>
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
-                  Patients Story
-                </div>
-                <div className="text-gray-700 hover:text-teal-600 cursor-pointer py-2 px-4 hover:bg-gray-50">
-                  Find A Doctor
-                </div>
+                </Link>
               </nav>
             </div>
           )}
+
         </div>
       </div>
     </div>

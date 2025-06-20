@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Users, Calendar, MapPin, Phone, Building2, Heart, Shield, Truck, Camera, FlaskConical, Bed, Utensils, Waves } from 'lucide-react';
-import { useParams } from 'react-router-dom';
+import { Activity, Users, Calendar, MapPin, Phone, Building2, Heart, Shield, Truck, Camera, FlaskConical, Bed, Utensils, Waves, Star, ArrowRight, Clock } from 'lucide-react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 // Mock BreadCrumbs Component
 const BreadCrumbsComponent = ({ items, headText }) => (
   <div className="bg-gray-100 py-4">
@@ -27,9 +27,14 @@ const FacilitiesComponent = () => {
 
   // State for dynamic data
   const [featuredFacility, setFeaturedFacility] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const params = useParams();
+  const [loading, setLoading] = useState(false);
+  const {name} = useParams();
 
+  const navigate=useNavigate()
+
+
+
+  
 
   // ICU Detailed Data
   const icuData = {
@@ -865,14 +870,19 @@ const FacilitiesComponent = () => {
 
   // Specialties data array with URLs
   const specialtiesData = [
-    { id: 1, name: "PAEDIATRICS & NEONATOLOGY", url: "/specialties/paediatrics" },
-    { id: 2, name: "GYNAECOLOGY AND OBSTETRICS", url: "/specialties/gynaecology" },
-    { id: 3, name: "ORTHOPEDICS", url: "/specialties/orthopedics" },
-    { id: 4, name: "GENERAL MEDICINE", url: "/specialties/general-medicine" },
-    { id: 5, name: "GENERAL SURGERY", url: "/specialties/general-surgery" },
-    { id: 6, name: "CARDIOLOGY", url: "/specialties/cardiology" },
-    { id: 7, name: "ICU", url: "/specialties/icu" },
-    { id: 8, name: "GASTROENTEROLOGY", url: "/specialties/gastroenterology" }
+    { id: 1, name: "ICU", url: "/facility/icu" },
+  { id: 2, name: "NICU", url: "/facility/nicu" },
+  { id: 3, name: "Emergency", url: "/facility/emergency" },
+  { id: 4, name: "Ventilator", url: "/facility/ventilator" },
+  { id: 5, name: "Ambulance", url: "/facility/ambulance" },
+  { id: 6, name: "XRay", url: "/facility/xray" },
+  { id: 7, name: "Pathology", url: "/facility/pathology" },
+  { id: 8, name: "General Ward", url: "/facility/general-ward" },
+  { id: 9, name: "Private", url: "/facility/private" },
+  { id: 10, name: "Semi Private", url: "/facility/semi-private" },
+  { id: 11, name: "Deluxe", url: "/facility/deluxe" },
+  { id: 12, name: "Physiotherapy", url: "/facility/physiotherapy" },
+  { id: 13, name: "Canteen", url: "/facility/canteen" }
   ];
 
 
@@ -941,12 +951,19 @@ const FacilitiesComponent = () => {
   //   loadFeaturedFacility();
   // }, []); 
 
+  const handleMore=(data)=>{
+      navigate(`${data?.url}`)
+  }
+
 
   useEffect(() => {
 
     const matchedService = facilitiesData.find((e) => {
-      return e.url === params.name;
+      return e.url === name;
     });
+
+    console.log(matchedService);
+    
 
 
     // If match found, load that, else default to first
@@ -955,304 +972,268 @@ const FacilitiesComponent = () => {
     } else {
       setFeaturedFacility(facilitiesData[0].detailedData);
     }
+    // console.log(featuredFacility);
+    
 
-  }, [params])
-
-
-
-
-
-
+  }, [name])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className=" bg-gray-50">
       <BreadCrumbsComponent items={breadcrumbItems} headText={featuredFacility?.title} />
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-0 py-2   ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Introduction */}
-            <section className="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
-                <Activity className="w-8 h-8 mr-3 text-orange-500" style={{ color: '#ed8022' }} />
-                  {featuredFacility?.title}
-              </h2>
-
-              <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-                <p>
-                   {featuredFacility?.shortDescription}
-                </p>
-
-                {/* <p>
-                  Our facility houses specialized departments and services that cater to various medical needs, from emergency care to
-                  specialized treatments. We have invested in cutting-edge medical equipment and technology to deliver accurate
-                  diagnosis and effective treatment options for our patients.
-                </p>
-
-                <p>
-                  The hospital infrastructure is designed with patient comfort and safety in mind, featuring modern accommodation
-                  options, advanced medical equipment, and support services that ensure a comprehensive healthcare experience
-                  under one roof.
-                </p> */}
-              </div>
-            </section>
-
-            {/* Featured Facility - ICU (First Index) - Dynamic */}
+          <div className="lg:col-span-2 space-y-8">
+            
+            {/* Featured Facility Card */}
             {loading ? (
-              <section className="bg-white rounded-lg shadow-sm p-6 md:p-8 mb-8">
-                <div className="animate-pulse">
-                  <div className="h-8 bg-gray-200 rounded mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="bg-white rounded-2xl shadow-xl p-8">
+                <div className="animate-pulse space-y-4">
+                  <div className="h-8 bg-gray-200 rounded-lg"></div>
+                  <div className="h-4 bg-gray-200 rounded"></div>
                   <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                 </div>
-              </section>
+              </div>
             ) : featuredFacility ? (
-              <section className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg shadow-sm p-6 md:p-8 mb-8 border border-teal-100">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-gray-800 flex items-center">
-                    <div className="text-teal-600 mr-3" style={{ color: '#18978d' }}>
-                      {getIcon(featuredFacility.icon)}
+              <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+ 
+                
+                <div className="py-8 px-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center space-x-4">
+                    
+                      <div>
+                        <h3 className="lg:text-2xl text-md font-bold text-gray-800">{featuredFacility.title}</h3>
+
+                      </div>
                     </div>
-                    <span>{featuredFacility.title}</span>
-                    <span className="ml-3 text-sm bg-teal-100 text-teal-800 px-3 py-1 rounded-full">
-                      Featured Facility
-                    </span>
-                  </h3>
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
-                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                      {featuredFacility.capacity}
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                      {featuredFacility.availability}
-                    </span>
+   
                   </div>
+
+                  <p className="text-gray-600 mb-8 text-lg leading-relaxed">{featuredFacility.shortDescription}</p>
+
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    {/* Equipment Card */}
+                    <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 border border-orange-200">
+                      <div className="flex items-center mb-3">
+                        <span className="text-2xl mr-2">🏥</span>
+                        <h4 className="font-semibold text-gray-800">Equipment</h4>
+                      </div>
+                      <div className="space-y-1">
+                        {featuredFacility.equipment.slice(0, 2).map((item) => (
+                          <div key={item.id} className="flex justify-between text-sm">
+                            <span className="text-gray-600">{item.name}</span>
+                            <span className="font-bold text-orange-600">{item.count}</span>
+                          </div>
+                        ))}
+                        {featuredFacility.equipment.length > 2 && (
+                          <div className="text-xs text-gray-500">+{featuredFacility.equipment.length - 2} more</div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Staff Card */}
+                    <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-4 border border-teal-200">
+                      <div className="flex items-center mb-3">
+                        <span className="text-2xl mr-2">👨‍⚕️</span>
+                        <h4 className="font-semibold text-gray-800">Staff</h4>
+                      </div>
+                      <div className="space-y-1">
+                        {featuredFacility.staff.slice(0, 2).map((item) => (
+                          <div key={item.id} className="flex justify-between text-sm">
+                            <span className="text-gray-600">{item.role}</span>
+                            <span className="font-bold text-teal-600">{item.count}</span>
+                          </div>
+                        ))}
+                        {featuredFacility.staff.length > 2 && (
+                          <div className="text-xs text-gray-500">+{featuredFacility.staff.length - 2} more</div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Services Card */}
+                    <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 border border-purple-200">
+                      <div className="flex items-center mb-3">
+                        <span className="text-2xl mr-2">🔬</span>
+                        <h4 className="font-semibold text-gray-800">Services</h4>
+                      </div>
+                      <div className="space-y-1">
+                        {featuredFacility.services.slice(0, 2).map((item) => (
+                          <div key={item.id} className="flex items-center text-sm">
+                            <div className={`w-2 h-2 rounded-full mr-2 ${item.available ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                            <span className="text-gray-600 text-xs">{item.service}</span>
+                          </div>
+                        ))}
+                        {featuredFacility.services.length > 2 && (
+                          <div className="text-xs text-gray-500">+{featuredFacility.services.length - 2} more</div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Features Card */}
+                    <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-4 border border-indigo-200">
+                      <div className="flex items-center mb-3">
+                        <span className="text-2xl mr-2">✨</span>
+                        <h4 className="font-semibold text-gray-800">Features</h4>
+                      </div>
+                      <div className="space-y-1">
+                        {featuredFacility.features.slice(0, 2).map((item) => (
+                          <div key={item.id} className="text-xs text-gray-700">{item.feature}</div>
+                        ))}
+                        {featuredFacility.features.length > 2 && (
+                          <div className="text-xs text-gray-500">+{featuredFacility.features.length - 2} more</div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* <button className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center group">
+                    View Complete Details
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </button> */}
                 </div>
-
-                <p className="text-gray-700 mb-6">{featuredFacility.shortDescription}</p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                  {/* Equipment Summary */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                      <span className="text-orange-500 mr-2" style={{ color: '#ed8022' }}>🏥</span>
-                      Equipment
-                    </h4>
-                    <div className="space-y-2">
-                      {featuredFacility.equipment.slice(0, 3).map((item) => (
-                        <div key={item.id} className="flex justify-between text-sm">
-                          <span className="text-gray-600">{item.name}</span>
-                          <span className="text-green-600 font-medium">{item.count}</span>
-                        </div>
-                      ))}
-                      {featuredFacility.equipment.length > 3 && (
-                        <div className="text-xs text-gray-500 mt-2">
-                          +{featuredFacility.equipment.length - 3} more equipment types
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Staff Summary */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                      <span className="text-teal-500 mr-2" style={{ color: '#18978d' }}>👨‍⚕️</span>
-                      Staff
-                    </h4>
-                    <div className="space-y-2">
-                      {featuredFacility.staff.slice(0, 3).map((item) => (
-                        <div key={item.id} className="flex justify-between text-sm">
-                          <span className="text-gray-600">{item.role}</span>
-                          <span className="text-blue-600 font-medium">{item.count}</span>
-                        </div>
-                      ))}
-                      {featuredFacility.staff.length > 3 && (
-                        <div className="text-xs text-gray-500 mt-2">
-                          +{featuredFacility.staff.length - 3} more staff categories
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Services Summary */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                      <span className="text-purple-500 mr-2">🔬</span>
-                      Services
-                    </h4>
-                    <div className="space-y-2">
-                      {featuredFacility.services.slice(0, 3).map((item) => (
-                        <div key={item.id} className="flex items-center text-sm">
-                          <div className={`w-2 h-2 rounded-full mr-2 ${item.available ? 'bg-green-500' : 'bg-red-500'}`}></div>
-                          <span className="text-gray-600">{item.service}</span>
-                        </div>
-                      ))}
-                      {featuredFacility.services.length > 3 && (
-                        <div className="text-xs text-gray-500 mt-2">
-                          +{featuredFacility.services.length - 3} more services
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Features Summary */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                      <span className="text-indigo-500 mr-2">✨</span>
-                      Features
-                    </h4>
-                    <div className="space-y-2">
-                      {featuredFacility.features.slice(0, 3).map((item) => (
-                        <div key={item.id} className="text-sm">
-                          <div className="text-gray-700 font-medium">{item.feature}</div>
-                        </div>
-                      ))}
-                      {featuredFacility.features.length > 3 && (
-                        <div className="text-xs text-gray-500 mt-2">
-                          +{featuredFacility.features.length - 3} more features
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <button
-                    className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                    style={{ backgroundColor: '#18978d' }}
-                    onClick={() => console.log(`Navigate to: ${featuredFacility.url}`)}
-                  >
-                    View Full Details
-                  </button>
-                  <div className="text-sm text-gray-500">
-                    Data loaded dynamically from index: 0
-                  </div>
-                </div>
-              </section>
+              </div>
             ) : null}
 
-            {/* Facilities */}
-            <section className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Complete Range of Medical Facilities:</h3>
+            {/* All Facilities Section */}
+            <div className="bg-white rounded-2xl shadow-xl py-8 px-4">
+              <div className="flex items-center mb-2">
 
-              <p className="text-gray-700 mb-6">
-                Our hospital offers a comprehensive range of medical facilities and services designed to meet all your healthcare needs.
-                From critical care units to comfortable accommodation and support services, we ensure that every aspect of your
-                medical care is handled with utmost professionalism and care.
+                <h2 className="lg:text-3xl text-shadow-md text-xl md:text-2xl font-bold text-gray-800">Our Medical Facilities</h2>
+              </div>
+
+              <p className="text-gray-600 mb-4 text-lg leading-relaxed">
+                Discover our comprehensive range of medical facilities, each designed with cutting-edge technology 
+                and staffed by expert healthcare professionals to ensure the highest quality of care.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {facilitiesData.map((facility, index) => (
-                  <div key={facility.id} className="border-l-4 border-teal-500 bg-gray-50 rounded-r-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
-                    style={{ borderColor: '#18978d' }}
-                    onClick={() => {
-                      console.log(`Navigate to: ${facility.url}`);
-                      if (facility.detailedData) {
-                        console.log('Detailed Data:', facility.detailedData);
-                      }
-                    }}>
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center" style={{ backgroundColor: '#fef3e2' }}>
-                        <div className="text-orange-600" style={{ color: '#ed8022' }}>
-                          {getIcon(facility.icon)}
-                        </div>
-                      </div>
+                {facilitiesData.map((facility) => (
+                  <div 
+                    key={facility.id} 
+                    className="group bg-gradient-to-br from-gray-50 to-white rounded-xl px-2 py-2 border shadow-lg border-teal-200 transition-all duration-300 cursor-pointer transform hover:scale-[1.02]"
+                    onClick={() => console.log(`Navigate to: ${facility.url}`)}
+                  >
+                    <div className="flex items-start ">
+     
                       <div className="flex-1">
-                        <h5 className="text-lg font-semibold text-gray-800 mb-2">
-                          {facility.title}
+                        <div className="flex items-center justify-between mb-3">
+                          <h3 className="md:text-xl  text-md  font-bold text-gray-900 transition-colors">
+                            {facility.title}
+                          </h3>
                           {facility.detailedData && (
-                            <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                              {facility.detailedData.capacity} • {facility.detailedData.availability}
-                            </span>
+                            <div className="flex space-x-2">
+                              {/* <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                                {facility.detailedData.capacity}
+                              </span> */}
+                              {/* <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">
+                                {facility.detailedData.availability}
+                              </span> */}
+                            </div>
                           )}
-                        </h5>
-                        <p className="text-gray-600 text-sm leading-relaxed">{facility.description}</p>
-                        {facility.detailedData && (
-                          <div className="mt-3 text-xs text-gray-500">
-                            <span className="inline-block mr-4">
-                              🏥 {facility.detailedData.equipment?.length || 0} Equipment Types
+                        </div>
+                        <p className="text-gray-600 leading-relaxed mb-0">{facility.description}</p>
+                        
+                        {/* <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-4 text-xs text-gray-500">
+                            <span className="flex items-center">
+                              <span className="w-2 h-2 bg-teal-400 rounded-full mr-1"></span>
+                              Active 24/7
                             </span>
-                            <span className="inline-block mr-4">
-                              👨‍⚕️ {facility.detailedData.staff?.length || 0} Staff Categories
-                            </span>
-                            <span className="inline-block">
-                              🔬 {facility.detailedData.services?.length || 0} Services
+                            <span className="flex items-center">
+                              <Star className="w-3 h-3 text-yellow-400 mr-1" />
+                              Premium Care
                             </span>
                           </div>
-                        )}
+                          <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-teal-500 group-hover:translate-x-1 transition-all" />
+                        </div> */}
+
+
+
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
-            </section>
+            </div>
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Specialties */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                <Users className="w-6 h-6 mr-2 text-teal-600" style={{ color: '#18978d' }} />
-                Our Specialities
-              </h3>
+          <div className="space-y-2 px-4 ">
+            {/* Specialties Card */}
+            <div className="bg-white rounded-2xl shadow-xl p-2 ">
+              <div className="flex items-center mb-3">
+          
+                <h3 className="text-xl font-bold text-gray-800">Our Facility</h3>
+              </div>
               <div className="space-y-2">
-                {specialtiesData.map((specialty, index) => (
-                  <a
+                {specialtiesData.map((specialty) => (
+                  <div
                     key={specialty.id}
-                    href={specialty.url}
-                    className="block py-3 px-4 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-700 rounded-md transition-colors border-b border-gray-100 last:border-b-0"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      console.log(`Navigate to: ${specialty.url}`);
+                    
+                    className="group flex items-center cursor-pointer justify-between px-3 py-3 text-gray-700 bg-gradient-to-r from-teal-50 to-blue-50 hover:text-teal-700 rounded-lg transition-all duration-200"
+                    onClick={() => {
+                       handleMore(specialty)
                     }}
                   >
-                    {specialty.name}
-                  </a>
+                    <span className="font-medium">{specialty.name}</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Contact Card */}
-            <div className="bg-gradient-to-br from-teal-600 to-teal-500 rounded-lg shadow-lg p-6 text-white" style={{ background: `linear-gradient(135deg, #18978d 0%, #16a085 100%)` }}>
-              <h3 className="text-xl font-bold mb-4">Need Medical Assistance?</h3>
-              <p className="text-sm opacity-90 mb-4">
-                Our expert medical team is available 24/7 to provide you with the best healthcare services and facility guidance.
-              </p>
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center mb-4"
-                style={{ backgroundColor: '#ed8022' }}
-                onClick={() => console.log('Navigate to: /book-appointment')}>
-                <Calendar className="w-5 h-5 mr-2" />
-                Book Appointment
-              </button>
-              <div className="pt-4 border-t border-teal-400">
-                <div className="flex items-center text-sm">
+            <div className="bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 rounded-2xl shadow-xl p-6 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+              <div className="relative">
+                <h3 className="text-xl font-bold mb-3">Need Medical Assistance?</h3>
+                <p className="text-teal-100 mb-6 leading-relaxed">
+                  Our expert medical team is available 24/7 to provide you with the best healthcare services.
+                </p>
+                <button 
+                  className="w-full bg-white text-teal-700 py-3 px-4 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 flex items-center justify-center group mb-4 transform hover:scale-105"
+                  onClick={() => console.log('Navigate to: /book-appointment')}
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book Appointment
+                </button>
+                <div className="flex items-center text-teal-100">
                   <MapPin className="w-4 h-4 mr-2" />
-                  Mumbai, Maharashtra
+                  <span>Lucknow, Uttar Pradesh</span>
                 </div>
               </div>
             </div>
 
             {/* Emergency Contact */}
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-red-800 mb-2">Emergency Contact</h3>
-              <p className="text-red-700 text-sm mb-3">For immediate medical assistance</p>
-              <div className="flex items-center justify-between">
-                <span className="text-red-800 font-bold text-lg">+91 7897934949</span>
-                <Phone className="w-5 h-5 text-red-600" />
+            <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl shadow-xl p-6 text-white">
+              <div className="flex items-center mb-3">
+                <div className="p-2 bg-white/20 rounded-lg mr-3">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold">Emergency Contact</h3>
+              </div>
+              <p className="text-red-100 text-sm mb-4">For immediate medical assistance</p>
+              <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <span className="text-white font-bold text-xl">+91 7897934949</span>
+                <div className="p-2 bg-white/20 rounded-lg">
+                  <Phone className="w-5 h-5" />
+                </div>
               </div>
             </div>
 
-            {/* Quick Facilities Overview */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-blue-800 mb-3">Quick Facilities Overview</h3>
-              <div className="space-y-2">
+            {/* Quick Overview */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl border border-blue-200 p-6">
+              <h3 className="text-lg font-bold text-blue-800 mb-4 flex items-center">
+                <Clock className="w-5 h-5 mr-2" />
+                Quick Overview
+              </h3>
+              <div className="space-y-3">
                 {quickFacilitiesData.map((item) => (
-                  <div key={item.id} className="flex items-center text-sm text-blue-700">
-                    <div className="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
-                    {item.text}
+                  <div key={item.id} className="flex items-center text-blue-700 bg-white/50 rounded-lg py-2">
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
+                    <span className="font-medium">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -1260,6 +1241,7 @@ const FacilitiesComponent = () => {
           </div>
         </div>
       </div>
+        
     </div>
   );
 };

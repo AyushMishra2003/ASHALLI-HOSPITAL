@@ -4,9 +4,9 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 
 const BreadCrumbs = ({ items, headText }) => {
   return (
-    <div className="bg-white py-4 px-6   border border-gray-200">
+    <div className="bg-white py-4 px-4  border border-gray-200">
       {/* Heading */}
-      <h1 className="text-xl font-semibold text-gray-800 mb-2">{headText}</h1>
+      <h1 className="lg:text-xl text-md  font-semibold text-gray-800 mb-2">{headText}</h1>
 
       {/* Breadcrumb navigation */}
       <nav className="flex items-center text-gray-600 text-sm">
