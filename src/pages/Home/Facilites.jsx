@@ -2,6 +2,20 @@ import React from 'react';
 import Slider from 'react-slick';
 import { ChevronLeft, ChevronRight, Stethoscope, Bed, Heart, Activity, Truck, Camera, TestTube, Building, User, Crown, Dumbbell, Coffee, Shield, Zap } from 'lucide-react';
 
+import img1 from '../../assets/facility/ambulance.png'
+import img2 from '../../assets/facility/Canteen.png'
+import img3 from '../../assets/facility/Diagnostic.png'
+import img4 from '../../assets/facility/emergency.png'
+import img5 from '../../assets/facility/genral.png'
+import img6 from '../../assets/facility/ICU.png'
+import img7 from '../../assets/facility/room.png'
+import img8 from '../../assets/facility/NICU.png'
+import img9 from '../../assets/facility/Pathology.png'
+import img10 from '../../assets/facility/Pshyiotherapy.png'
+import img11 from '../../assets/facility/semi.png'
+import img12 from '../../assets/facility/Ventilator.png'
+import { useNavigate } from 'react-router-dom';
+
 // Custom arrow components
 const PrevArrow = ({ onClick }) => (
   <button
@@ -28,96 +42,98 @@ const MedicalFacilities = () => {
       title: "ICU",
       description: "Advanced intensive care with 24/7 monitoring and specialized medical equipment for critical patients requiring continuous supervision.",
       icon: <Heart className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image:img6
     },
     {
       id: 2,
       title: "NICU",
       description: "Specialized neonatal intensive care unit with state-of-the-art equipment for comprehensive newborn care and monitoring systems.",
       icon: <Activity className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image:img8
     },
     {
       id: 3,
       title: "Emergency Services",
       description: "Immediate medical assistance available round-the-clock for urgent healthcare needs with rapid response capabilities and expert staff.",
       icon: <Shield className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img4
     },
     {
       id: 4,
       title: "Ventilator",
       description: "Advanced respiratory support systems with modern ventilation technology for patients requiring assisted breathing and critical care.",
       icon: <Zap className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img12
     },
     {
       id: 5,
       title: "Ambulance",
       description: "Emergency transportation services equipped with life-saving medical equipment and trained paramedical staff for immediate care.",
       icon: <Truck className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img1
     },
     {
       id: 6,
       title: "Diagnostics",
       description: "Cutting-edge diagnostic tools and expert analysis including X-ray, CT scan, and MRI for accurate medical diagnosis and treatment.",
       icon: <Camera className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img3
     },
     {
       id: 7,
       title: "Pathology",
       description: "Comprehensive laboratory services for accurate diagnostic testing, blood work, and detailed medical analysis with expert pathologists.",
       icon: <TestTube className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img9
     },
     {
       id: 8,
       title: "General Ward",
       description: "Comfortable shared accommodation with essential medical care, nursing support, and patient monitoring services for recovery.",
       icon: <Building className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img5
     },
     {
       id: 9,
       title: "Inpatient Rooms",
       description: "Comfortable, private rooms equipped for extended care and recovery with modern amenities and dedicated medical facilities.",
       icon: <User className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image:img7
     },
     {
       id: 10,
       title: "Semi Private",
       description: "Shared private rooms offering enhanced comfort and privacy with quality healthcare and personalized medical attention.",
       icon: <Bed className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img11
     },
     {
       id: 11,
       title: "Deluxe",
       description: "Premium accommodation with luxury amenities, personalized medical care, and superior comfort for discerning patients.",
       icon: <Crown className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img7
     },
     {
       id: 12,
       title: "Physiotherapy",
       description: "Rehabilitation services with modern equipment and expert therapists for physical recovery and comprehensive wellness programs.",
       icon: <Dumbbell className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img10
     },
     {
       id: 13,
       title: "Canteen",
       description: "Nutritious meals and refreshments available 24/7 for patients, visitors, and staff with hygienic food preparation standards.",
       icon: <Coffee className="w-8 h-8 text-white" />,
-      image: "https://images.unsplash.com/photo-1567521464027-f127ff144326?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+      image: img2
     }
   ];
 
   const primaryColor = "#18978d";
   const secondaryColor = "#ed8022";
+
+  const navigate=useNavigate()
 
   const settings = {
     dots: false,
@@ -160,6 +176,9 @@ const MedicalFacilities = () => {
     dotsClass: "slick-dots !bottom-[-60px] !flex !justify-center !gap-3"
   };
 
+
+  
+
   return (
     <div className="py-8 md:py-10 lg:py-12 bg-gray-100 ">
       <div className="container  mx-auto lg:px-10 ">
@@ -197,7 +216,7 @@ const MedicalFacilities = () => {
           <Slider {...settings}>
             {facilities.map((facility) => (
               <div key={facility.id} className="px-4">
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full">
+                <div className="bg-white rounded-2xl shadow-lg cursor-pointer overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full" onClick={()=>navigate(`/facility/${facility.title.toLowerCase().replace(/\s+/g, '-')}`)}>
                   {/* Image Section */}
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -209,8 +228,8 @@ const MedicalFacilities = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-black mb-3 line-clamp-1">
+                  <div className="px-6 py-4">
+                    <h3 className="text-xl font-bold text-black mb-0 line-clamp-1">
                       {facility.title}
                     </h3>
                     <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 h-10">

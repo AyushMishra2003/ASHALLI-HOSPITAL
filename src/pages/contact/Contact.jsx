@@ -92,7 +92,7 @@ const Contact = () => {
 
   return (
     <section>
-      <Helmet>
+      {/* <Helmet>
         <title>Contact Us | Dr. Monika Pandey - Best Gynaecologist in Indira Nagar</title>
         <meta name="description" content="Get in touch with Dr. Monika Pandey's clinic in Indira Nagar, Lucknow. Contact for appointments, inquiries, and more information." />
         <meta name="keywords" content="Dr. Monika Pandey, Gynaecologist Lucknow, Contact Clinic, Indira Nagar, Women's Health" />
@@ -100,7 +100,7 @@ const Contact = () => {
         <meta property="og:description" content="Reach out to Dr. Monika Pandey for appointments and inquiries. Located in Indira Nagar, Lucknow." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourdomain.com/contact" />
-      </Helmet>
+      </Helmet> */}
 
       <BreadcrumbComponent
         items={[

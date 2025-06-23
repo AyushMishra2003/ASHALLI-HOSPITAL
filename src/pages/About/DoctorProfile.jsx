@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phone, MapPin, Calendar, Award, Briefcase, User, Stethoscope } from 'lucide-react';
 import BreadCrumbs from '../../components/Breadcums';
 
@@ -9,6 +9,11 @@ export default function DoctorProfile() {
     { label: 'Team', href: '/team' },
     { label: 'Dr. Sarah Johnson' },
   ];
+
+      // Scroll to top on component mount
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <div className="min-h-screen bg-gray-50">
               <BreadCrumbs items={breadcrumbItems} headText={"Doctor Details"} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
 const DoctorCarousel = () => {
@@ -91,8 +92,8 @@ const DoctorCarousel = () => {
     <div className="bg-gray-100 relative">
       {/* Heading */}
       <div className="text-start pt-8 pb-10 px-10">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl  text-[#18978d] font-bold">
-          Our Specialists at Ashalli Hospitals
+        <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#18978d] font-bold">
+          Our Specialists at Ashaali Hospitals
         </h2>
       </div>
 
@@ -100,54 +101,60 @@ const DoctorCarousel = () => {
       <div className="pb-16 carousel-container">
         <Slider {...settings} className='px-10'>
           {doctors.map((doctor) => (
-            <div key={doctor.id} className="px-0">
-              <div className="bg-white h-96 flex flex-col shadow-md">
-                {/* Doctor Image */}
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={doctor.image} 
-                    alt={doctor.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Doctor Details */}
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-2 leading-tight">
-                      {doctor.name}
-                    </h3>
-                    <p className="text-sm font-medium mb-1" style={{color: '#18978d'}}>
-                      {doctor.department}
-                    </p>
-                    <p className="text-xs text-gray-600 mb-1">
-                      {doctor.degree}
-                    </p>
-                    <p className="text-xs text-gray-500 mb-4">
-                      {doctor.experience}
-                    </p>
+            <div key={doctor.id} className="px-2">
+              <Link to={`about/team/${doctor?.name}`}>
+                <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-2 flex flex-col items-center text-center transition-shadow duration-300 hover:shadow-md" style={{height: '350px'}}>
+                  {/* Circular background with doctor image */}
+                  <div className="relative mb-2">
+                    <div 
+                      className="w-60 h-60 rounded-full flex items-center justify-center relative"
+                      style={{backgroundColor: '#e8f4f3'}}
+                    >
+                      {/* Dot pattern background */}
+                      <div className="absolute inset-0 rounded-full">
+                        <svg width="160" height="160" className="rounded-full">
+                          <defs>
+                            <pattern id={`smallDots-${doctor.id}`} x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                              <circle cx="4" cy="4" r="0.8" fill="#4db6ac" opacity="0.4"/>
+                            </pattern>
+                          </defs>
+                          <rect width="160" height="160" fill={`url(#smallDots-${doctor.id})`} rx="80"/>
+                        </svg>
+                      </div>
+                      
+                      {/* Doctor image */}
+                      <div className="w-50 h-50 rounded-full overflow-hidden border-3 border-white shadow-lg relative z-10">
+                        <img 
+                          src={doctor.image} 
+                          alt={doctor.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
 
-                  {/* View Profile Button */}
+                  {/* Book Appointment Button */}
                   <button 
-                    className="border-2 text-sm font-medium px-4 py-2 rounded transition-colors duration-300 self-start hover:text-white"
+                    className="text-white text-xs font-bold px-4 py-2.5 rounded-md mb-1 tracking-wider uppercase transition-all duration-300 hover:opacity-90"
                     style={{
-                      borderColor: '#18978d',
-                      color: '#18978d'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = '#18978d';
-                      e.target.style.color = 'white';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = 'transparent';
-                      e.target.style.color = '#18978d';
+                      backgroundColor: '#18978d',
+                      minWidth: '140px'
                     }}
                   >
-                    View Profile
+                    BOOK APPOINTMENT
                   </button>
+
+                  {/* Doctor Details */}
+                  <div className="text-center">
+                    <h3 className="text-base font-bold text-gray-900 mb-1 leading-tight">
+                      {doctor.name}
+                    </h3>
+                    <p className="text-sm text-gray-400 font-normal uppercase tracking-wide">
+                      {doctor.degree}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </Slider>
@@ -155,7 +162,7 @@ const DoctorCarousel = () => {
 
       <style jsx>{`
         .carousel-container .slick-slide {
-          padding: 10px !important;
+          padding: 0 4px !important;
         }
         
         .carousel-container .slick-track {
@@ -167,7 +174,7 @@ const DoctorCarousel = () => {
         }
         
         .carousel-container .slick-dots {
-          bottom: 20px !important;
+          bottom: 10px !important;
         }
         
         .carousel-container .slick-dots li {

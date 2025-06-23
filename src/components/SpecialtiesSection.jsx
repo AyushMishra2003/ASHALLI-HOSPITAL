@@ -17,6 +17,7 @@ import img14 from '../assets/department/skin.png'
 import img15 from '../assets/department/human-brain.png'
 import img16 from '../assets/department/oncology.png'
 import img17 from '../assets/department/icu.png'
+import { Link } from 'react-router-dom';
 
 
 
@@ -78,7 +79,7 @@ const SpecialistSection = () => {
           </h1>
 
           {/* Optional subtitle for better SEO */}
-          <p className="text-gray-600 text-base md:text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base md:text-lg mt-4 mx-auto">
         Ashaali Hospital is home to a multidisciplinary team of specialists who are leaders in their fields. Backed by modern diagnostic and surgical support, we deliver seamless care in orthopedics, neurology, pediatrics, cardiology, nephrology, and more — all within a single, integrated facility.
           </p>
         </div>
@@ -86,6 +87,7 @@ const SpecialistSection = () => {
         {/* Specialists Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
           {specialists.map((specialist, index) => (
+            <Link        to={`/department/${specialist.name.toLowerCase().replace(/\s+/g, '-')}`}>
             <div
               key={index}
               className="bg-white rounded-xl p-4 md:py-3 md:px-2  text-center shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-gray-100 hover:border-opacity-0 transform hover:-translate-y-2"
@@ -138,6 +140,7 @@ const SpecialistSection = () => {
                 style={{ backgroundColor: secondaryColor }}
               ></div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -21,6 +21,7 @@ import {
   CheckCircle,
   ChevronLeft,
   ChevronRight,
+  User,
 } from 'lucide-react';
 
 
@@ -771,7 +772,7 @@ const ServiceDetail = () => {
 
   const specialties = [
     "PAEDIATRICS & NEONATOLOGY",
-    "GYNAECOLOGY AND OBSTETRICS",
+    // "GYNAECOLOGY AND OBSTETRICS",
     "ORTHOPEDICS",
     "GENERAL MEDICINE",
     "GENERAL SURGERY",
@@ -790,6 +791,26 @@ const ServiceDetail = () => {
     "Oncology",
     "Icu-Critical-Care",
     "Endocrinology"
+  ];
+
+    // Sample case statistics - you can replace with your actual data
+  const caseStats = [
+    { title: 'Total Cardiac Procedures', count: '2,847' },
+    { title: 'Angioplasty Procedures', count: '485' },
+    { title: 'Echocardiograms Performed', count: '1,245' },
+    { title: 'Pacemaker Implantations', count: '67' },
+    { title: 'Cardiac Catheterizations', count: '324' },
+    { title: 'Emergency Cardiac Cases', count: '156' }
+  ];
+
+  // Comprehensive care categories based on conditions
+  const conditionsData = [
+    { category: 'Coronary Conditions', items: ['Coronary Artery Disease', 'Heart Attack', 'Chest Pain'] },
+    { category: 'Heart Rhythm Disorders', items: ['Arrhythmias', 'Atrial Fibrillation'] },
+    { category: 'Heart Structure Issues', items: ['Valvular Heart Disease', 'Congenital Heart Disease'] },
+    { category: 'Heart Muscle Problems', items: ['Heart Failure', 'Cardiomyopathy'] },
+    { category: 'Vascular Conditions', items: ['Peripheral Artery Disease', 'Deep Vein Thrombosis'] },
+    { category: 'Blood Pressure Disorders', items: ['Hypertension'] }
   ];
 
   const breadcrumbItems = [
@@ -834,8 +855,13 @@ const handleMore = (data) => {
     getServiceData();
   }, [name])
 
+      // Scroll to top on component mount
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const currentService = getServiceData();
-  console.log("currentService", currentService);
+
 
   const IconComponent = currentService.icon;
 
@@ -843,170 +869,250 @@ const handleMore = (data) => {
     <div className="min-h-screen bg-gray-50">
       <BreadCrumbsComponent items={breadcrumbItems} headText={currentService.title} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-4 bg-gradient-to-br from-gray-50 via-blue-50 to-orange-50 min-h-screen">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8 ">
 
-            {/* Conditions Treated Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {currentService.conditionsTreated.slice(0, 6).map((condition, index) => (
-                <div key={index} className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
-                  <div className={`h-2 bg-gradient-to-r ${index % 3 === 0 ? 'from-[#18978d] to-[#18978d]' : index % 3 === 1 ? 'from-[#ed8022] to-[#ed7022]' : 'from-[#18978d] to-[#18878d]'}`}></div>
-                  <div className="px-2 py-2">
-                    <div className={`w-12 h-12 rounded-xl ${index % 3 === 0 ? 'bg-[#18978d]/10' : index % 3 === 1 ? 'bg-red-50' : 'bg-blue-50'} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300`}>
-                      <Heart className={`w-6 h-6 ${index % 3 === 0 ? 'text-[#18978d]' : index % 3 === 1 ? 'text-red-500' : 'text-blue-500'}`} />
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-blue-50 to-cyan-50 py-2">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="max-w-4xl">
+            <h1 className="text-xl md:text-2xl  lg:text-3xl font-bold text-gray-800 mb-4">
+              {currentService.title}
+            </h1>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              {currentService.hero.shortDescription}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-[#18978d]  text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+                BOOK APPOINTMENT →
+              </button>
+              <button className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+                CALL US →
+              </button>
+            </div>
+            <div className="mt-6">
+              <p className="text-gray-700 font-semibold">Call Now: +918062970888</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation Tabs */}
+      <div className="border-b border-gray-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex space-x-8 overflow-x-auto">
+            {['CONDITIONS TREATED', 'PROCEDURES AND TREATMENTS', 'COMPREHENSIVE CARE FOR CARDIAC CONDITIONS', 'OUR DOCTORS'].map((tab, index) => (
+              <button
+                key={index}
+                className={`py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap ${
+                  index === 0 
+                    ? 'border-[#18978d] text-[#18978d]' 
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          
+          {/* Left Content */}
+          <div className="lg:col-span-2 space-y-12">
+            
+            {/* Conditions Treated Statistics */}
+            <div>
+              <h2 className="lg:text-2xl text-md md:text-xl font-bold text-gray-800 mb-2">
+                Total Cases Treated For {currentService.hero.title} In Lucknow
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Our cardiology department has handled an impressive volume of cases, demonstrating both our capacity and expertise:
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
+                {caseStats.map((stat, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#18978d] rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-gray-700 font-medium">{stat.title}: </span>
+                      <span className="text-gray-600">{stat.count}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-1 group-hover:text-[#18978d] transition-colors duration-300">
-                      {condition}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Comprehensive treatment and care for {condition.toLowerCase()} with advanced medical protocols.
-                    </p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              
+              <p className="text-gray-600 text-sm bg-blue-50 p-2 rounded-lg">
+                With a success rate of 98%, this data reflects our commitment to achieving superior patient outcomes through experienced cardiac care.
+              </p>
             </div>
 
-            {/* Additional Conditions */}
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              <div className="bg-gradient-to-r from-[#18978d] to-[#f39c12] px-6 py-2">
-                <h3 className="lg:text-2xl md:text-xl text-md font-bold text-white flex items-center">
+            {/* Top Procedures */}
+            <div>
+              <h2 className="lg:text-2xl text-md md:text-xl font-bold text-gray-800 mb-3">
+                Top Procedures & Treatments For Cardiology In Lucknow
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {currentService.proceduresOffered.map((procedure, index) => (
+                  <div key={index} className="bg-white border border-gray-200 rounded-lg px-4 py-2 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      {procedure.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      {procedure.description}
+                    </p>
+                    {procedure.types && (
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-[#18978d] uppercase tracking-wide mb-2">Types Available:</p>
+                        <div className="space-y-1">
+                          {procedure.types.map((type, idx) => (
+                            <div key={idx} className="flex items-center text-gray-600 text-sm">
+                              <CheckCircle className="w-3 h-3 text-[#18978d] mr-2 flex-shrink-0" />
+                              {type}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    <button className="text-[#18978d] font-medium text-sm hover:text-blue-700 transition-colors duration-300">
+                      Learn More
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                  Additional Conditions We Treat
+            {/* Comprehensive Care */}
+            <div>
+              <h2 className="lg:text-2xl text-md md:text-xl font-bold text-gray-800 mb-2">
+                Comprehensive Care For Cardiac Conditions
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {conditionsData.map((condition, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#18978d] rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-700 font-medium">{condition.category}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Our Doctors */}
+            <div>
+              <h2 className="lg:text-2xl text-xl md:text-xl font-bold text-gray-800 mb-4">Our Expert Cardiologists</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                {currentService.doctors.map((doctor, index) => (
+                  <div key={doctor.id} className="bg-white border border-gray-200 rounded-lg p-2 hover:shadow-lg transition-shadow duration-300">
+                    <div className="flex flex-col md:flex-row gap-6">
+              
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                          {doctor.name}
+                        </h3>
+                        <p className="text-[#18978d] font-semibold mb-2">{doctor.designation}</p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                          <div className="flex items-center text-gray-600">
+                            <Clock className="w-4 h-4 mr-2 text-[#18978d]" />
+                            <span><strong>Experience:</strong> {doctor.experience}</span>
+                          </div>
+                          <div className="flex items-center text-gray-600">
+                            <Heart className="w-4 h-4 mr-2 text-[#18978d]" />
+                            <span><strong>Specialization:</strong> {doctor.specialization}</span>
+                          </div>
+                          <div className="flex items-center text-gray-600">
+                            <GraduationCap className="w-4 h-4 mr-2 text-[#18978d]" />
+                            <span><strong>Education:</strong> {doctor.education}</span>
+                          </div>
+                          <div className="flex items-center text-gray-600">
+                            <Calendar className="w-4 h-4 mr-2 text-[#18978d]" />
+                            <span><strong>Available:</strong> {doctor.availability}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Sidebar */}
+          <div className="space-y-8">
+            
+            {/* Our Specialties */}
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <div className="bg-[#18978d] px-6 py-4">
+                <h3 className="text-xl font-bold text-white flex items-center">
+                  <Users className="w-6 h-6 mr-2" />
+                  Our Specialties
                 </h3>
               </div>
-              <div className="px-2 py-2">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {currentService.conditionsTreated.slice(6).map((condition, index) => (
-                    <div key={index} className="flex items-center p-3 bg-gray-100 rounded-xl hover:from-[#18978d]/10 hover:to-[#18978d]/5 transition-all duration-300 group">
+              <div className="p-3">
+                <div className="space-y-3">
+                  {specialties.map((specialty, index) => (
+                    <div
+                      key={index}
+                      className="group flex items-center p-3 bg-[#18978d] hover:bg-[#73cac2] rounded-lg transition-all duration-300 cursor-pointer text-white"
+                      onClick={() => handleMore(specialty)}
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white mr-4"></div>
+                      <span className="font-semibold">{specialty}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Conditions Treated List */}
+            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+              <div className="bg-gradient-to-r from-[#18978d] to-cyan-600 px-6 py-4">
+                <h3 className="text-xl font-bold text-white">
+                  Conditions We Treat
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-2">
+                  {currentService.conditionsTreated.slice(0, 8).map((condition, index) => (
+                    <div key={index} className="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-blue-50 transition-all duration-300 group">
                       <div className="w-2 h-2 rounded-full bg-[#18978d] mr-3 group-hover:scale-150 transition-transform duration-300"></div>
                       <span className="text-gray-700 text-sm font-medium group-hover:text-[#18978d] transition-colors duration-300">
                         {condition}
                       </span>
                     </div>
                   ))}
+                  {currentService.conditionsTreated.length > 8 && (
+                    <button className="text-[#18978d] font-medium text-sm hover:text-blue-700 transition-colors duration-300 mt-3">
+                      View All Conditions →
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
-
-            {/* Procedures Offered */}
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              <div className="bg-gradient-to-r from-[#18978d] to-[#f39c12] px-2 py-2">
-                <h3 className="lg:text-2xl text-md font-bold text-white flex items-center">
-
-                  Advanced Procedures & Services
-                </h3>
-              </div>
-              <div className="p-2">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {currentService.proceduresOffered.map((procedure, index) => (
-                    <div key={index} className="group bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-2xl p-2 hover:border-[#18978d]/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex items-start">
-
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#18978d] transition-colors duration-300">
-                            {procedure.name}
-                          </h4>
-                          <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                            {procedure.description}
-                          </p>
-
-                          {procedure.types && (
-                            <div className="space-y-2">
-                              <p className="text-xs font-semibold text-[#18978d] uppercase tracking-wide">Types Available:</p>
-                              <div className="space-y-1">
-                                {procedure.types.map((type, idx) => (
-                                  <div key={idx} className="flex items-center text-gray-600 text-sm">
-                                    <CheckCircle className="w-4 h-4 text-[#18978d] mr-2 flex-shrink-0" />
-                                    {type}
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Doctors Carousel */}
-
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Specialties */}
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              <div className="bg-gradient-to-r from-[#18978d] to-[#18978d] px-4 py-4">
-                <h3 className="text-xl font-bold text-white flex items-center">
-                  <Users className="w-6 h-6 mr-2" />
-                  Our Specialties
-                </h3>
-              </div>
-              <div className="p-2">
-                <div className="space-y-3">
-                  {specialties.map((specialty, index) => (
-                    <div
-                      key={index}
-                      className="group flex items-center p-2 bg-[#18978d] hover:from-[#18978d]  rounded-2xl transition-all duration-300 cursor-pointer hover:shadow-lg transform hover:scale-[1.02] text-white"
-                      onClick={()=>handleMore(specialty)}
-                    >
-                      <div className="w-3 h-3 rounded-full bg-[#18978d] text-white group-hover:bg-white mr-4 transition-colors duration-300 group-hover:scale-125 transform"></div>
-                      <span className="font-semibold text-white group-hover:text-white transition-colors duration-300">{specialty}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Card */}Advanced Procedures & Services
-            {false &&
-              <div className="relative overflow-hidden bg-gradient-to-br from-[#18978d] via-[#f39c12] to-[#e67e22] rounded-3xl shadow-2xl">
-                <div className="absolute inset-0 bg-black/10"></div>
-                <div className="relative p-8 text-white">
-                  <div className="text-center mb-6">
-                    <Shield className="w-16 h-16 mx-auto mb-4 opacity-90" />
-                    <h3 className="text-2xl font-bold mb-2">Need Cardiac Care?</h3>
-                    <p className="text-sm opacity-90 leading-relaxed">
-                      Our expert cardiology team provides 24/7 emergency cardiac care and comprehensive heart health services.
-                    </p>
-                  </div>
-
-                  <button className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white py-4 px-6 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center mb-6 shadow-lg hover:shadow-xl transform hover:scale-105">
-                    <Calendar className="w-5 h-5 mr-3" />
-                    Book Cardiac Consultation
-                  </button>
-
-                  <div className="pt-6 border-t border-white/30">
-                    <div className="flex items-center justify-center text-sm opacity-90">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      Lucknow, Uttar Pradesh
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
 
             {/* Emergency Contact */}
-            <div className="bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-200 rounded-3xl p-6 shadow-xl">
+            <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-red-800 mb-2">Cardiac Emergency</h3>
                 <p className="text-red-700 text-sm mb-4">24/7 Emergency Cardiac Care</p>
-                <div className="bg-white rounded-2xl p-4 shadow-inner">
+                <div className="bg-white rounded-lg p-4 shadow-sm">
                   <span className="text-red-800 font-bold text-2xl">+91 7897934949</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
+
 
 
 

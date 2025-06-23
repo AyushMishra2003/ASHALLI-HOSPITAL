@@ -14,7 +14,7 @@ const Testinomial = () => {
 
   return (
     <div
-      className="elfsight-app-58722eb1-6c41-4cda-8e64-d289b7410521  container px-10"
+      className="elfsight-app-58722eb1-6c41-4cda-8e64-d289b7410521  container px-10 mx-auto"
       data-elfsight-app-lazy
     ></div>
   );

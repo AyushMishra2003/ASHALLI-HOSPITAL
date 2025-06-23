@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BreadCrumbs from '../../components/Breadcums';
 import { Link } from 'react-router-dom';
 
@@ -71,6 +71,10 @@ const Team = () => {
     { label: "Team" },
   ];
 
+      // Scroll to top on component mount
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <section>

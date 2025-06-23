@@ -977,6 +977,12 @@ const FacilitiesComponent = () => {
 
   }, [name])
 
+
+        // Scroll to top on component mount
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
   return (
     <div className=" bg-gray-50">
       <BreadCrumbsComponent items={breadcrumbItems} headText={featuredFacility?.title} />

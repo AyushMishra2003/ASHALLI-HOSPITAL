@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Heart, Users, Award, Eye, Target, Phone, Mail, MapPin, Calendar, Clock, Stethoscope, UserCheck, Building, Star } from 'lucide-react';
 import BreadCrumbsComponent from '../../components/Breadcums';
 import aboutimage from '../../assets/about.webp'
@@ -42,6 +42,11 @@ const AshaaliHospitalAbout = () => {
     { label: 'About Us' },
 
   ];
+
+      // Scroll to top on component mount
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">

@@ -21,7 +21,7 @@ const AboutSection = () => {
                 backgroundColor: `${primaryColor}10` // Light background
               }}
             >
-              About Ashaali Hospitals
+              About Ashaali Hospital
             </span>
           </div>
 

@@ -152,7 +152,7 @@ const HomeBlogSlider = () => {
 
     return (
         <section className='bg-gray-100 '>
-            <div className="px-4 lg:px-2 py-10 sm:py-12 md:py-14 lg:py-16 bg-gray-100 max-w-7xl mx-auto">
+            <div className="px-6 sm:px-8 lg:px-10 py-10 sm:py-12 md:py-14 lg:py-16 bg-gray-100 container mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Latest Blog Posts</h2>
                 
                 {/* Custom Slider */}
@@ -212,12 +212,12 @@ const HomeBlogSlider = () => {
                                     {/* Content Section - Flex grow to push button to bottom */}
                                     <div className="p-6 flex flex-col flex-grow">
                                         {/* Title */}
-                                        <h3 className="text-xl font-bold text-gray-800 mb-3 leading-tight min-h-[3.5rem] flex items-start">
+                                        <h3 className="text-xl font-bold text-gray-800 mb-1 leading-tight flex items-start">
                                             {post.title}
                                         </h3>
 
                                         {/* Excerpt - Fixed height area */}
-                                        <div className="flex-grow mb-4">
+                                        <div className="flex-grow mb-2">
                                             <p className="text-gray-600 text-sm leading-relaxed min-h-[4.5rem]">
                                                 {truncateText(post.excerpt, 120)}
                                             </p>
