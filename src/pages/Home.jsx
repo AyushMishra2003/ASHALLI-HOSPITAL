@@ -21,21 +21,21 @@ import AshalliCompoonent from './Home/AshalliComponent'
 import DoctorCarousel from './Home/DoctorCarsouel'
 import HomeGallery from './Home/HomeGalley'
 import YouTubeChannelShowcase from './Home/GalleryVideo'
+import TruestedAshaali from './Home/TruestedAshaali'
 
 
 export default function Home() {
   return (
     <div className=''>
       <HeroSlider />
-
-
-      <AboutSection />
-      <StatsComponent />
+      <AboutSection />   
       <SpecialtiesSection />
+         <StatsComponent />
 
       {/* <CTASection/> */}
-      <HomeFeatures />
+      {/* <HomeFeatures /> */}
       {/* <HospitalDoctorsCTA/> */}
+      <TruestedAshaali/>
       <HospitalFacilities />
       <AshalliCompoonent />
       <DoctorCarousel />

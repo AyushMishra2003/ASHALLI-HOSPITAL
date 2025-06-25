@@ -180,8 +180,8 @@ const MedicalFacilities = () => {
   
 
   return (
-    <div className="py-8 md:py-10 lg:py-12 bg-gray-100 ">
-      <div className="container  mx-auto lg:px-10 ">
+    <div className="py-8 md:py-10 lg:py-12 bg-gray-100 lg:px-12 px-4 sm:px-6 md:px-8 ">
+      <div className="container  mx-auto  ">
 
 
         <div className="lg:text-center text-start mb-10 md:mb-12 px-4 mx-auto">
@@ -218,7 +218,7 @@ const MedicalFacilities = () => {
               <div key={facility.id} className="px-4">
                 <div className="bg-white rounded-2xl shadow-lg cursor-pointer overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full" onClick={()=>navigate(`/facility/${facility.title.toLowerCase().replace(/\s+/g, '-')}`)}>
                   {/* Image Section */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative  overflow-hidden">
                     <img
                       src={facility.image}
                       alt={facility.title}
@@ -232,7 +232,7 @@ const MedicalFacilities = () => {
                     <h3 className="text-xl font-bold text-black mb-0 line-clamp-1">
                       {facility.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 h-10">
+                    <p className="text-gray-600 text-sm ">
                       {facility.description}
                     </p>
                   </div>

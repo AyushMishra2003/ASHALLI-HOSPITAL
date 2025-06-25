@@ -874,9 +874,9 @@ const handleMore = (data) => {
       <div className="bg-gradient-to-r from-blue-50 to-cyan-50 py-2">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-4xl">
-            <h1 className="text-xl md:text-2xl  lg:text-3xl font-bold text-gray-800 mb-4">
+            {/* <h1 className="text-xl md:text-2xl  lg:text-3xl font-bold text-gray-800 mb-4">
               {currentService.title}
-            </h1>
+            </h1> */}
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               {currentService.hero.shortDescription}
             </p>
@@ -885,7 +885,10 @@ const handleMore = (data) => {
                 BOOK APPOINTMENT →
               </button>
               <button className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
-                CALL US →
+                    <a href="tel:+917897934949" className="hover:underline">
+                   CALL US →
+                </a>
+              
               </button>
             </div>
             <div className="mt-6">
@@ -1104,7 +1107,9 @@ const handleMore = (data) => {
                 <h3 className="text-xl font-bold text-red-800 mb-2">Cardiac Emergency</h3>
                 <p className="text-red-700 text-sm mb-4">24/7 Emergency Cardiac Care</p>
                 <div className="bg-white rounded-lg p-4 shadow-sm">
-                  <span className="text-red-800 font-bold text-2xl">+91 7897934949</span>
+                         <a href="tel:+917897934949" className="hover:underline">
+                  +91-7897934949
+                </a>
                 </div>
               </div>
             </div>

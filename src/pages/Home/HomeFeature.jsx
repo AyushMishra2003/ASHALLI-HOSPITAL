@@ -3,22 +3,13 @@ import { Calendar, Heart, Users, Percent, Award, Building2 } from 'lucide-react'
 
 const HomeFeatures = () => {
   return (
-    <div className="bg-white">
+    <div style={{ backgroundColor: '#e8f4f8' }}>
       {/* Main Hero Section */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#18978d] mb-4">
-            ASHAALI
-          </h1>
-          <p className="text-xl md:text-2xl text-[#18978d] font-medium">
-            Best Multi Speciality Hospital In Lucknow
-          </p>
-        </div>
-      </section>
+
 
       {/* Services Grid */}
-      <section className="py-3" style={{ backgroundColor: '#f0fffe' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-1" >
+        <div className="container mx-auto ">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               {

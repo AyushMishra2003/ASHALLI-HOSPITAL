@@ -1,14 +1,16 @@
 import React from 'react';
 import { User, Building, Shield, Stethoscope, Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AshaaliComponent = () => {
+    const navigate=useNavigate()
     return (
-        <div className=" bg-gray-100  "       style={{ backgroundColor: '#e8f4f8' }}>
+        <div className=" bg-gray-100   lg:px-12 px-4 sm:px-6 md:px-8"       style={{ backgroundColor: '#e8f4f8' }}>
 
 
             {/* Main Content */}
-            <div className="container mx-auto px-6 ">
-                <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="container mx-auto  ">
+                <div className="grid lg:grid-cols-2 gap-12 items-center container mx-auto">
                     {/* Left Content */}
                     <div className="space-y-4">
                         {/* Logo */}
@@ -51,7 +53,10 @@ const AshaaliComponent = () => {
                         <button className="bg-transparent border-2 text-gray-800 px-6 py-2 rounded-full font-semibold hover:text-white transition-all duration-300 flex items-center space-x-2 group border-gray-800 cursor-pointer hover:border-gray-800"
                             style={{ '--hover-bg': '#18978d' }}
                             onMouseEnter={(e) => e.target.style.backgroundColor = '#18978d'}
-                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
+                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onClick={()=>navigate("/department/orthopaedics")}
+                            >
+                                
                             <span>View Our Specialists </span>
                             <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -75,24 +80,7 @@ const AshaaliComponent = () => {
                 </div>
             </div>
 
-            {/* Mobile Sidebar Icons */}
-            <div className="lg:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 bg-white rounded-full px-3 py-2 shadow-lg border">
-                <div className="rounded-full p-2" style={{ backgroundColor: '#18978d10' }}>
-                    <User className="w-4 h-4" style={{ color: '#18978d' }} />
-                </div>
-                <div className="rounded-full p-2" style={{ backgroundColor: '#18978d10' }}>
-                    <Building className="w-4 h-4" style={{ color: '#18978d' }} />
-                </div>
-                <div className="rounded-full p-2" style={{ backgroundColor: '#18978d10' }}>
-                    <Shield className="w-4 h-4" style={{ color: '#18978d' }} />
-                </div>
-                <div className="rounded-full p-2" style={{ backgroundColor: '#18978d10' }}>
-                    <Stethoscope className="w-4 h-4" style={{ color: '#18978d' }} />
-                </div>
-                <div className="rounded-full p-2" style={{ backgroundColor: '#18978d' }}>
-                    <Search className="w-4 h-4 text-white" />
-                </div>
-            </div>
+
         </div>
     );
 };

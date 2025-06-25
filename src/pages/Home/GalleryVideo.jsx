@@ -107,32 +107,32 @@ const YouTubeChannelShowcase = () => {
     return (
         <div className=" bg-gradient-to-br from-gray-50 to-white">
             {/* Hero Section */}
-            <div className="w-full mx-auto px-4 py-8 sm:py-12 lg:py-16">
+            <div className="w-full mx-auto  py-8 sm:py-12 lg:py-16 lg:px-12 px-4 sm:px-6 md:px-8">
      
 
 
-                    <div className="md:text-center text-start mb-3 md:mb-4 px-6 md:px-8">
-                        {/* Small colored heading at top */}
-                        <div className="mb-3 md:mb-4">
-                            <span
-                                className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
-                                style={{
-                                    color: primaryColor,
-                                    borderColor: primaryColor,
-                                    backgroundColor: `${primaryColor}10` // Light background
-                                }}
-                            >
-                                Ashaali Hospital Video Gallery
-                            </span>
-                        </div>
+              <div className="text-center mb-10 md:mb-12 px-4 max-w-5xl mx-auto">
+          {/* Small colored heading at top */}
+          <div className="mb-3 md:mb-4">
+            <span
+              className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
+              style={{
+                color: primaryColor,
+                borderColor: primaryColor,
+                backgroundColor: `${primaryColor}10` // Light background
+              }}
+            >
+          🎥 Watch Our Story in Motion
+            </span>
+          </div>
 
-                        {/* Main SEO heading */}
-                        {/* <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-2 leading-tight">
-                            <span style={{ color: primaryColor }}>Discover Our Journey</span>
-                            <span className="text-gray-800"> Through </span>
-                            <span style={{ color: primaryColor }}>Inspiring Visual Stories</span>
-                        </h1> */}
-                    </div>
+          {/* Main SEO heading */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
+              Real Stories, Real Care — Discover Ashaali Through Videos
+          </h1>
+
+
+        </div>
 
 
 

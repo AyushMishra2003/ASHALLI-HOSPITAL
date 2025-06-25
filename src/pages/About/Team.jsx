@@ -83,12 +83,12 @@ const Team = () => {
      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
+        {/* <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2">
-            <span className="text-[#18978d]">Doctors & Specialists</span>{' '}
+            <span className="text-[#18978d]">Doctors & Specialists123</span>{' '}
             <span className="text-gray-600">At Ashalli</span>
           </h2>
-        </div>
+        </div> */}
 
         {/* Main Doctor Profile */}
         <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-4 md:p-6 lg:p-8 mb-8 md:mb-12">

@@ -37,7 +37,7 @@ const SpecialistSection = () => {
     { name: 'ENT', image: img5 },
     { name: 'Cardiology', image: img },
     { name: 'General Surgery', image: img7 },
-    { name: 'Obstetrics & Gynaecology', image: img8 },
+    { name: 'Obs. & Gynaecology', image: img8 },
     { name: 'Urology & Andrology', image: img9 },
     { name: 'Nephrology', image: img10 },
     { name: 'Dental', image: img11 },
@@ -53,8 +53,8 @@ const SpecialistSection = () => {
 
 
   return (
-    <div className="bg-gray-50 py-12 md:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-50 py-12 md:py-16 lg:px-12 px-4 sm:px-6 md:px-8">
+      <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-12 px-4">
           {/* Small colored heading at top */}
@@ -72,16 +72,17 @@ const SpecialistSection = () => {
           </div>
 
           {/* Main SEO heading */}
-          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight">
-            <span style={{ color: primaryColor }}>Best Specialists</span>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
+             Explore advanced treatment across all major medical departments under one roof
+            {/* <span style={{ color: primaryColor }}>Best Specialists</span>
             <span className="text-gray-800"> in </span>
-            <span style={{ color: primaryColor }}>Lucknow</span>
+            <span style={{ color: primaryColor }}>Lucknow</span> */}
           </h1>
 
           {/* Optional subtitle for better SEO */}
-          <p className="text-gray-600 text-base md:text-lg mt-4 mx-auto">
+          {/* <p className="text-gray-600 text-base md:text-lg mt-4 mx-auto">
         Ashaali Hospital is home to a multidisciplinary team of specialists who are leaders in their fields. Backed by modern diagnostic and surgical support, we deliver seamless care in orthopedics, neurology, pediatrics, cardiology, nephrology, and more — all within a single, integrated facility.
-          </p>
+          </p> */}
         </div>
 
         {/* Specialists Grid */}

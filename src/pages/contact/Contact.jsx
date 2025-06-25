@@ -125,7 +125,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="https://www.google.co.in/maps/place/Dr+Monika+Pandey+Best+Gynaecologist+in+Indira+Nagar/@26.8854118,80.9986954,17z/data=!3m1!4b1!4m6!3m5!1s0x3999592fb08ce83b:0x969f7467a24cfb3b!8m2!3d26.885407!4d81.0012703!16s%2Fg%2F11vpf7nlyn?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBggCEEUYOzIGCAAQRRg5MgcIARAAGIAEMgYIAhBFGDsyBwgDEAAYgAQyBwgEEC4YgAQyDwgFEC4YChivARjHARiABDIHCAYQABiABDIGCAcQRRg90gEINTI0NGowajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KcMBp_kDVZk5Mb_pkHQJM-K7&daddr=PH-7,+Amrapali+Yojna,+E2,+IIM+ROAD,+near+JOGGERS+PARK,+Dubagga,+Lucknow,+Uttar+Pradesh+226003"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-[#18978d] to-[#ed8022] p-3 rounded-md"
@@ -135,7 +135,7 @@ const Contact = () => {
                   <div>
                     <h2 className="text-[#18978d] text-[1.3rem] sora-600">Address</h2>
                     <a
-                      href="https://www.google.co.in/maps/place/Dr+Monika+Pandey+Best+Gynaecologist+in+Indira+Nagar/@26.8854118,80.9986954,17z/data=!3m1!4b1!4m6!3m5!1s0x3999592fb08ce83b:0x969f7467a24cfb3b!8m2!3d26.885407!4d81.0012703!16s%2Fg%2F11vpf7nlyn?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D"
+                      href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBggCEEUYOzIGCAAQRRg5MgcIARAAGIAEMgYIAhBFGDsyBwgDEAAYgAQyBwgEEC4YgAQyDwgFEC4YChivARjHARiABDIHCAYQABiABDIGCAcQRRg90gEINTI0NGowajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KcMBp_kDVZk5Mb_pkHQJM-K7&daddr=PH-7,+Amrapali+Yojna,+E2,+IIM+ROAD,+near+JOGGERS+PARK,+Dubagga,+Lucknow,+Uttar+Pradesh+226003"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
@@ -149,7 +149,7 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <a
-                    href="tel:+91 789793494990"
+                    href="tel:+91789793494990"
                     className="bg-gradient-to-r from-[#ed8022] to-[#18978d] p-3 rounded-md"
                   >
                     <MdContactPhone className="text-[1.4rem] text-white" />
@@ -157,17 +157,12 @@ const Contact = () => {
                   <div>
                     <h2 className="text-[#18978d] text-[1.3rem] sora-600">Call for Help</h2>
                     <a
-                      href="tel:+91 7897934949"
+                          href="tel:+91789793494990"
                       className="sora-400 text-[1rem] text-[#535760] no-underline"
                     >
                       +91-978977934948
                     </a> ,
-                    <a
-                      href="tel:+91 789793494990"
-                      className="sora-400 text-[1rem] text-[#535760] no-underline ml-1"
-                    >
-                      0522-3503390, 3503566
-                    </a>
+
                   </div>
                 </div>
 

@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiPhone, FiMail, FiClock, FiMapPin, FiChevronRight } from 'react-icons/fi';
 import logo from '../assets/cclogo.png'
+import { BsTelephone } from 'react-icons/bs';
+import { TbDeviceLandlinePhone } from 'react-icons/tb';
 
 
 const Footer = () => {
   const facilities = [
-    "ICU", "NICU", "Emergency", "Ventilator", "Ambulance", "XRay", "Pathology", "General Ward", "Private",
-    "Semi Private", "Deluxe", "Physiotherapy", "Canteen"
+    "ICU/NICU", "Emergency", "Ventilator", "Ambulance", "XRay", "Pathology","Physiotherapy"
   ];
 
   const specialties = [
@@ -18,34 +19,60 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-10 px-6">
+    <footer className="bg-gray-900 text-white py-10 px-2">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
+
           {/* Hospital Info Section */}
           <div className="space-y-5">
-            <h2 className="text-2xl font-bold text-white">Ashali Hospital</h2>
+            <h2 className="text-2xl font-bold text-white">Ashaali Hospital</h2>
             <div className="space-y-3 text-gray-300 text-sm">
-              <div className="flex items-start gap-2">
-                <FiMapPin className="mt-1" />
-                <p>
-                  E2/PH-7, Amrapali Yojana Joggers Park Chauraha, <br />
-                  Lucknow, Uttar Pradesh 226003
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
+
+
+              {/* Phone */}
+              <div className="flex  items-center gap-2">
                 <FiPhone />
-                <Link to="/">+91-978977934948, 0522-3503390, 3503566</Link>
+                <a href="tel:+917897934949" className="hover:underline">
+                  +91-7897934949
+                </a> 
               </div>
-              <div className="flex items-center gap-2">
-                <FiClock />
-                <p>(Monday-Sunday) 10:00-1:30PM & 6:00-8:30PM</p>
+                           <div className="flex  items-center gap-2">
+                <TbDeviceLandlinePhone/>
+        
+                    <a href="tel:+917897934949" className="hover:underline">
+                  0522-3503390, 3503566
+                </a>
               </div>
+
+                          {/* Email */}
               <div className="flex items-center gap-2">
                 <FiMail />
-                <Link to="/">ashaalihospital@gmail.com</Link>
+                <a href="mailto:ashaalihospital@gmail.com" className="hover:underline">
+                  ashaalihospital@gmail.com
+                </a>
               </div>
+
+              {/* Timing */}
+              <div className="flex items-center gap-2">
+                <FiClock />
+                <p ><span className='font-bold'>Opening Hours:</span> 9AM:-4PM </p>
+              </div>
+                                     {/* Address */}
+              <div className="flex items-start gap-2">
+                <FiMapPin className="mt-1" />
+                <a
+                  href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBggCEEUYOzIGCAAQRRg5MgcIARAAGIAEMgYIAhBFGDsyBwgDEAAYgAQyBwgEEC4YgAQyDwgFEC4YChivARjHARiABDIHCAYQABiABDIGCAcQRRg90gEINTI0NGowajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KcMBp_kDVZk5Mb_pkHQJM-K7&daddr=PH-7,+Amrapali+Yojna,+E2,+IIM+ROAD,+near+JOGGERS+PARK,+Dubagga,+Lucknow,+Uttar+Pradesh+226003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  E2/PH-7, Amrapali Yojana <br /> IIM ROAD Joggers Park Chauraha, <br />
+                  Lucknow, Uttar Pradesh 226003
+                </a>
+              </div>
+  
             </div>
+
           </div>
 
           {/* Quick Links Section */}
@@ -53,9 +80,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Quick Links</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
               {[
-                "Home", "About Ashali", "About Team", "Gallery", "Blogs", "Contact Us",
-                "Patients Story", "Career", "Consult Doctors Online",
-                "Terms & Conditions", "Privacy Policy", "Refund and Cancellation Policy"
+                "Home", "About Ashaali", "Our Doctors", "Gallery", 
+                "Patients Story","Blogs", "Contact Us"
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link to="/" className="flex items-center gap-0 hover:text-white transition">
@@ -96,7 +122,7 @@ const Footer = () => {
         </div>
 
 
-             <div className="  border-t border-gray-700 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 ">
+        <div className="  border-t border-gray-700 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 ">
           <p className="text-sm text-white text-center sm:text-left">
             Copyright © 2025 <span className="font-semibold">Ashaali Hospital</span> || All Rights Reserved ||
           </p>

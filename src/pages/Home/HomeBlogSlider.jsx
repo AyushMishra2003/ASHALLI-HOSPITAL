@@ -152,9 +152,31 @@ const HomeBlogSlider = () => {
 
     return (
         <section className='bg-gray-100 '>
-            <div className="px-6 sm:px-8 lg:px-10 py-10 sm:py-12 md:py-14 lg:py-16 bg-gray-100 container mx-auto">
-                <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Latest Blog Posts</h2>
-                
+            <div className="lg:px-12 px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-14 lg:py-16 bg-gray-100 container mx-auto">
+
+                <div className="text-center mb-10 md:mb-12 p= max-w-5xl mx-auto">
+                    {/* Small colored heading at top */}
+                    <div className="mb-3 md:mb-4">
+                        <span
+                            className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
+                            style={{
+                                color: primaryColor,
+                                borderColor: primaryColor,
+                                backgroundColor: `${primaryColor}10` // Light background
+                            }}
+                        >
+                            📝 Health Insights & Updates
+                        </span>
+                    </div>
+
+                    {/* Main SEO heading */}
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
+                        Expert Advice, Wellness Tips, and the Latest from Ashaali Hospital
+                    </h1>
+
+
+                </div>
+
                 {/* Custom Slider */}
                 <div className="relative">
                     {/* Navigation Buttons */}
@@ -165,7 +187,7 @@ const HomeBlogSlider = () => {
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
-                    
+
                     <button
                         onClick={nextSlide}
                         className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors"
@@ -175,7 +197,7 @@ const HomeBlogSlider = () => {
                     </button>
 
                     {/* Cards Container */}
-                    <div className="mx-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {getVisiblePosts().map((post, index) => (
                             <div key={`${post.id}-${index}`} className="group">
                                 <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
@@ -257,7 +279,7 @@ const HomeBlogSlider = () => {
                                         <button
                                             onClick={() => handleReadMore(post.title)}
                                             className="w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg transform hover:scale-105 mt-auto"
-                                            style={{ 
+                                            style={{
                                                 backgroundColor: primaryColor,
                                                 boxShadow: `0 4px 15px ${primaryColor}40`
                                             }}
@@ -276,12 +298,11 @@ const HomeBlogSlider = () => {
                             <button
                                 key={index}
                                 onClick={() => setCurrentSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                    index === currentSlide 
-                                        ? 'w-8' 
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                                        ? 'w-8'
                                         : 'hover:opacity-75'
-                                }`}
-                                style={{ 
+                                    }`}
+                                style={{
                                     backgroundColor: index === currentSlide ? primaryColor : '#CBD5E1'
                                 }}
                             />

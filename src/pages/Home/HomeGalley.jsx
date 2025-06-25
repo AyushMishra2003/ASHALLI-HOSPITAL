@@ -123,19 +123,30 @@ const HomeGallery = () => {
   const secondaryColor = "#ed8022";
 
   return (
-    <div className="w-full container mx-auto py-8 lg:py-12 px-10">
-      <div className="mb-3 md:mb-4">
-        <span
-          className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
-          style={{
-            color: primaryColor,
-            borderColor: primaryColor,
-            backgroundColor: `${primaryColor}10` // Light background
-          }}
-        >
-          Ashaali Hospital Photo Gallery
-        </span>
-      </div>
+    <div className="w-full container mx-auto py-8 lg:py-12 lg:px-12 px-4 sm:px-6 md:px-8">
+
+              <div className="text-center mb-10 md:mb-12 px-4 max-w-5xl mx-auto">
+          {/* Small colored heading at top */}
+          <div className="mb-3 md:mb-4">
+            <span
+              className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
+              style={{
+                color: primaryColor,
+                borderColor: primaryColor,
+                backgroundColor: `${primaryColor}10` // Light background
+              }}
+            >
+         Explore Our Gallery
+            </span>
+          </div>
+
+          {/* Main SEO heading */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
+           A Glimpse Into Ashaali Hospital’s World-Class Facilities and Care
+          </h1>
+
+
+        </div>
       <div className="gallery-carousel">
         <Slider {...settings}>
           {galleryImages.map((image, index) => (

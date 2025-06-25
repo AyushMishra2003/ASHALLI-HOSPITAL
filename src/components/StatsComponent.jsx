@@ -24,10 +24,10 @@ const StatsComponent = () => {
 
   return (
     <div 
-      className="w-full py-6 px-4 sm:px-6 lg:px-8"
+      className="w-full py-6 lg:px-12 px-4 sm:px-6 md:px-8"
       style={{ backgroundColor: '#e8f4f8' }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto container">
         {/* Main Heading */}
         <h2 
           className="text-3xl sm:text-4xl lg:text-3xl font-bold text-center mb-12 sm:mb-6 text-gray-800"

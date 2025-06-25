@@ -86,7 +86,9 @@ const SahyadriHeader = () => {
           <div className="flex flex-col space-y-2 md:hidden">
             <div className="flex items-center justify-center gap-2 text-gray-600">
               <span className="text-xs">Emergency/Appointment</span>
-              <span className="text-red-600 font-semibold">+91 7897934949</span>
+              <a href="tel:+917897934949" className="text-red-600 font-semibold hover:underline">
+                +91 7897934949
+              </a>
             </div>
             <div className="flex items-center justify-center gap-2">
               <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
@@ -114,7 +116,9 @@ const SahyadriHeader = () => {
             <div className="flex items-center gap-2 text-gray-600">
               <span className="hidden lg:inline">For Emergency Ambulance/Appointment</span>
               <span className="lg:hidden">Emergency</span>
-              <span className="text-red-600 font-semibold">+91 7897934949</span>
+                  <a href="tel:+917897934949" className="text-red-600 font-semibold hover:underline">
+                +91 7897934949
+              </a>
               {/* <span className="hidden lg:inline">Second Opinion</span> */}
             </div>
 
@@ -129,26 +133,32 @@ const SahyadriHeader = () => {
                 <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               </div>
               {/* Emergency Contacts */}
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
-                  <User className="text-white w-4 h-4" />
-                </div>
-                <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center">
-                  <MessageSquare className="text-white w-4 h-4" />
-                </div>
-                <div className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
-                  <Phone className="text-white w-4 h-4" />
-                </div>
-              </div>
+<div className="flex items-center gap-2">
+  {/* Email */}
+  <a href="mailto:ashaalihospital@gmail.com" className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
+    <User className="text-white w-4 h-4" />
+  </a>
+
+  {/* WhatsApp */}
+  <a href="https://wa.me/917897934949" target="_blank" rel="noopener noreferrer" className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center">
+    <MessageSquare className="text-white w-4 h-4" />
+  </a>
+
+  {/* Phone Call */}
+  <a href="tel:+917897934949" className="w-7 h-7 bg-red-500 rounded-full flex items-center justify-center">
+    <Phone className="text-white w-4 h-4" />
+  </a>
+</div>
+
 
               {/* Action Buttons */}
               <div className="flex gap-2">
                 {/* <button className="px-4 py-1.5 border border-[#18978d] text-[#18978d] rounded-md hover:bg-red-50 transition-colors text-sm">
                   Home Care
                 </button> */}
-                <button className="px-4 py-1.5 bg-[#18978d] lg:block xl:hidden text-white rounded-md transition-colors text-sm">
+                <Link className="px-4 py-1.5 bg-[#18978d] lg:block xl:hidden text-white rounded-md transition-colors text-sm">
                   Book Appointment
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -276,9 +286,9 @@ const SahyadriHeader = () => {
               </Link> */}
             </nav>
 
-            <button className="px-4 hidden xl:block   py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-sm">
+            <Link to={"/contact"} className="px-4 hidden xl:block   py-1.5 bg-[#18978d] text-white rounded-md transition-colors text-sm">
               Book Appointment
-            </button>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button

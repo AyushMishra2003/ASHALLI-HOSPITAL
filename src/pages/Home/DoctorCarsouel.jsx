@@ -88,22 +88,44 @@ const DoctorCarousel = () => {
     ]
   };
 
+    const primaryColor = "#18978d";
+  const secondaryColor = "#ed8022";
+
   return (
-    <div className="bg-gray-100 relative">
-      {/* Heading */}
-      <div className="text-start pt-8 pb-10 px-10">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#18978d] font-bold">
-          Our Specialists at Ashaali Hospitals
-        </h2>
-      </div>
+    <div className="bg-gray-100 relative py-10 lg:px-12 px-4 sm:px-6 md:px-8">
+
+
+
+              <div className="text-center mb-10 md:mb-12 ">
+          {/* Small colored heading at top */}
+          <div className="mb-3 md:mb-4">
+            <span
+              className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wider inline-block px-3 py-1 rounded-full border-2"
+              style={{
+                color: primaryColor,
+                borderColor: primaryColor,
+                backgroundColor: `${primaryColor}10` // Light background
+              }}
+            >
+           Trusted Professionals Committed to Your Care and Recovery
+            </span>
+          </div>
+
+          {/* Main SEO heading */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
+              👨‍⚕️ Meet Our Team of Expert Doctors
+          </h1>
+
+
+        </div>
 
       {/* Doctor Carousel */}
       <div className="pb-16 carousel-container">
-        <Slider {...settings} className='px-10'>
+        <Slider {...settings} className=''>
           {doctors.map((doctor) => (
             <div key={doctor.id} className="px-2">
               <Link to={`about/team/${doctor?.name}`}>
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-2 flex flex-col items-center text-center transition-shadow duration-300 hover:shadow-md" style={{height: '350px'}}>
+                <div className="bg-white rounded-xl shadow-sm border border-gray-100 px-2  py-6 flex flex-col items-center text-center transition-shadow duration-300 hover:shadow-md" >
                   {/* Circular background with doctor image */}
                   <div className="relative mb-2">
                     <div 
@@ -146,7 +168,7 @@ const DoctorCarousel = () => {
 
                   {/* Doctor Details */}
                   <div className="text-center">
-                    <h3 className="text-base font-bold text-gray-900 mb-1 leading-tight">
+                    <h3 className="text-base font-bold text-gray-900  leading-tight">
                       {doctor.name}
                     </h3>
                     <p className="text-sm text-gray-400 font-normal uppercase tracking-wide">
