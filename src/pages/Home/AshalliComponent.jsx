@@ -2,6 +2,9 @@ import React from 'react';
 import { User, Building, Shield, Stethoscope, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import ambulance from '../../assets/ambulance.png'
+
+
 const AshaaliComponent = () => {
     const navigate=useNavigate()
     return (
@@ -66,9 +69,9 @@ const AshaaliComponent = () => {
 
                     {/* Right Image */}
                     <div className="relative">
-                        <div className="relative mx-auto max-w-md lg:max-w-2xl">
+                        <div className="relative mx-auto max-w-md lg:max-w-3xl">
                             <img
-                                src="https://www.apollohospitals.com/sites/default/files/styles/prohealth_featured/public/2025-06/yoga-girl1.png?h=cd2a7045&itok=iWYpubyP"
+                                src={ambulance}
                                 alt="Woman in yoga pose"
                                 className="w-full h-auto object-contain"
                                 onError={(e) => {

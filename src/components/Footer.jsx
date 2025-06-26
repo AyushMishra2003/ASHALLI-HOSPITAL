@@ -8,7 +8,7 @@ import { TbDeviceLandlinePhone } from 'react-icons/tb';
 
 const Footer = () => {
   const facilities = [
-    "ICU/NICU", "Emergency", "Ventilator", "Ambulance", "XRay", "Pathology","Physiotherapy"
+    "ICU/NICU", "Emergency", "Ventilator", "Ambulance", "XRay", "Pathology", "Physiotherapy"
   ];
 
   const specialties = [
@@ -20,7 +20,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white py-10 px-2">
-      <div className="max-w-7xl mx-auto">
+      <div className="container lg:px-12 px-4 sm:px-6 md:px-8 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Hospital Info Section */}
@@ -34,17 +34,17 @@ const Footer = () => {
                 <FiPhone />
                 <a href="tel:+917897934949" className="hover:underline">
                   +91-7897934949
-                </a> 
+                </a>
               </div>
-                           <div className="flex  items-center gap-2">
-                <TbDeviceLandlinePhone/>
-        
-                    <a href="tel:+917897934949" className="hover:underline">
+              <div className="flex  items-center gap-2">
+                <TbDeviceLandlinePhone />
+
+                <a href="tel:+917897934949" className="hover:underline">
                   0522-3503390, 3503566
                 </a>
               </div>
 
-                          {/* Email */}
+              {/* Email */}
               <div className="flex items-center gap-2">
                 <FiMail />
                 <a href="mailto:ashaalihospital@gmail.com" className="hover:underline">
@@ -57,7 +57,7 @@ const Footer = () => {
                 <FiClock />
                 <p ><span className='font-bold'>Opening Hours:</span> 9AM:-4PM </p>
               </div>
-                                     {/* Address */}
+              {/* Address */}
               <div className="flex items-start gap-2">
                 <FiMapPin className="mt-1" />
                 <a
@@ -70,7 +70,7 @@ const Footer = () => {
                   Lucknow, Uttar Pradesh 226003
                 </a>
               </div>
-  
+
             </div>
 
           </div>
@@ -80,8 +80,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Quick Links</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
               {[
-                "Home", "About Ashaali", "Our Doctors", "Gallery", 
-                "Patients Story","Blogs", "Contact Us"
+                "Home", "About Ashaali", "Our Doctors", "Gallery",
+                "Patients Story", "Blogs", "Contact Us"
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link to="/" className="flex items-center gap-0 hover:text-white transition">
@@ -109,16 +109,33 @@ const Footer = () => {
           {/* Specialties Section */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Specialties</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              {specialties.map((item, idx) => (
-                <li key={idx}>
-                  <Link to="/" className="flex items-center gap-0 hover:text-white transition">
-                    <FiChevronRight /> {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+            <div className="space-y-3 text-gray-300 text-sm">
+              {/* First 5 items */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
+                {specialties.slice(0, 5).map((item, idx) => (
+                  <li key={idx}>
+                    <Link to="/" className="flex items-center gap-1 hover:text-white transition">
+                      <FiChevronRight /> {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Next 5 items */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
+                {specialties.slice(5, 10).map((item, idx) => (
+                  <li key={idx + 5}>
+                    <Link to="/" className="flex items-center gap-1 hover:text-white transition">
+                      <FiChevronRight /> {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+
+          
         </div>
 
 

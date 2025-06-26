@@ -122,7 +122,7 @@ const YouTubeChannelShowcase = () => {
                 backgroundColor: `${primaryColor}10` // Light background
               }}
             >
-          🎥 Watch Our Story in Motion
+           Watch Our Story in Motion
             </span>
           </div>
 

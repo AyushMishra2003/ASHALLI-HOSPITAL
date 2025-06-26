@@ -107,13 +107,13 @@ const DoctorCarousel = () => {
                 backgroundColor: `${primaryColor}10` // Light background
               }}
             >
-           Trusted Professionals Committed to Your Care and Recovery
+           👨 Trusted Professionals Committed to Your Care and Recovery
             </span>
           </div>
 
           {/* Main SEO heading */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold  " >
-              👨‍⚕️ Meet Our Team of Expert Doctors
+             Meet Our Team of Expert Doctors
           </h1>
 
 
