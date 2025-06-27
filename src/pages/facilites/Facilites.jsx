@@ -1114,7 +1114,7 @@ const FacilitiesComponent = () => {
                 and staffed by expert healthcare professionals to ensure the highest quality of care.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                 {facilitiesData.map((facility) => (
                   <div 
                     key={facility.id} 
@@ -1245,6 +1245,8 @@ const FacilitiesComponent = () => {
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
         

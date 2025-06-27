@@ -9,12 +9,40 @@ import BreadCrumbs from '../../components/Breadcums';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ServiceBreadcums from './ServiceBrad';
 
+import cardiology from '../../assets/service-breas/Cardiology.jpg'
+import Dental from '../../assets/service-breas/Dental.jpg'
+import Dermatology from '../../assets/service-breas/Dermatology.jpg'
+import Doctos from '../../assets/service-breas/Doctors.jpg'
+import Enderinology from '../../assets/service-breas/Endoerinology.jpg'
+import gasterology from '../../assets/service-breas/Gastrology.jpg'
+import general from '../../assets/service-breas/General.jpg'
+import generalmedicine from '../../assets/service-breas/generalmedcine.jpg'
+import hematology from '../../assets/service-breas/Hematology.jpg'
+import icu from '../../assets/service-breas/icu.jpg'
+import nephrology from '../../assets/service-breas/Nephrology.jpg'
+import neurology from '../../assets/service-breas/neurology.jpg'
+import obsetric from '../../assets/service-breas/obsertic.jpg'
+import oncology from '../../assets/service-breas/Oncology.jpg'
+import ophthalmology from '../../assets/service-breas/Ophthalmology.jpg'
+import Orthopedics from '../../assets/service-breas/Orthopedics.jpg'
+import pediatrics from '../../assets/service-breas/Pediatrics.jpg'
+import psychaitry from '../../assets/service-breas/Psychiatry.jpg'
+import pulmonology from '../../assets/service-breas/Pulmonology.jpg'
+import rheumatology from '../../assets/service-breas/Rheumatology.jpg'
+import urology from '../../assets/service-breas/Urology.jpg'
+
+
+
+
+
+
+
 const OrthopaedicDepartment = () => {
   const primaryColor = "#18978d";
   const secondaryColor = "#ed8022";
 
   const [activeService, setActiveService] = useState(null);
-         const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const tabs = [];
 
@@ -203,29 +231,29 @@ const OrthopaedicDepartment = () => {
     }
   ];
 
-const specialties = [
-  "Orthopaedics",
-  "Ophthalmology",
-  "Pediatrics",
-  "Neurology",
-  "General Medicine",
-  "ENT",
-  "Gastrology",
-  "General Surgery",
-  "Obstetrics & Gynaecology",
-  "Urology",
-  "Nephrology",
-  "Dental",
-  "Hematology",
-  "Pulmonology",
-  "Dermatology",
-  "Psychiatry",
-  "Cardiology",
-  "Oncology",
-  "ICU and Critical Care",
-  "Rheumatology",
-  "Endocrinology"
-];
+  const specialties = [
+    "Orthopaedics",
+    "Ophthalmology",
+    "Pediatrics",
+    "Neurology",
+    "General Medicine",
+    "ENT",
+    "Gastrology",
+    "General Surgery",
+    "Obstetrics & Gynaecology",
+    "Urology",
+    "Nephrology",
+    "Dental",
+    "Hematology",
+    "Pulmonology",
+    "Dermatology",
+    "Psychiatry",
+    "Cardiology",
+    "Oncology",
+    "ICU and Critical Care",
+    "Rheumatology",
+    "Endocrinology"
+  ];
 
 
   // const breadcrumbItems = [
@@ -253,6 +281,7 @@ const specialties = [
       symptomsDesc: "Early detection and treatment of these symptoms can prevent more serious complications.",
       sideEffectsTitle: "Potential Side Effects",
       sideEffectsDesc: "Understanding potential side effects helps in making informed treatment decisions.",
+      image: Orthopedics,
       caseStats: [
         {
           count: "5000+",
@@ -360,6 +389,7 @@ const specialties = [
       symptomsDesc: "Seek an ophthalmologist if you notice:",
       sideEffectsTitle: "Possible Side Effects of Eye Treatments/Surgery",
       sideEffectsDesc: "Most treatments are safe, but potential side effects may include:",
+      image: ophthalmology,
       caseStats: [
         {
           count: "10,000+",
@@ -491,6 +521,7 @@ const specialties = [
       symptomsDesc: "Parents should consult a pediatrician if their child shows any of these warning signs for early intervention.",
       sideEffectsTitle: "Possible Side Effects",
       sideEffectsDesc: "While most pediatric treatments are safe, understanding potential mild and temporary effects helps parents make informed decisions.",
+      image: pediatrics,
       caseStats: [
         {
           count: "24/7",
@@ -601,6 +632,7 @@ const specialties = [
       symptomsDesc: "Please consult a neurologist if you or a loved one experience any of these neurological warning signs for immediate evaluation.",
       sideEffectsTitle: "Possible Side Effects of Neurological Treatment",
       sideEffectsDesc: "Most treatments are safe and managed by specialists. Understanding potential side effects helps in comprehensive patient care and management.",
+      image: neurology,
       caseStats: [
         {
           count: "24/7",
@@ -715,6 +747,7 @@ const specialties = [
       symptomsDesc: "See a gastroenterologist if you have any of these digestive symptoms for comprehensive evaluation and specialized treatment.",
       sideEffectsTitle: "Possible Side Effects of GI Treatments",
       sideEffectsDesc: "While treatments are generally safe and well-tolerated, some mild side effects may occur and are carefully monitored by our specialists.",
+      image: gasterology,
       caseStats: [
         {
           count: "In-House",
@@ -830,6 +863,7 @@ const specialties = [
       symptomsDesc: "You should consult a general surgeon if you notice any of these symptoms that may indicate need for surgical intervention.",
       sideEffectsTitle: "Possible Side Effects & Surgical Risks",
       sideEffectsDesc: "Our surgeries are performed with the highest safety standards, but as with any medical procedure, potential side effects are carefully monitored and managed.",
+      image: general,
       caseStats: [
         {
           count: "Advanced",
@@ -922,7 +956,8 @@ const specialties = [
         { text: "Anesthesia-related dizziness or nausea" },
         { text: "Scar formation or temporary restricted movement" },
         { text: "Need for follow-up or second-stage surgery (in select cases)" }
-      ]
+      ],
+      url:"general-surgery"
     },
     {
       departmentTitle: "Obstetrics & Gynecology Department",
@@ -942,6 +977,7 @@ const specialties = [
       symptomsDesc: "These symptoms indicate you should see a gynecologist for proper evaluation and treatment.",
       sideEffectsTitle: "Possible Side Effects or Recovery Notes",
       sideEffectsDesc: "Most procedures are safe, but minor issues may occur during recovery.",
+      image: obsetric,
       caseStats: [
         {
           count: "24/7",
@@ -1054,6 +1090,7 @@ const specialties = [
       symptomsDesc: "These symptoms indicate you should consult a urologist for proper evaluation and treatment.",
       sideEffectsTitle: "Possible Side Effects or Post-treatment Observations",
       sideEffectsDesc: "While treatments are generally safe, you may experience minor temporary effects during recovery.",
+      image: urology,
       caseStats: [
         {
           count: "24/7",
@@ -1147,24 +1184,1415 @@ const specialties = [
         { text: "Temporary swelling or discomfort at surgical site" }
       ],
       url: "urology"
+    },
+    {
+      departmentTitle: "ENT (Ear, Nose & Throat) Department",
+      subtitle: "Complete Care for Hearing, Breathing, and Voice Health",
+      heroDescription: "Ashaali Hospital’s ENT Department offers specialized care for disorders related to the ear, nose, throat, head, and neck. Our ENT specialists provide medical and surgical treatments using the latest technology to help patients breathe better, hear clearly, speak confidently, and live comfortably.",
+      treatmentExperienceTitle: "Our Treatment Experience",
+      treatmentExperienceDesc: "We deliver patient-focused ENT care for everything from minor infections to complex surgeries, using advanced diagnostic tools and expert clinical judgment.",
+      successRateTitle: "High Success Rate",
+      successRateDesc: "With experienced surgeons and modern technology, our ENT procedures boast a high success rate and quick recovery for most patients.",
+      conditionsTitle: "Conditions We Treat",
+      conditionsDesc: "We diagnose and manage a wide range of ENT-related conditions affecting the ear, nose, throat, and neck regions.",
+      proceduresTitle: "Surgeries & Procedures Offered",
+      proceduresDesc: "We offer both conservative and advanced surgical management for ENT conditions using minimally invasive techniques.",
+      rehabTitle: "Diagnostic & Treatment Services",
+      rehabDesc: "Equipped with modern ENT diagnostic tools to enable early and accurate diagnosis and tailored treatment plans.",
+      symptomsTitle: "Symptoms to Watch Out For",
+      symptomsDesc: "Consult an ENT specialist if you experience any of these persistent or recurring symptoms.",
+      sideEffectsTitle: "Possible Side Effects",
+      sideEffectsDesc: "Most ENT procedures are safe. However, being aware of minor risks can help in informed decision-making.",
+      image: Dental,
+      caseStats: [
+        {
+          count: "3500+",
+          title: "ENT Surgeries Done",
+          description: "Successful ENT procedures including nasal, throat, and ear surgeries"
+        },
+        {
+          count: "96%",
+          title: "Patient Satisfaction",
+          description: "Patients appreciate precise diagnosis and effective treatment outcomes"
+        },
+        {
+          count: "10+",
+          title: "Years Expertise",
+          description: "ENT specialists with over a decade of experience in treating complex cases"
+        },
+        {
+          count: "24/7",
+          title: "Emergency ENT Care",
+          description: "Immediate treatment for trauma, foreign bodies, and airway blockages"
+        }
+      ],
+      conditionsTreated: [
+        "Ear Infections & Hearing Loss",
+        "Tinnitus (Ringing in the Ears)",
+        "Balance Disorders & Vertigo (BPPV)",
+        "Sinusitis & Nasal Blockage",
+        "Deviated Nasal Septum (DNS)",
+        "Tonsillitis & Throat Infections",
+        "Voice Disorders & Hoarseness",
+        "Snoring & Sleep Apnea (ENT causes)",
+        "Allergic Rhinitis (Dust/Pollen allergies)",
+        "Neck Masses, Thyroid Swelling, and Salivary Gland Issues",
+        "Benign and Malignant Tumors of ENT region"
+      ],
+      procedures: [
+        {
+          name: "Tympanoplasty",
+          description: "Surgical repair of a perforated eardrum"
+        },
+        {
+          name: "Mastoidectomy",
+          description: "Procedure to treat chronic ear infections"
+        },
+        {
+          name: "Septoplasty",
+          description: "Surgical correction of a deviated nasal septum"
+        },
+        {
+          name: "FESS (Functional Endoscopic Sinus Surgery)",
+          description: "Minimally invasive sinus surgery for chronic sinusitis"
+        },
+        {
+          name: "Tonsillectomy & Adenoidectomy",
+          description: "Removal of tonsils or adenoids for recurrent infections"
+        },
+        {
+          name: "Microlaryngeal Surgery",
+          description: "Surgery for vocal cord polyps and nodules"
+        },
+        {
+          name: "Tracheostomy & Foreign Body Removal",
+          description: "Emergency airway management and obstruction removal"
+        },
+        {
+          name: "ENT Tumor Biopsy & Excision",
+          description: "Diagnosis and surgical removal of ENT tumors"
+        }
+      ],
+      treatments: [
+        {
+          title: "Audiometry & Hearing Aids",
+          description: "Diagnostic tests and solutions for hearing loss"
+        },
+        {
+          title: "Endoscopic Diagnosis",
+          description: "Advanced nasal and throat evaluation for accurate treatment"
+        },
+        {
+          title: "Allergy Testing",
+          description: "Identifying ENT-related allergic triggers"
+        },
+        {
+          title: "Speech Therapy",
+          description: "Support for voice recovery and speech clarity"
+        }
+      ],
+      symptoms: [
+        { text: "Hearing loss or ear discharge" },
+        { text: "Recurrent sore throat or tonsil infections" },
+        { text: "Nasal congestion or facial pressure" },
+        { text: "Snoring with disturbed sleep" },
+        { text: "Vertigo, dizziness, or balance issues" },
+        { text: "Hoarseness lasting more than 2 weeks" },
+        { text: "Persistent sneezing or nasal allergies" },
+        { text: "Neck swelling or difficulty swallowing" }
+      ],
+      sideEffects: [
+        { text: "Mild bleeding after nasal/throat procedures" },
+        { text: "Temporary voice changes after vocal cord surgery" },
+        { text: "Dizziness or ear blockage post-ear surgery" },
+        { text: "Allergic reaction to ENT sprays or medications" },
+        { text: "Scar formation in rare surgical cases" }
+      ],
+      url: "ent"
+    },
+
+    {
+      departmentTitle: "Endocrinology Department",
+      subtitle: "Comprehensive Hormonal Health & Diabetes Care",
+      heroDescription: "Ashaali Hospital’s Endocrinology Department provides expert care for hormonal imbalances and endocrine disorders, including diabetes, thyroid issues, obesity, and growth problems. Our specialists use the latest diagnostic tools and personalized treatment plans to restore hormonal balance and improve quality of life.",
+      treatmentExperienceTitle: "Our Treatment Experience",
+      treatmentExperienceDesc: "With years of experience managing complex hormonal disorders, our endocrinology team delivers compassionate, research-driven care tailored to each patient’s unique needs.",
+      successRateTitle: "High Success Rate",
+      successRateDesc: "Our evidence-based treatments and continuous monitoring ensure long-term management and better outcomes for chronic endocrine conditions like diabetes and thyroid dysfunction.",
+      conditionsTitle: "Conditions We Treat",
+      conditionsDesc: "We manage a wide range of endocrine disorders involving hormones, glands, and metabolism, using holistic and personalized approaches.",
+      proceduresTitle: "Diagnostic Procedures",
+      proceduresDesc: "We perform advanced diagnostic tests to detect and monitor hormone levels and glandular function accurately.",
+      rehabTitle: "Treatment & Management",
+      rehabDesc: "Focused on lifestyle modification, medication management, and patient education for long-term wellness.",
+      symptomsTitle: "Symptoms to Watch Out For",
+      symptomsDesc: "Recognizing early signs of hormonal imbalance can help prevent long-term complications.",
+      sideEffectsTitle: "Potential Side Effects",
+      sideEffectsDesc: "Endocrine treatments are generally safe, though some medications may cause mild or temporary side effects.",
+      image: Enderinology,
+      caseStats: [
+        {
+          count: "6000+",
+          title: "Chronic Conditions Managed",
+          description: "Long-term care for diabetes, thyroid, and hormonal disorders"
+        },
+        {
+          count: "97%",
+          title: "Improved Quality of Life",
+          description: "Patients report better health outcomes and daily well-being"
+        },
+        {
+          count: "12+",
+          title: "Years of Expertise",
+          description: "Specialists with in-depth experience in hormonal therapy"
+        },
+        {
+          count: "24/7",
+          title: "Emergency Diabetic Care",
+          description: "Round-the-clock support for critical sugar fluctuations"
+        }
+      ],
+      conditionsTreated: [
+        "Type 1 & Type 2 Diabetes",
+        "Thyroid Disorders (Hypo/Hyperthyroidism, Goiter)",
+        "Obesity & Metabolic Syndrome",
+        "PCOS (Polycystic Ovary Syndrome)",
+        "Osteoporosis & Calcium Disorders",
+        "Adrenal Gland Disorders (Addison's, Cushing’s)",
+        "Pituitary Gland Disorders",
+        "Growth & Puberty Disorders",
+        "Male & Female Hormonal Imbalance"
+      ],
+      procedures: [
+        {
+          name: "HbA1c Testing",
+          description: "Measures long-term blood sugar control in diabetic patients"
+        },
+        {
+          name: "Thyroid Function Tests (T3, T4, TSH)",
+          description: "Evaluate thyroid hormone levels and gland function"
+        },
+        {
+          name: "Hormone Panel Screening",
+          description: "Comprehensive assessment of multiple hormones"
+        },
+        {
+          name: "Bone Mineral Density Test",
+          description: "Checks for osteoporosis and calcium deficiency"
+        },
+        {
+          name: "ACTH & Cortisol Test",
+          description: "Evaluates adrenal gland function"
+        }
+      ],
+      treatments: [
+        {
+          title: "Insulin Therapy",
+          description: "Personalized insulin plans for diabetes management"
+        },
+        {
+          title: "Thyroid Medication",
+          description: "Daily medication to regulate thyroid hormone levels"
+        },
+        {
+          title: "Hormone Replacement Therapy",
+          description: "Restores hormone balance in men and women"
+        },
+        {
+          title: "Lifestyle & Diet Counseling",
+          description: "Support for weight loss, healthy eating, and fitness goals"
+        }
+      ],
+      symptoms: [
+        { text: "Unexplained weight gain or loss" },
+        { text: "Fatigue and weakness" },
+        { text: "Irregular menstrual cycles" },
+        { text: "Increased thirst or urination" },
+        { text: "Hair thinning or excessive hair growth" },
+        { text: "Cold or heat intolerance" },
+        { text: "Mood swings or depression" }
+      ],
+      sideEffects: [
+        { text: "Mild digestive issues from oral hormone medications" },
+        { text: "Low blood sugar from insulin use" },
+        { text: "Temporary hormonal fluctuations during adjustment period" },
+        { text: "Weight gain from steroid-based treatments" },
+        { text: "Rare allergic reaction to certain hormonal therapies" }
+      ],
+      url: "endocrinology"
+    },
+
+
+    {
+  departmentTitle: "Rheumatology Department",
+  subtitle: "Expert Care for Joint, Muscle & Autoimmune Disorders",
+  heroDescription: "Ashaali Hospital’s Rheumatology Department specializes in diagnosing and treating autoimmune and inflammatory conditions that affect the joints, muscles, and connective tissues. Our rheumatologists use a combination of clinical expertise, laboratory tests, and imaging to provide effective and personalized care.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "Our team has years of experience treating chronic rheumatic conditions like arthritis, lupus, and vasculitis with a patient-centric and compassionate approach.",
+  successRateTitle: "High Success Rate",
+  successRateDesc: "Through early diagnosis, multidisciplinary management, and advanced therapies, we help patients manage symptoms effectively and improve quality of life.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We manage a wide range of autoimmune and musculoskeletal disorders that cause pain, inflammation, and disability.",
+  proceduresTitle: "Diagnostic Procedures",
+  proceduresDesc: "We use clinical evaluation, blood markers, imaging, and joint fluid analysis for accurate diagnosis.",
+  rehabTitle: "Treatment & Rehabilitation",
+  rehabDesc: "Our approach includes medication, physical therapy, and long-term monitoring to manage inflammation and prevent joint damage.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Persistent joint or muscle symptoms may signal an underlying rheumatic condition and should not be ignored.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Some rheumatology treatments may have side effects; monitoring helps minimize risks and ensures safety.",
+  image: rheumatology, // Replace with your imported image reference
+  caseStats: [
+    {
+      count: "4000+",
+      title: "Chronic Patients Managed",
+      description: "Successful long-term care for autoimmune and inflammatory diseases"
+    },
+    {
+      count: "95%",
+      title: "Improved Mobility",
+      description: "Patients report reduced joint pain and improved physical activity levels"
+    },
+    {
+      count: "10+",
+      title: "Years Expertise",
+      description: "Expert rheumatologists experienced in complex autoimmune disorders"
+    },
+    {
+      count: "24/7",
+      title: "Flare-Up Care",
+      description: "Support during sudden symptom flare-ups and emergencies"
     }
+  ],
+  conditionsTreated: [
+    "Rheumatoid Arthritis",
+    "Osteoarthritis",
+    "Systemic Lupus Erythematosus (SLE)",
+    "Ankylosing Spondylitis",
+    "Psoriatic Arthritis",
+    "Vasculitis",
+    "Gout & Pseudogout",
+    "Sjogren’s Syndrome",
+    "Scleroderma",
+    "Polymyalgia Rheumatica",
+    "Reactive Arthritis"
+  ],
+  procedures: [
+    {
+      name: "Joint Aspiration & Injections",
+      description: "Relieves inflammation and pain by removing joint fluid or injecting medication"
+    },
+    {
+      name: "Autoantibody Testing",
+      description: "Detects autoimmune markers like ANA, RF, anti-CCP for accurate diagnosis"
+    },
+    {
+      name: "Inflammatory Marker Tests (ESR, CRP)",
+      description: "Monitors the level of inflammation in the body"
+    },
+    {
+      name: "Ultrasound-Guided Joint Evaluation",
+      description: "Non-invasive imaging for detecting joint damage and synovitis"
+    },
+    {
+      name: "Bone Density Test (DEXA)",
+      description: "Assesses bone loss, especially in patients on long-term steroids"
+    }
+  ],
+  treatments: [
+    {
+      title: "DMARDs (Disease-Modifying Anti-Rheumatic Drugs)",
+      description: "Slows down disease progression in autoimmune conditions"
+    },
+    {
+      title: "Biologic Therapy",
+      description: "Targeted treatments for moderate-to-severe autoimmune arthritis"
+    },
+    {
+      title: "Pain & Inflammation Management",
+      description: "NSAIDs, corticosteroids, and other medications for symptom relief"
+    },
+    {
+      title: "Physiotherapy & Joint Rehab",
+      description: "Exercises to maintain joint mobility, reduce stiffness, and strengthen muscles"
+    }
+  ],
+  symptoms: [
+    { text: "Joint pain, swelling, or stiffness lasting more than a few weeks" },
+    { text: "Morning stiffness lasting more than 30 minutes" },
+    { text: "Fatigue or unexplained weight loss" },
+    { text: "Muscle aches and tenderness" },
+    { text: "Dry eyes and mouth" },
+    { text: "Skin rashes or nodules over joints" },
+    { text: "Fever with joint pain" }
+  ],
+  sideEffects: [
+    { text: "Increased risk of infections from immunosuppressive drugs" },
+    { text: "Gastrointestinal upset from NSAIDs or steroids" },
+    { text: "Weight gain and blood sugar rise due to long-term steroid use" },
+    { text: "Liver function changes from DMARDs" },
+    { text: "Injection site reactions from biologic therapy" }
+  ],
+  url: "rheumatology"
+},
+
+{
+  departmentTitle: "Oncology Department",
+  subtitle: "Comprehensive Cancer Diagnosis, Treatment & Support",
+  heroDescription: "Ashaali Hospital’s Oncology Department offers holistic and advanced care for various types of cancers. Our multidisciplinary team of oncologists, surgeons, radiologists, and counselors work together to provide personalized treatment plans including chemotherapy, radiation, and surgical oncology. We are committed to delivering compassionate, evidence-based cancer care to support patients through every stage of their journey.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With vast experience in treating solid and blood-related cancers, our expert team combines clinical excellence with emotional support to deliver the best outcomes for patients and families.",
+  successRateTitle: "Survivorship & Quality of Life",
+  successRateDesc: "Our cancer management strategies aim not just at survival but also at maintaining dignity, strength, and quality of life during and after treatment.",
+  conditionsTitle: "Types of Cancers We Treat",
+  conditionsDesc: "We treat a broad spectrum of cancers using tailored approaches based on stage, type, and individual patient needs.",
+  proceduresTitle: "Treatment Procedures & Therapies",
+  proceduresDesc: "We use a combination of chemotherapy, radiotherapy, immunotherapy, and surgical interventions for best outcomes.",
+  rehabTitle: "Supportive Care & Rehabilitation",
+  rehabDesc: "Nutritional, psychological, pain, and palliative support services are integrated into our cancer care model.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Early detection is critical in cancer care. Be aware of common warning signs that should prompt medical attention.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Cancer treatments may have temporary or long-term side effects that are closely monitored and managed.",
+  image: oncology, // Replace this with your actual image import
+  caseStats: [
+    {
+      count: "2500+",
+      title: "Cancer Cases Treated",
+      description: "Expert multidisciplinary care across all major types of cancers"
+    },
+    {
+      count: "93%",
+      title: "Improved Quality of Life",
+      description: "Patients report reduced pain, extended remission, and emotional support"
+    },
+    {
+      count: "8+",
+      title: "Years of Oncology Expertise",
+      description: "Specialists trained in latest cancer care techniques and innovations"
+    },
+    {
+      count: "24/7",
+      title: "Onco Emergency Support",
+      description: "Emergency care for cancer-related complications and pain management"
+    }
+  ],
+  conditionsTreated: [
+    "Breast Cancer",
+    "Lung Cancer",
+    "Colorectal Cancer",
+    "Head & Neck Cancers",
+    "Leukemia & Lymphoma",
+    "Prostate Cancer",
+    "Ovarian & Cervical Cancer",
+    "Liver & Pancreatic Cancer",
+    "Bone & Soft Tissue Sarcomas",
+    "Brain Tumors",
+    "Esophageal & Stomach Cancer"
+  ],
+  procedures: [
+    {
+      name: "Chemotherapy",
+      description: "Use of cancer-killing drugs administered intravenously or orally"
+    },
+    {
+      name: "Radiation Therapy",
+      description: "High-energy beams to destroy or shrink cancerous tissues"
+    },
+    {
+      name: "Surgical Oncology",
+      description: "Removal of tumors and affected tissues by specialized cancer surgeons"
+    },
+    {
+      name: "Immunotherapy",
+      description: "Stimulates body’s immune system to fight cancer cells"
+    },
+    {
+      name: "Targeted Therapy",
+      description: "Medications that target specific cancer cell genes or proteins"
+    }
+  ],
+  treatments: [
+    {
+      title: "Pain Management",
+      description: "Dedicated team for controlling chronic cancer-related pain"
+    },
+    {
+      title: "Palliative Care",
+      description: "Improves comfort and support for patients with advanced cancer"
+    },
+    {
+      title: "Nutritional Support",
+      description: "Customized meal plans and supplements during treatment"
+    },
+    {
+      title: "Psycho-Oncology Counseling",
+      description: "Mental health and emotional support for patients and caregivers"
+    }
+  ],
+  symptoms: [
+    { text: "Unexplained weight loss" },
+    { text: "Persistent fatigue or weakness" },
+    { text: "Lump or swelling in breast, neck, or other body parts" },
+    { text: "Changes in bowel or bladder habits" },
+    { text: "Non-healing sores or ulcers" },
+    { text: "Unusual bleeding or discharge" },
+    { text: "Chronic cough or hoarseness" },
+    { text: "Loss of appetite" }
+  ],
+  sideEffects: [
+    { text: "Hair loss during chemotherapy" },
+    { text: "Nausea, vomiting, and appetite loss" },
+    { text: "Increased infection risk due to low immunity" },
+    { text: "Fatigue and anemia" },
+    { text: "Skin sensitivity or burns from radiation" }
+  ],
+  url: "oncology"
+},
+
+
+
+{
+  departmentTitle: "Cardiology Department",
+  subtitle: "Advanced Heart Care & Cardiac Wellness",
+  heroDescription: "Ashaali Hospital’s Cardiology Department provides expert diagnosis, treatment, and prevention of heart-related conditions. With state-of-the-art facilities and an experienced team of cardiologists, we offer comprehensive care ranging from routine check-ups to complex cardiac procedures, ensuring every heartbeat is in the right hands.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With years of experience managing cardiovascular diseases, our team has successfully treated thousands of patients through evidence-based medical and interventional cardiology.",
+  successRateTitle: "Trusted Heart Care",
+  successRateDesc: "Our cardiology team ensures a high rate of successful interventions and long-term health outcomes, with a strong focus on prevention and patient education.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We diagnose and manage a wide range of cardiovascular conditions, from hypertension to heart failure and congenital heart diseases.",
+  proceduresTitle: "Cardiac Tests & Procedures",
+  proceduresDesc: "We use advanced diagnostic tools and minimally invasive procedures to assess and restore heart function effectively.",
+  rehabTitle: "Cardiac Rehab & Lifestyle Care",
+  rehabDesc: "Post-treatment rehabilitation and preventive guidance to ensure long-term heart health and reduce the risk of recurrence.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Don’t ignore signs of heart distress — early diagnosis saves lives.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Cardiac treatments are safe, but like all procedures, some temporary side effects may occur and are monitored closely.",
+  image: cardiology, // Replace with your actual image import
+  caseStats: [
+    {
+      count: "7000+",
+      title: "Heart Patients Treated",
+      description: "Including emergency heart care, angioplasty, and chronic condition management"
+    },
+    {
+      count: "96%",
+      title: "Positive Recovery Rate",
+      description: "Improved lifestyle and reduced cardiac complications post-treatment"
+    },
+    {
+      count: "12+",
+      title: "Years of Expertise",
+      description: "Our cardiologists bring extensive experience in interventional and non-invasive cardiology"
+    },
+    {
+      count: "24/7",
+      title: "Emergency Cardiac Support",
+      description: "Critical heart care including heart attack response available around the clock"
+    }
+  ],
+  conditionsTreated: [
+    "Coronary Artery Disease (CAD)",
+    "Heart Attack (Myocardial Infarction)",
+    "Hypertension (High Blood Pressure)",
+    "Heart Failure",
+    "Arrhythmias (Irregular Heartbeat)",
+    "Valvular Heart Disease",
+    "Congenital Heart Defects",
+    "Cardiomyopathy",
+    "Peripheral Artery Disease",
+    "Cholesterol & Lipid Disorders"
+  ],
+  procedures: [
+    {
+      name: "Electrocardiogram (ECG)",
+      description: "Detects irregularities in heart rhythm and structure"
+    },
+    {
+      name: "Echocardiography (2D/3D Echo)",
+      description: "Ultrasound imaging to assess heart chambers, valves, and function"
+    },
+    {
+      name: "Treadmill Test (TMT)",
+      description: "Evaluates heart response to stress or exertion"
+    },
+    {
+      name: "Angiography & Angioplasty",
+      description: "Imaging and balloon/stent procedure to open blocked arteries"
+    },
+    {
+      name: "Pacemaker Implantation",
+      description: "Device placement to regulate heartbeat in rhythm disorders"
+    }
+  ],
+  treatments: [
+    {
+      title: "Medication Management",
+      description: "Customized prescriptions for blood pressure, cholesterol, heart rhythm, and more"
+    },
+    {
+      title: "Interventional Cardiology",
+      description: "Minimally invasive procedures like angioplasty and stent placement"
+    },
+    {
+      title: "Preventive Cardiology",
+      description: "Lifestyle, diet, and stress management plans to reduce future cardiac risks"
+    },
+    {
+      title: "Cardiac Rehabilitation",
+      description: "Supervised program of exercise and education for recovery after cardiac events"
+    }
+  ],
+  symptoms: [
+    { text: "Chest pain or discomfort (especially with exertion)" },
+    { text: "Shortness of breath during rest or activity" },
+    { text: "Rapid, irregular, or skipped heartbeat" },
+    { text: "Swelling in legs, ankles, or feet" },
+    { text: "Fatigue or dizziness" },
+    { text: "Sudden fainting or lightheadedness" },
+    { text: "Persistent coughing or wheezing with white or pink mucus" }
+  ],
+  sideEffects: [
+    { text: "Fatigue or lightheadedness after some procedures" },
+    { text: "Mild bleeding or bruising at catheter site (angiography/angioplasty)" },
+    { text: "Medication-related side effects like dizziness or nausea" },
+    { text: "Temporary swelling or pain post-pacemaker placement" },
+    { text: "Low blood pressure or irregular heartbeat in rare cases" }
+  ],
+  url: "cardiology"
+},
+
+
+{
+  departmentTitle: "Psychiatry Department",
+  subtitle: "Comprehensive Mental Health & Behavioral Wellness",
+  heroDescription: "Ashaali Hospital’s Psychiatry Department provides compassionate and confidential care for mental health conditions. Our team of psychiatrists, psychologists, and therapists work collaboratively to diagnose, treat, and support individuals facing emotional, behavioral, or psychiatric challenges. We offer both inpatient and outpatient services tailored to each individual’s needs.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With a decade of experience treating diverse mental health conditions, our team focuses on empathetic care, accurate diagnosis, and long-term emotional wellness.",
+  successRateTitle: "Restoring Mental Well-Being",
+  successRateDesc: "Our holistic approach to psychiatry ensures high recovery and satisfaction rates, helping individuals return to productive and fulfilling lives.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We address a broad spectrum of mental health conditions across all age groups using therapeutic and medical management.",
+  proceduresTitle: "Diagnostic & Therapy Services",
+  proceduresDesc: "Comprehensive assessments, psychiatric evaluations, and evidence-based therapy interventions for accurate treatment planning.",
+  rehabTitle: "Therapy & Rehabilitation",
+  rehabDesc: "Ongoing counseling, medication support, lifestyle guidance, and family involvement to ensure stable recovery.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Seek help if you or your loved ones notice changes in thinking, behavior, or emotional state that interfere with daily life.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Psychiatric medications and therapies may have some side effects, which are monitored and managed carefully.",
+  image: psychaitry, // Replace this with your actual image import
+  caseStats: [
+    {
+      count: "5000+",
+      title: "Mental Health Cases Treated",
+      description: "Successful treatment of anxiety, depression, schizophrenia, and more"
+    },
+    {
+      count: "94%",
+      title: "Stabilization & Recovery Rate",
+      description: "Most patients show significant improvement with therapy and medication"
+    },
+    {
+      count: "10+",
+      title: "Years of Psychiatric Excellence",
+      description: "Our psychiatrists and therapists are trained in both modern and holistic approaches"
+    },
+    {
+      count: "24/7",
+      title: "Crisis & Emergency Support",
+      description: "Immediate intervention for mental health emergencies including suicide prevention"
+    }
+  ],
+  conditionsTreated: [
+    "Depression & Mood Disorders",
+    "Anxiety Disorders (GAD, Panic Disorder, Phobia)",
+    "Bipolar Disorder",
+    "Schizophrenia & Psychosis",
+    "Obsessive-Compulsive Disorder (OCD)",
+    "Post-Traumatic Stress Disorder (PTSD)",
+    "Substance Abuse & Addiction",
+    "Sleep Disorders",
+    "Personality Disorders",
+    "Child & Adolescent Behavioral Issues"
+  ],
+  procedures: [
+    {
+      name: "Psychiatric Evaluation",
+      description: "In-depth assessment of symptoms, history, and behavior"
+    },
+    {
+      name: "Cognitive Behavioral Therapy (CBT)",
+      description: "Structured psychotherapy for depression, anxiety, and other issues"
+    },
+    {
+      name: "Medication Management",
+      description: "Prescribing and monitoring antidepressants, antipsychotics, anxiolytics"
+    },
+    {
+      name: "Family & Group Therapy",
+      description: "Involving families in care plans and peer group recovery"
+    },
+    {
+      name: "Psychological Testing",
+      description: "Standardized tests for memory, IQ, attention, personality traits, etc."
+    }
+  ],
+  treatments: [
+    {
+      title: "Individual Psychotherapy",
+      description: "One-on-one counseling sessions with licensed therapists"
+    },
+    {
+      title: "Mindfulness & Stress Management",
+      description: "Techniques for relaxation and coping with daily stress"
+    },
+    {
+      title: "Medication Support",
+      description: "Safe and regular pharmacological management for symptom control"
+    },
+    {
+      title: "Rehabilitation & Aftercare",
+      description: "Support for reintegration, long-term stability, and relapse prevention"
+    }
+  ],
+  symptoms: [
+    { text: "Persistent sadness, hopelessness, or crying spells" },
+    { text: "Excessive worry, fear, or panic attacks" },
+    { text: "Hallucinations, delusions, or disorganized thinking" },
+    { text: "Sleep disturbances or appetite changes" },
+    { text: "Substance misuse or addiction" },
+    { text: "Social withdrawal or lack of interest in activities" },
+    { text: "Thoughts of self-harm or suicide" }
+  ],
+  sideEffects: [
+    { text: "Drowsiness or dizziness from certain medications" },
+    { text: "Weight changes or appetite loss" },
+    { text: "Mood swings or emotional sensitivity" },
+    { text: "Sexual side effects from antidepressants" },
+    { text: "Withdrawal symptoms if medications are stopped abruptly" }
+  ],
+  url: "psychiatry"
+},
+
+
+{
+  departmentTitle: "Dermatology Department",
+  subtitle: "Expert Skin, Hair & Nail Care for All Ages",
+  heroDescription: "Ashaali Hospital’s Dermatology Department provides comprehensive care for skin, hair, and nail conditions. Our experienced dermatologists use advanced diagnostic tools and the latest treatment technologies to address both medical and cosmetic dermatological issues, helping patients achieve healthy, glowing skin with confidence.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With a team of expert dermatologists and cosmetologists, we have successfully treated thousands of patients for chronic skin conditions, infections, allergies, and aesthetic concerns.",
+  successRateTitle: "Healthy Skin, Happy Patients",
+  successRateDesc: "With accurate diagnosis and tailored treatment plans, our dermatology care ensures high patient satisfaction and long-term results.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We offer treatment for a wide range of dermatological conditions, including chronic, infectious, allergic, and cosmetic skin issues.",
+  proceduresTitle: "Diagnostic & Cosmetic Procedures",
+  proceduresDesc: "From skin biopsies to cosmetic lasers, we offer safe and effective procedures tailored to each patient’s needs.",
+  rehabTitle: "Skin Care & Maintenance",
+  rehabDesc: "Post-treatment care, preventive skincare guidance, and routine follow-ups to ensure lasting results.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Timely consultation can prevent minor skin issues from turning into chronic or severe problems.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Dermatological treatments are generally safe but may cause mild, temporary side effects depending on the procedure.",
+  image: Dermatology, // Replace with your actual image import
+  caseStats: [
+    {
+      count: "8000+",
+      title: "Skin Conditions Treated",
+      description: "From acne to eczema to cosmetic issues with successful outcomes"
+    },
+    {
+      count: "98%",
+      title: "Patient Satisfaction Rate",
+      description: "Patients report visible improvement and increased confidence"
+    },
+    {
+      count: "10+",
+      title: "Years of Expertise",
+      description: "Experienced dermatologists trained in both clinical and cosmetic dermatology"
+    },
+    {
+      count: "24/7",
+      title: "Emergency Skin Care",
+      description: "Support for allergic reactions, burns, and acute infections"
+    }
+  ],
+  conditionsTreated: [
+    "Acne & Acne Scars",
+    "Eczema & Dermatitis",
+    "Psoriasis",
+    "Fungal Infections (Ringworm, Candidiasis)",
+    "Vitiligo & Pigmentation Disorders",
+    "Hair Fall & Dandruff",
+    "Skin Allergies & Urticaria",
+    "Warts, Moles & Skin Tags",
+    "Nail Disorders",
+    "Skin Cancers & Precancerous Lesions"
+  ],
+  procedures: [
+    {
+      name: "Skin Biopsy",
+      description: "Microscopic analysis of skin tissue to diagnose various conditions"
+    },
+    {
+      name: "Chemical Peels",
+      description: "Removes damaged outer skin to treat acne, scars, and pigmentation"
+    },
+    {
+      name: "Laser Skin Treatments",
+      description: "Advanced laser technology for hair removal, scars, and skin rejuvenation"
+    },
+    {
+      name: "Cryotherapy",
+      description: "Freezing technique for wart and lesion removal"
+    },
+    {
+      name: "Electrocautery & Radiofrequency",
+      description: "Safe removal of skin tags, warts, and moles"
+    }
+  ],
+  treatments: [
+    {
+      title: "Medical Skin Care",
+      description: "Topical and oral medications for bacterial, fungal, and inflammatory skin conditions"
+    },
+    {
+      title: "Cosmetic Dermatology",
+      description: "Anti-aging treatments, pigmentation correction, and skin polishing"
+    },
+    {
+      title: "Hair & Scalp Treatments",
+      description: "Solutions for dandruff, alopecia, and thinning hair"
+    },
+    {
+      title: "Allergy Testing & Immunotherapy",
+      description: "Identify and manage contact dermatitis and chronic skin allergies"
+    }
+  ],
+  symptoms: [
+    { text: "Itchy or inflamed skin" },
+    { text: "Redness, scaling, or flaking" },
+    { text: "Hair thinning or bald patches" },
+    { text: "Discoloration or white patches on the skin" },
+    { text: "Persistent acne or boils" },
+    { text: "Sudden rash or swelling" },
+    { text: "Unusual moles or skin growths" }
+  ],
+  sideEffects: [
+    { text: "Temporary redness or peeling after chemical peels" },
+    { text: "Mild irritation or dryness from topical creams" },
+    { text: "Slight swelling or scabbing post-laser treatments" },
+    { text: "Allergic reaction to cosmetic products" },
+    { text: "Hyperpigmentation or light spots in rare cases" }
+  ],
+  url: "dermatology"
+},
+
+
+{
+  departmentTitle: "Pulmonology Department",
+  subtitle: "Expert Lung Care & Respiratory Wellness",
+  heroDescription: "Ashaali Hospital’s Pulmonology Department specializes in the diagnosis and treatment of respiratory diseases and lung disorders. Our team of expert pulmonologists offers advanced care for chronic and acute conditions such as asthma, COPD, tuberculosis, pneumonia, and sleep-related breathing disorders. With state-of-the-art diagnostics and patient-focused care, we help you breathe easier and live better.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "Our pulmonology team brings years of experience treating thousands of patients with respiratory illnesses through a combination of medical management, diagnostics, and rehabilitation.",
+  successRateTitle: "Breathe Easy with Us",
+  successRateDesc: "With a strong track record in managing chronic respiratory conditions, our patients enjoy improved lung function, reduced hospitalizations, and a better quality of life.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We manage a wide range of pulmonary conditions affecting the lungs, bronchi, pleura, and respiratory muscles.",
+  proceduresTitle: "Diagnostic & Interventional Services",
+  proceduresDesc: "Accurate diagnosis using advanced imaging, endoscopy, and lab tests for optimal treatment planning.",
+  rehabTitle: "Pulmonary Rehab & Care",
+  rehabDesc: "Our comprehensive programs include medication, oxygen therapy, and physical training to improve lung strength and endurance.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Do not ignore breathing issues — early intervention can prevent long-term complications.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Respiratory treatments are safe, but some may cause temporary side effects which are monitored closely.",
+  image: pulmonology, // Replace this with your actual image import
+  caseStats: [
+    {
+      count: "6000+",
+      title: "Respiratory Cases Managed",
+      description: "Effective care for asthma, COPD, TB, and infections"
+    },
+    {
+      count: "95%",
+      title: "Improved Breathing Function",
+      description: "Majority of patients report better oxygen levels and symptom relief"
+    },
+    {
+      count: "10+",
+      title: "Years of Expertise",
+      description: "Team experienced in both acute and chronic respiratory care"
+    },
+    {
+      count: "24/7",
+      title: "Emergency Respiratory Support",
+      description: "Ventilator support and critical care for breathing emergencies"
+    }
+  ],
+  conditionsTreated: [
+    "Asthma",
+    "Chronic Obstructive Pulmonary Disease (COPD)",
+    "Tuberculosis (TB)",
+    "Pneumonia",
+    "Interstitial Lung Disease (ILD)",
+    "Bronchitis",
+    "Sleep Apnea & Snoring",
+    "Lung Fibrosis",
+    "Pulmonary Hypertension",
+    "Lung Cancer (Diagnosis & Referral)"
+  ],
+  procedures: [
+    {
+      name: "Pulmonary Function Test (PFT)",
+      description: "Measures lung capacity, airflow, and respiratory strength"
+    },
+    {
+      name: "Bronchoscopy",
+      description: "Endoscopic procedure to view airways and collect samples"
+    },
+    {
+      name: "Chest X-Ray & CT Scan",
+      description: "Imaging to diagnose infections, tumors, or structural abnormalities"
+    },
+    {
+      name: "Sleep Study (Polysomnography)",
+      description: "Evaluates sleep apnea and other nighttime breathing disorders"
+    },
+    {
+      name: "Sputum Analysis & Cultures",
+      description: "Identifies infections like TB or pneumonia"
+    }
+  ],
+  treatments: [
+    {
+      title: "Inhaler & Nebulizer Therapy",
+      description: "Delivers medication directly to the lungs for rapid relief"
+    },
+    {
+      title: "Antibiotic & Anti-Tubercular Therapy",
+      description: "Treats bacterial and mycobacterial lung infections"
+    },
+    {
+      title: "Oxygen Therapy",
+      description: "Supports patients with low oxygen levels or chronic hypoxia"
+    },
+    {
+      title: "Pulmonary Rehabilitation",
+      description: "Exercise and education to improve lung capacity and reduce breathlessness"
+    }
+  ],
+  symptoms: [
+    { text: "Chronic cough lasting more than 3 weeks" },
+    { text: "Shortness of breath or wheezing" },
+    { text: "Chest tightness or pain while breathing" },
+    { text: "Cough with mucus or blood" },
+    { text: "Frequent lung infections" },
+    { text: "Fatigue during minimal exertion" },
+    { text: "Snoring or disturbed sleep patterns" }
+  ],
+  sideEffects: [
+    { text: "Dry mouth or throat irritation from inhalers" },
+    { text: "Mild drowsiness from cough syrups or sleep meds" },
+    { text: "Allergic reaction to antibiotics or TB drugs" },
+    { text: "Lightheadedness from oxygen therapy" },
+    { text: "Rare bleeding or discomfort after bronchoscopy" }
+  ],
+  url: "pulmonology"
+},
+
+
+{
+  departmentTitle: "Hematology Department",
+  subtitle: "Expert Blood Disorder Diagnosis & Care",
+  heroDescription: "Ashaali Hospital’s Hematology Department offers specialized diagnosis and treatment for blood-related disorders. Our experienced hematologists manage both benign and malignant conditions affecting red and white blood cells, platelets, bone marrow, lymph nodes, and coagulation systems. We provide comprehensive care using modern diagnostics, targeted therapies, and compassionate support.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With years of experience treating complex hematological disorders, we combine clinical expertise with cutting-edge diagnostics and personalized care plans.",
+  successRateTitle: "Effective Blood Disorder Management",
+  successRateDesc: "Through early diagnosis, targeted therapies, and continuous monitoring, we ensure high treatment success and improved quality of life.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We manage a wide range of hematologic disorders, from anemia and bleeding issues to blood cancers like leukemia and lymphoma.",
+  proceduresTitle: "Diagnostic & Therapeutic Services",
+  proceduresDesc: "Advanced laboratory tests, bone marrow analysis, transfusions, and chemotherapy for precise treatment planning and delivery.",
+  rehabTitle: "Post-Treatment Monitoring & Support",
+  rehabDesc: "Ongoing monitoring, nutritional care, and infection control are vital parts of our hematology treatment model.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Timely recognition of blood-related symptoms helps in early diagnosis and successful treatment.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Hematological treatments may involve temporary or long-term side effects, which we manage carefully at each step.",
+  image: hematology, // Replace this with your actual image import
+  caseStats: [
+    {
+      count: "3500+",
+      title: "Hematology Cases Treated",
+      description: "Including anemia, clotting disorders, and hematologic cancers"
+    },
+    {
+      count: "90%",
+      title: "Remission & Recovery Rate",
+      description: "Patients with early intervention show excellent treatment outcomes"
+    },
+    {
+      count: "8+",
+      title: "Years of Hematology Expertise",
+      description: "Specialized team trained in rare and chronic blood diseases"
+    },
+    {
+      count: "24/7",
+      title: "Emergency Bleeding Care",
+      description: "Immediate attention for bleeding crises and transfusion needs"
+    }
+  ],
+  conditionsTreated: [
+    "Iron-Deficiency Anemia",
+    "Thalassemia",
+    "Sickle Cell Anemia",
+    "Hemophilia & Bleeding Disorders",
+    "Leukemia (Blood Cancer)",
+    "Lymphoma & Myeloma",
+    "Aplastic Anemia",
+    "Thrombocytopenia (Low Platelet Count)",
+    "Polycythemia Vera",
+    "Deep Vein Thrombosis (DVT) & Clotting Disorders"
+  ],
+  procedures: [
+    {
+      name: "Complete Blood Count (CBC)",
+      description: "Initial test to evaluate red cells, white cells, and platelets"
+    },
+    {
+      name: "Bone Marrow Biopsy",
+      description: "Helps diagnose leukemia, lymphoma, anemia, and marrow failure"
+    },
+    {
+      name: "Coagulation Profile (PT, INR, aPTT)",
+      description: "Assesses clotting ability in bleeding or bruising disorders"
+    },
+    {
+      name: "Immunophenotyping & Flow Cytometry",
+      description: "Advanced testing for blood cancers"
+    },
+    {
+      name: "Blood Transfusions & Platelet Therapy",
+      description: "Used in severe anemia, bleeding, or chemotherapy support"
+    }
+  ],
+  treatments: [
+    {
+      title: "Oral & IV Iron Therapy",
+      description: "For treating iron-deficiency anemia and chronic fatigue"
+    },
+    {
+      title: "Chemotherapy for Blood Cancers",
+      description: "Targeted drug therapy for leukemia, lymphoma, and myeloma"
+    },
+    {
+      title: "Clotting Factor Replacement",
+      description: "Essential treatment for hemophilia and inherited bleeding disorders"
+    },
+    {
+      title: "Bone Marrow Transplant Referral & Coordination",
+      description: "Support for transplant candidates including donor matching"
+    }
+  ],
+  symptoms: [
+    { text: "Unexplained fatigue or weakness" },
+    { text: "Frequent infections or fever" },
+    { text: "Easy bruising or prolonged bleeding" },
+    { text: "Pale skin or shortness of breath" },
+    { text: "Swollen lymph nodes or bone pain" },
+    { text: "Dark-colored urine (in hemolytic disorders)" },
+    { text: "Recurrent nosebleeds or gum bleeding" }
+  ],
+  sideEffects: [
+    { text: "Mild nausea or vomiting from chemotherapy" },
+    { text: "Low immunity during treatment phases" },
+    { text: "Hair thinning or loss (chemotherapy-related)" },
+    { text: "Risk of transfusion reactions (rare with matched blood)" },
+    { text: "Bleeding or bruising post bone marrow biopsy" }
+  ],
+  url: "hematology"
+},
+
+
+{
+  departmentTitle: "Dental Department",
+  subtitle: "Comprehensive Dental & Oral Health Care",
+  heroDescription: "Ashaali Hospital’s Dental Department offers complete oral health services ranging from preventive care to advanced restorative and cosmetic procedures. Our team of experienced dentists, orthodontists, and oral surgeons is committed to delivering high-quality, painless, and patient-friendly dental treatments using state-of-the-art equipment.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With a skilled team and modern facilities, we have treated thousands of patients for dental problems, offering expert care for everything from routine cleanings to surgical procedures.",
+  successRateTitle: "Smile with Confidence",
+  successRateDesc: "Our focus on precision, hygiene, and aesthetics results in high patient satisfaction and long-lasting oral health outcomes.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We diagnose and manage all common and complex dental and oral health conditions in children and adults.",
+  proceduresTitle: "Dental Treatments & Procedures",
+  proceduresDesc: "From tooth fillings to smile makeovers, we offer a wide range of dental services under one roof.",
+  rehabTitle: "Oral Care & Post-Treatment Support",
+  rehabDesc: "We provide guidance for oral hygiene maintenance, diet, and regular check-ups after treatments.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Don't ignore oral symptoms — early treatment prevents complications and ensures better outcomes.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Dental procedures are generally safe, though some may have mild, short-term side effects.",
+  image: Dental, // Replace with your actual image import
+  caseStats: [
+    {
+      count: "9000+",
+      title: "Dental Procedures Performed",
+      description: "From cleanings and fillings to surgeries and cosmetic corrections"
+    },
+    {
+      count: "97%",
+      title: "Patient Satisfaction",
+      description: "Patients report pain-free experience and long-term dental health improvements"
+    },
+    {
+      count: "12+",
+      title: "Years of Dental Excellence",
+      description: "Trusted experience across general dentistry, prosthodontics, and orthodontics"
+    },
+    {
+      count: "6 Days",
+      title: "Weekly Availability",
+      description: "Convenient scheduling with extended hours for working patients"
+    }
+  ],
+  conditionsTreated: [
+    "Tooth Decay & Cavities",
+    "Gum Disease (Gingivitis & Periodontitis)",
+    "Tooth Sensitivity",
+    "Jaw Pain & TMJ Disorders",
+    "Bad Breath (Halitosis)",
+    "Broken or Cracked Teeth",
+    "Misaligned or Crooked Teeth",
+    "Wisdom Tooth Problems",
+    "Oral Infections & Abscesses",
+    "Dental Anxiety & Phobia"
+  ],
+  procedures: [
+    {
+      name: "Dental Cleaning & Polishing",
+      description: "Removes plaque and tartar to prevent gum disease and decay"
+    },
+    {
+      name: "Tooth Filling & Restoration",
+      description: "Restores decayed or broken teeth using durable filling materials"
+    },
+    {
+      name: "Root Canal Treatment (RCT)",
+      description: "Treats infected tooth pulp and preserves the natural tooth"
+    },
+    {
+      name: "Tooth Extraction & Wisdom Tooth Removal",
+      description: "Painless removal of damaged or impacted teeth"
+    },
+    {
+      name: "Braces & Clear Aligners",
+      description: "Orthodontic solutions to correct teeth alignment and improve bite"
+    }
+  ],
+  treatments: [
+    {
+      title: "Pediatric Dental Care",
+      description: "Gentle dental services for children including fluoride treatment and sealants"
+    },
+    {
+      title: "Dental Implants & Crowns",
+      description: "Permanent replacements for missing teeth with natural appearance"
+    },
+    {
+      title: "Smile Design & Whitening",
+      description: "Cosmetic treatments for a brighter, more confident smile"
+    },
+    {
+      title: "Gum Treatment & Surgery",
+      description: "Treats gingival diseases, recession, and overgrowth with precision"
+    }
+  ],
+  symptoms: [
+    { text: "Toothache or sensitivity to hot/cold" },
+    { text: "Swollen, bleeding, or receding gums" },
+    { text: "Loose or missing teeth" },
+    { text: "Persistent bad breath or metallic taste" },
+    { text: "Clicking or pain in the jaw joint (TMJ)" },
+    { text: "Difficulty chewing or mouth opening" },
+    { text: "Spots or sores inside the mouth that don’t heal" }
+  ],
+  sideEffects: [
+    { text: "Temporary tooth sensitivity after cleaning or whitening" },
+    { text: "Mild swelling or discomfort after extraction or RCT" },
+    { text: "Minor bleeding or bruising post-surgery" },
+    { text: "Discomfort from new braces or aligners initially" },
+    { text: "Dry mouth from certain medications used during procedures" }
+  ],
+  url: "dental"
+},
+
+
+{
+  departmentTitle: "Nephrology Department",
+  subtitle: "Expert Kidney Care & Renal Health Solutions",
+  heroDescription: "Ashaali Hospital’s Nephrology Department provides advanced diagnosis, treatment, and management of kidney-related disorders. Our experienced nephrologists offer personalized care for chronic kidney disease, dialysis, hypertension, and electrolyte imbalances using cutting-edge technology and a multidisciplinary approach.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "With extensive expertise in nephrology, our team has treated thousands of patients with both acute and chronic kidney issues, including those requiring dialysis and long-term care.",
+  successRateTitle: "Committed to Renal Wellness",
+  successRateDesc: "Our focus on early detection, lifestyle management, and patient education ensures a high success rate in slowing kidney disease progression and improving quality of life.",
+  conditionsTitle: "Conditions We Treat",
+  conditionsDesc: "We manage a wide range of kidney and urinary disorders including infections, chronic kidney disease, and renal failure.",
+  proceduresTitle: "Diagnostic & Therapeutic Services",
+  proceduresDesc: "From kidney function tests to dialysis and biopsies, we offer complete nephrology care under one roof.",
+  rehabTitle: "Ongoing Monitoring & Renal Rehab",
+  rehabDesc: "Our comprehensive follow-up care includes dietary plans, medication management, and dialysis support.",
+  symptomsTitle: "Symptoms to Watch Out For",
+  symptomsDesc: "Recognizing early signs of kidney problems can help prevent progression to renal failure.",
+  sideEffectsTitle: "Potential Side Effects",
+  sideEffectsDesc: "Kidney treatments, especially dialysis and medications, may have side effects, which we monitor and manage closely.",
+  image: nephrology, // Replace with your actual image import
+  caseStats: [
+    {
+      count: "4000+",
+      title: "Kidney Patients Treated",
+      description: "Successful treatment of both acute and chronic kidney conditions"
+    },
+    {
+      count: "92%",
+      title: "Stabilization Rate in CKD",
+      description: "High rate of slowing disease progression with consistent care"
+    },
+    {
+      count: "10+",
+      title: "Years of Nephrology Expertise",
+      description: "Managing patients across various stages of kidney disorders"
+    },
+    {
+      count: "24/7",
+      title: "Dialysis & Emergency Support",
+      description: "Critical care for renal failure and 24x7 dialysis services"
+    }
+  ],
+  conditionsTreated: [
+    "Chronic Kidney Disease (CKD)",
+    "Acute Kidney Injury (AKI)",
+    "Glomerulonephritis",
+    "Nephrotic Syndrome",
+    "Diabetic Nephropathy",
+    "Hypertensive Nephropathy",
+    "Polycystic Kidney Disease (PKD)",
+    "Electrolyte Imbalances",
+    "Urinary Tract Infections (UTIs)",
+    "End-Stage Renal Disease (ESRD)"
+  ],
+  procedures: [
+    {
+      name: "Kidney Function Tests (KFT)",
+      description: "Assess levels of creatinine, urea, and electrolytes to monitor kidney performance"
+    },
+    {
+      name: "Hemodialysis",
+      description: "Life-saving procedure to filter blood in patients with kidney failure"
+    },
+    {
+      name: "Peritoneal Dialysis",
+      description: "Alternative home-based dialysis option for selected patients"
+    },
+    {
+      name: "Kidney Biopsy",
+      description: "Microscopic evaluation of kidney tissue for diagnosis"
+    },
+    {
+      name: "Ultrasound & Doppler of Kidneys",
+      description: "Non-invasive imaging to detect structural abnormalities and blood flow"
+    }
+  ],
+  treatments: [
+    {
+      title: "Medical Management for CKD",
+      description: "Medications and diet adjustments to control symptoms and slow disease"
+    },
+    {
+      title: "Dialysis Services",
+      description: "Comprehensive hemodialysis and peritoneal dialysis services with patient monitoring"
+    },
+    {
+      title: "Anemia & Mineral Management",
+      description: "Treatment of complications like low hemoglobin and bone health issues in kidney patients"
+    },
+    {
+      title: "Transplant Evaluation & Referral",
+      description: "Workup and coordination for patients eligible for kidney transplant"
+    }
+  ],
+  symptoms: [
+    { text: "Swelling in feet, ankles, or face" },
+    { text: "Persistent fatigue or weakness" },
+    { text: "Frequent urination or foamy urine" },
+    { text: "Blood in urine or dark-colored urine" },
+    { text: "High blood pressure or uncontrolled sugar levels" },
+    { text: "Loss of appetite or nausea" },
+    { text: "Difficulty concentrating or muscle cramps" }
+  ],
+  sideEffects: [
+    { text: "Low blood pressure during dialysis sessions" },
+    { text: "Mild cramps or nausea post-dialysis" },
+    { text: "Injection site pain or bruising" },
+    { text: "Iron overload or deficiency due to long-term treatment" },
+    { text: "Risk of infections with peritoneal dialysis" }
+  ],
+  url: "nephrology"
+},
+
+
+{
+  departmentTitle: "General Medicine Department",
+  subtitle: "Your First Step Toward Accurate Diagnosis and Holistic Medical Care",
+  heroDescription: "The General Medicine Department at Ashaali Hospital serves as the foundation of patient care, specializing in the prevention, diagnosis, and treatment of a wide spectrum of adult health conditions. Our experienced physicians focus on non-surgical care, early detection, and long-term disease management to improve your health and quality of life.",
+  treatmentExperienceTitle: "Our Treatment Experience",
+  treatmentExperienceDesc: "We have managed thousands of patients with acute and chronic conditions, focusing on personalized care, accurate diagnosis, and preventive health strategies.",
+  successRateTitle: "Comprehensive & Compassionate Care",
+  successRateDesc: "Our patients benefit from early diagnosis, multi-system evaluation, and continuous monitoring, resulting in faster recovery and improved long-term outcomes.",
+  conditionsTitle: "Conditions We Commonly Treat",
+  conditionsDesc: "We handle a wide variety of acute and chronic medical conditions with a holistic and evidence-based approach.",
+  proceduresTitle: "Diagnostic & Support Services",
+  proceduresDesc: "Our department is equipped with essential diagnostic tools and offers full internal medicine support with referrals when necessary.",
+  rehabTitle: "Lifestyle Counseling & Follow-Up Care",
+  rehabDesc: "We guide patients with lifestyle changes, routine monitoring, and timely specialist referrals for better long-term health outcomes.",
+  symptomsTitle: "Symptoms to Consult General Medicine For",
+  symptomsDesc: "Consult our physicians early if you experience the following symptoms, which could indicate underlying health concerns.",
+  sideEffectsTitle: "Possible Treatment Side Effects",
+  sideEffectsDesc: "Most treatments are well-tolerated, though mild side effects can occur, and are monitored closely by our care team.",
+  image: generalmedicine, // Replace this with your actual image import
+  caseStats: [
+    {
+      count: "10,000+",
+      title: "Patients Treated Annually",
+      description: "Effective management of common and complex internal health issues"
+    },
+    {
+      count: "95%",
+      title: "Diagnosis Accuracy",
+      description: "Efficient evaluations with proper lab tests and imaging support"
+    },
+    {
+      count: "12+",
+      title: "Years of Internal Medicine Expertise",
+      description: "Team of physicians with experience in multisystem care"
+    },
+    {
+      count: "100%",
+      title: "Coordination with Specialists",
+      description: "Seamless referrals and multi-disciplinary collaboration when needed"
+    }
+  ],
+  conditionsTreated: [
+    "Fever & Viral Infections",
+    "Respiratory Illnesses – Asthma, COPD, Bronchitis",
+    "Hypertension (High Blood Pressure)",
+    "Diabetes & Endocrine Disorders",
+    "Thyroid Disorders (Hyper/Hypothyroidism)",
+    "Digestive Issues – Gastritis, Acidity, Constipation, IBS",
+    "Anemia & Nutritional Deficiencies",
+    "Urinary Tract Infections (UTIs)",
+    "Liver Disorders – Hepatitis, Fatty Liver",
+    "Infectious Diseases – Dengue, Typhoid, Tuberculosis",
+    "Joint Pains & Minor Rheumatic Complaints"
+  ],
+  procedures: [
+    {
+      name: "Blood Investigations (CBC, Sugar, LFT, KFT)",
+      description: "Lab tests to assess general health, organ function, and infection"
+    },
+    {
+      name: "ECG & 2D Echo",
+      description: "Heart evaluation for chest pain, palpitations, and hypertension"
+    },
+    {
+      name: "X-Ray, Ultrasound, CT Scan",
+      description: "Imaging for diagnosis of infections, organ issues, or structural concerns"
+    },
+    {
+      name: "Blood Pressure & Glucose Monitoring",
+      description: "Routine tracking for early detection of chronic diseases"
+    },
+    {
+      name: "Lipid Profile & Thyroid Function Tests",
+      description: "Detects cholesterol imbalance and thyroid dysfunction"
+    },
+    {
+      name: "Preventive Health Packages & Vaccination",
+      description: "Screening and vaccination for lifestyle and infectious diseases"
+    }
+  ],
+  treatments: [
+    {
+      title: "Medical Management for Acute Conditions",
+      description: "Effective treatment for infections, fever, and respiratory conditions"
+    },
+    {
+      title: "Chronic Disease Monitoring",
+      description: "Long-term management of diabetes, hypertension, and thyroid issues"
+    },
+    {
+      title: "Nutritional & Lifestyle Counseling",
+      description: "Support for weight loss, anemia, and general well-being"
+    },
+    {
+      title: "Vaccination & Preventive Care",
+      description: "Protection against diseases like flu, hepatitis, and typhoid"
+    }
+  ],
+  symptoms: [
+    { text: "Persistent or high-grade fever" },
+    { text: "Breathing difficulty or chest pain" },
+    { text: "Long-term fatigue or weakness" },
+    { text: "Unexplained weight loss or gain" },
+    { text: "Swelling in legs or hands" },
+    { text: "Digestive discomfort (bloating, indigestion)" },
+    { text: "Frequent urination or urinary discomfort" },
+    { text: "Dizziness, blackouts, or palpitations" },
+    { text: "Headaches, body aches, or joint pain" }
+  ],
+  sideEffects: [
+    { text: "Drowsiness or dizziness from antihistamines" },
+    { text: "Gastric irritation from painkillers" },
+    { text: "Temporary fatigue after IV medications" },
+    { text: "Allergic reactions (rare, monitored closely)" },
+    { text: "Minor bruising after injections or blood draws" }
+  ],
+  url: "general-medicine"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ];
 
   const { name } = useParams();
 
 
-  
-  const handleMore=(data)=>{
 
-        navigate(`/department/${data.toLowerCase().replace(/\s+/g, '-')}`)
-      }
+  const handleMore = (data) => {
+
+    navigate(`/department/${data.toLowerCase().replace(/\s+/g, '-')}`)
+  }
 
 
 
 
   useEffect(() => {
     const findServiceDetail = serviceDetails.find(val => val.url === name);
-    
+
     setActiveService(findServiceDetail);
   }, [name])
 
@@ -1188,7 +2616,7 @@ const specialties = [
   return (
     <div className=" bg-gray-50">
 
-      <ServiceBreadcums items={breadcrumbItems} headText={activeService?.departmentTitle} />
+      <ServiceBreadcums items={breadcrumbItems} headText={activeService?.departmentTitle} image={activeService?.image} />
 
       {!activeService ? <p className='text-center py-20 mx-auto text-bold text-3xl'>No data</p> :
 
@@ -1196,9 +2624,9 @@ const specialties = [
 
           {/* Simple Hero Section */}
           <div className="bg-white border-b border-gray-200">
-            <div className="container mx-auto px-4 py-12">
+            <div className="container mx-auto px-4 py-6 md:py-8 lg:py-10">
               <div className="w-full">
-                <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                <h1 className="lg:text-4xl text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                   {activeService?.departmentTitle}
                 </h1>
                 <p className="text-xl text-gray-600">
@@ -1224,26 +2652,26 @@ const specialties = [
           </div>
 
           {/* Main Content */}
-          <div className="container mx-auto px-4 py-6">
+          <div className="container mx-auto px-2 py-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
               {/* Left Content */}
               <div className="lg:col-span-2 space-y-12">
 
                 {/* Statistics Section */}
-                <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
+                <div className="bg-white rounded-lg py-8 px-4 shadow-sm border border-gray-200">
+                  <h2 className="lg:text-3xl text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center">
                     <Activity className="w-8 h-8 mr-3" style={{ color: primaryColor }} />
                     {activeService?.treatmentExperienceTitle}
                   </h2>
 
-                  <p className="text-gray-700 mb-8 text-lg leading-relaxed">
+                  <p className="text-gray-700 mb-8 text-lg leading-relaxed text-justify">
                     {activeService?.treatmentExperienceDesc}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     {activeService?.caseStats && activeService?.caseStats.map((stat, index) => (
-                      <div key={index} className="border border-gray-200 p-6 rounded-lg">
+                      <div key={index} className="border border-gray-200 py-2 px-2 rounded-lg">
                         <div className="text-3xl font-bold mb-2" style={{ color: primaryColor }}>
                           {stat.count}
                         </div>
@@ -1253,7 +2681,7 @@ const specialties = [
                     ))}
                   </div>
 
-                  <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                  <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
                     <div className="flex items-start">
                       <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-0.5" />
                       <div>
@@ -1269,9 +2697,9 @@ const specialties = [
                 </div>
 
                 {/* All Content Sections */}
-                <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
                   {/* Conditions We Treat */}
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{activeService?.conditionsTitle}</h2>
+                  <h2 className="lg:text-3xl text-xl md:text-2xl font-bold text-gray-900 mb-2">{activeService?.conditionsTitle}</h2>
                   <p className="text-gray-700 mb-6 text-lg">{activeService?.conditionsDesc}</p>
 
                   <div className="space-y-3 mb-10">
@@ -1283,7 +2711,7 @@ const specialties = [
                   </div>
 
                   {/* Procedures & Surgeries */}
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{activeService?.proceduresTitle}</h2>
+                  <h2 className="lg:text-3xl text-xl md:text-2xl font-bold text-gray-900 mb-2">{activeService?.proceduresTitle}</h2>
                   <p className="text-gray-700 mb-6 text-lg">{activeService?.proceduresDesc}</p>
 
                   <div className="overflow-x-auto mb-10">
@@ -1306,7 +2734,7 @@ const specialties = [
                   </div>
 
                   {/* Treatment & Rehabilitation */}
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{activeService?.rehabTitle}</h2>
+                  <h2 className="lg:text-3xl text-xl md:text-2x font-bold text-gray-900 mb-2">{activeService?.rehabTitle}</h2>
                   <p className="text-gray-700 mb-6 text-lg">{activeService?.rehabDesc}</p>
 
                   <div className="overflow-x-auto mb-10">
@@ -1329,7 +2757,7 @@ const specialties = [
                   </div>
 
                   {/* Symptoms to Watch Out For */}
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{activeService?.symptomsTitle}</h2>
+                  <h2 className="lg:text-3xl text-xl md:text-2x font-bold text-gray-900 mb-2">{activeService?.symptomsTitle}</h2>
                   <p className="text-gray-700 mb-6 text-lg">{activeService?.symptomsDesc}</p>
 
                   <div className="space-y-3 mb-10">
@@ -1344,7 +2772,7 @@ const specialties = [
                   </div>
 
                   {/* Side Effects */}
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{activeService?.sideEffectsTitle}</h2>
+                  <h2 className="lg:text-3xl text-xl md:text-2x font-bold text-gray-900 mb-2">{activeService?.sideEffectsTitle}</h2>
                   <p className="text-gray-700 mb-6 text-lg">{activeService?.sideEffectsDesc}</p>
 
                   <div className="space-y-3">
@@ -1361,50 +2789,50 @@ const specialties = [
               </div>
 
               {/* Right Sidebar - You can add additional content here */}
- <div className="space-y-8">
-            
-            {/* Our Specialties */}
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-[#18978d] px-6 py-4">
-                <h3 className="text-xl font-bold text-white flex items-center">
-                  <Users className="w-6 h-6 mr-2" />
-                  Our Specialties
-                </h3>
-              </div>
-              <div className="p-3">
-                <div className="space-y-3">
-                  {specialties.map((specialty, index) => (
-                    <div
-                      key={index}
-                      className="group flex items-center p-3 bg-[#18978d] hover:bg-[#73cac2] rounded-lg transition-all duration-300 cursor-pointer text-white"
-                      onClick={() => handleMore(specialty)}
-                    >
-                      <div className="w-3 h-3 rounded-full bg-white mr-4"></div>
-                      <span className="font-semibold">{specialty}</span>
+              <div className="space-y-8">
+
+                {/* Our Specialties */}
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="bg-[#18978d] px-6 py-4">
+                    <h3 className="text-xl font-bold text-white flex items-center">
+                      <Users className="w-6 h-6 mr-2" />
+                      Our Specialties
+                    </h3>
+                  </div>
+                  <div className="p-3">
+                    <div className="space-y-3">
+                      {specialties.map((specialty, index) => (
+                        <div
+                          key={index}
+                          className="group flex items-center p-3 bg-[#18978d] hover:bg-[#73cac2] rounded-lg transition-all duration-300 cursor-pointer text-white"
+                          onClick={() => handleMore(specialty)}
+                        >
+                          <div className="w-3 h-3 rounded-full bg-white mr-4"></div>
+                          <span className="font-semibold">{specialty}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
+
+
+                {/* Emergency Contact */}
+                <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Phone className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-red-800 mb-2">Cardiac Emergency</h3>
+                    <p className="text-red-700 text-sm mb-4">24/7 Emergency Cardiac Care</p>
+                    <div className="bg-white rounded-lg p-4 shadow-sm">
+                      <a href="tel:+917897934949" className="hover:underline">
+                        +91-7897934949
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-            </div>
-
-
-            {/* Emergency Contact */}
-            <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-red-800 mb-2">Cardiac Emergency</h3>
-                <p className="text-red-700 text-sm mb-4">24/7 Emergency Cardiac Care</p>
-                <div className="bg-white rounded-lg p-4 shadow-sm">
-                         <a href="tel:+917897934949" className="hover:underline">
-                  +91-7897934949
-                </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
 
 
 

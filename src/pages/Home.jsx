@@ -30,7 +30,7 @@ export default function Home() {
       <HeroSlider />
       <AboutSection />   
       <SpecialtiesSection />
-         <StatsComponent />
+      <StatsComponent />
 
       {/* <CTASection/> */}
       {/* <HomeFeatures /> */}

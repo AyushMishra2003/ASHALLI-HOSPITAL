@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, User, MessageCircle, Heart, Share2, BookOpen, TrendingUp, Award, Users, Globe, Lightbulb, Target, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const HomeBlogSlider = () => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -113,6 +114,7 @@ const HomeBlogSlider = () => {
 
     const primaryColor = "#18978d";
     const secondaryColor = "#ed8022";
+    const navigate=useNavigate()
 
     // Function to truncate text to a specific character limit
     const truncateText = (text, maxLength = 120) => {
@@ -121,7 +123,7 @@ const HomeBlogSlider = () => {
     };
 
     const handleReadMore = (title) => {
-        alert(`Navigating to: ${title}`);
+        navigate(`/blogs/${title.toLowerCase().replace(/\s+/g, '-')}`);
     };
 
     const nextSlide = () => {

@@ -17,8 +17,8 @@ const Testinomial = () => {
     const secondaryColor = "#ed8022";
 
   return (
-    <div>
-                <div className="text-center mb-10 md:mb-12 p= max-w-5xl mx-auto">
+    <div className=''>
+                <div className="text-center mb-10 md:mb-12 p= max-w-7xl mx-auto">
                     {/* Small colored heading at top */}
                     <div className="mb-3 md:mb-4">
                         <span
@@ -42,7 +42,7 @@ const Testinomial = () => {
                 </div>
    
     <div
-      className="elfsight-app-58722eb1-6c41-4cda-8e64-d289b7410521  container mx-auto"
+      className="elfsight-app-58722eb1-6c41-4cda-8e64-d289b7410521  px-6 mx-auto"
       data-elfsight-app-lazy
     ></div>
      </div>

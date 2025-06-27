@@ -84,8 +84,8 @@ const Footer = () => {
                 "Patients Story", "Blogs", "Contact Us"
               ].map((item, idx) => (
                 <li key={idx}>
-                  <Link to="/" className="flex items-center gap-0 hover:text-white transition">
-                    <FiChevronRight /> {item}
+                  <Link to="/" className="flex items-center gap-1 hover:text-white transition">
+                    <FiChevronRight className="text-xs" /> {item}
                   </Link>
                 </li>
               ))}
@@ -98,8 +98,8 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-300 text-sm">
               {facilities.map((item, idx) => (
                 <li key={idx}>
-                  <Link to="/" className="flex items-center gap-0 hover:text-white transition">
-                    <FiChevronRight /> {item}
+                  <Link      to={`/facility/${item.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center gap-1 hover:text-white transition">
+                    <FiChevronRight className="text-xs" /> {item}
                   </Link>
                 </li>
               ))}
@@ -110,24 +110,24 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Specialties</h3>
 
-            <div className="space-y-3 text-gray-300 text-sm">
-              {/* First 5 items */}
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
-                {specialties.slice(0, 5).map((item, idx) => (
+            <div className="grid grid-cols-2 gap-x-4 text-gray-300 text-sm">
+              {/* Left Column */}
+              <ul className="space-y-2">
+                {specialties.slice(0, Math.ceil(specialties.length / 2)).map((item, idx) => (
                   <li key={idx}>
-                    <Link to="/" className="flex items-center gap-1 hover:text-white transition">
-                      <FiChevronRight /> {item}
+                    <Link      to={`/department/${item.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center gap-1 hover:text-white transition">
+                      <FiChevronRight className="text-xs" /> {item}
                     </Link>
                   </li>
                 ))}
               </ul>
 
-              {/* Next 5 items */}
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
-                {specialties.slice(5, 10).map((item, idx) => (
-                  <li key={idx + 5}>
+              {/* Right Column */}
+              <ul className="space-y-2">
+                {specialties.slice(Math.ceil(specialties.length / 2)).map((item, idx) => (
+                  <li key={idx + Math.ceil(specialties.length / 2)}>
                     <Link to="/" className="flex items-center gap-1 hover:text-white transition">
-                      <FiChevronRight /> {item}
+                      <FiChevronRight className="text-xs" /> {item}
                     </Link>
                   </li>
                 ))}
